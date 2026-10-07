@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lieux de mariage</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css">
+<style>
+:root{--bg:#faf7f2;--panel:#fff;--ink:#2b2622;--mute:#7a6f66;--line:#e6ded3;--accent:#9a4a3a;--accent-soft:#f3e2dc;--ok:#3f7a52;--warn:#b07a1e}
+@media (prefers-color-scheme:dark){:root{--bg:#1b1815;--panel:#25211d;--ink:#f0e9e0;--mute:#a89d92;--line:#3a342e;--accent:#e08b78;--accent-soft:#3d2923;--ok:#7fc093;--warn:#e0b25a}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.45 system-ui,-apple-system,"Segoe UI",sans-serif}
+header{padding:14px 16px;border-bottom:1px solid var(--line);display:flex;flex-wrap:wrap;gap:6px 16px;align-items:baseline}
+h1{font:600 20px Georgia,serif;margin:0}
+header small{color:var(--mute)}
+.app{display:grid;grid-template-columns:minmax(340px,440px) 1fr;height:calc(100vh - 56px)}
+.side{overflow:auto;border-right:1px solid var(--line);background:var(--panel)}
+#map{height:100%;min-height:360px}
+.filters{padding:12px 16px;border-bottom:1px solid var(--line);display:grid;gap:10px}
+.row{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.lbl{font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--mute);width:100%}
+.chip{border:1px solid var(--line);background:transparent;color:var(--ink);padding:4px 11px;border-radius:99px;cursor:pointer;font:inherit;font-size:13px}
+.chip[aria-pressed=true]{background:var(--accent);border-color:var(--accent);color:#fff}
+label.rng{display:flex;justify-content:space-between;gap:10px;font-size:13px;width:100%}
+input[type=range]{width:100%;accent-color:var(--accent)}
+select,textarea{font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:4px 6px}
+.count{padding:8px 16px;color:var(--mute);font-size:13px;display:flex;justify-content:space-between;gap:8px;align-items:center}
+.card{padding:12px 16px;border-bottom:1px solid var(--line);cursor:pointer}
+.card:hover,.card.sel{background:var(--accent-soft)}
+.card h3{margin:0;font:600 16px Georgia,serif}
+.meta{color:var(--mute);font-size:13px}
+.stats{display:flex;flex-wrap:wrap;gap:4px 12px;margin:6px 0;font-size:13px}
+.stats b{font-weight:600}
+.tag{font-size:11px;padding:1px 7px;border-radius:99px;border:1px solid var(--line);color:var(--mute)}
+.tag.q{border-color:var(--warn);color:var(--warn)}
+.tag.st{border-color:var(--ok);color:var(--ok)}
+.detail{margin-top:8px;font-size:13px}
+.detail p{margin:4px 0}
+.detail textarea{width:100%;min-height:52px;margin-top:6px}
+.detail a{color:var(--accent)}
+.empty{padding:30px 16px;color:var(--mute)}
+footer{padding:12px 16px;color:var(--mute);font-size:12px}
+.pin{width:16px;height:16px;border-radius:50%;border:2px solid #fff;box-shadow:0 0 0 1px rgba(0,0,0,.4)}
+@media (max-width:800px){.app{grid-template-columns:1fr;height:auto}#map{height:60vh;order:-1}.side{border-right:0}}
+</style>
+</head>
+<body>
+<header><h1>Lieux de mariage · Loire, Rhône, Beaujolais, Ain, Drôme</h1><small id="sub"></small></header>
+<div class="app">
+  <div class="side">
+    <div class="filters">
+      <div class="row"><span class="lbl">Zone</span><span id="f-zone" class="row"></span></div>
+      <div class="row"><span class="lbl">Type de lieu</span><span id="f-type" class="row"></span></div>
+      <label class="rng"><span>Invités minimum</span><b id="v-cap"></b><input id="cap" type="range" min="50" max="250" step="10" value="100"></label>
+      <label class="rng"><span>Couchages minimum (sur place, ou à proximité signalée)</span><b id="v-beds"></b><input id="beds" type="range" min="0" max="100" step="5" value="40"></label>
+      <label class="rng"><span>Budget lieu maximum</span><b id="v-price"></b><input id="price" type="range" min="1000" max="12000" step="500" value="12000"></label>
+      <div class="row">
+        <button class="chip" id="unk" aria-pressed="true">Inclure les chiffres à vérifier</button>
+        <button class="chip" id="hide" aria-pressed="true">Masquer les écartés</button>
+        <button class="chip" id="favs" aria-pressed="false">Favoris seulement</button>
+        <select id="sort"><option value="name">Tri : nom</option><option value="cap">Tri : capacité</option><option value="beds">Tri : couchages</option><option value="price">Tri : prix</option></select>
+      </div>
+    </div>
+    <div class="count"><span id="count"></span></div>
+    <div id="list"></div>
+    <footer>Données relevées sur des annuaires (Bridebook, Mariages.net, 1001salles, ABC Salles) le 08/10/2026. Capacités, couchages et prix sont ceux annoncés : à confirmer auprès de chaque lieu. Positions sur la carte approximatives (centre de la commune). Aucun lieu en bord de mer dans ces départements ; la catégorie « salle moderne » n'a pas encore d'entrée vérifiée.</footer>
+  </div>
+  <div id="map"></div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
+<script>
+// cap = plus grande capacité annoncée ; beds = couchages sur place ; near = hébergement partenaire à proximité signalé
+const V=[
+{id:1,n:"Château de Pramenoux",c:"Saint-Nizier-d'Azergues",z:"Beaujolais",t:"Château",lat:46.028,lng:4.482,cap:120,capN:"90 assis / 120 cocktail",beds:null,rooms:9,bedN:"9 chambres, forfait 1 200 €/nuit",p:3500,pN:"dès 3 500 € / 24h",u:"https://bridebook.com/fr/wedding-venues/chateau-de-pramenoux-saint-nizier-d-azergues-rh-ne-frmgbW7eYx"},
+{id:2,n:"Château de Bellevue",c:"Villié-Morgon",z:"Beaujolais",t:"Château",lat:46.100,lng:4.670,cap:130,capN:"130 assis",beds:12,rooms:5,bedN:"5 chambres, 12 couchages",pN:"Privatisation vendredi soir → dimanche, domaine viticole",u:"https://bridebook.com/fr/wedding-venues/ch-teau-de-bellevue-villi-morgon-rh-ne-frNg0NrD8d"},
+{id:3,n:"Château d'Envaux",c:"Juliénas",z:"Beaujolais",t:"Château",lat:46.185,lng:4.740,cap:198,capN:"198 assis / 300 debout",beds:26,bedN:"2 gîtes de 8-10 + moulin de 4 chambres",pN:"Traiteur libre",u:"https://bridebook.com/fr/wedding-venues/ch-teau-d-envaux-juli-nas-rh-ne-frpYlaQm8K"},
+{id:4,n:"Château de Bagnols",c:"Bagnols",z:"Beaujolais",t:"Château",lat:45.912,lng:4.633,cap:150,capN:"150 invités",beds:null,rooms:25,bedN:"25 chambres (hôtel 5★, monument historique)",pN:"Haut de gamme",u:"https://bridebook.com/fr/wedding-venues/ch-teau-de-bagnols-bagnols-rh-ne-frqgnj0pgN"},
+{id:5,n:"Château de Pizay",c:"Saint-Jean-d'Ardières",z:"Beaujolais",t:"Château",lat:46.112,lng:4.735,cap:200,capN:"80 à 200 invités",beds:null,rooms:15,bedN:"15 chambres (à confirmer)",p:3100,pN:"3 100 – 5 200 €",u:"https://bridebook.com/fr/wedding-venues/ch-teau-pizay-belleville-en-beaujolai-rh-ne-frLK8Mv5Xo"},
+{id:6,n:"Château de la Chapelle des Bois",c:"Fleurie",z:"Beaujolais",t:"Château",lat:46.190,lng:4.690,cap:200,capN:"jusqu'à 200",beds:null,rooms:5,bedN:"5 chambres d'hôtes (4 épis)",pN:"Privatisation complète",u:"https://bridebook.com/fr/wedding-venues/ch-teau-de-la-chapelle-des-bois-fleurie-rh-ne-frlEgQZJYJ"},
+{id:7,n:"Les Maisons du Bonheur",c:"Fleurie",z:"Beaujolais",t:"Ferme / Gîtes",lat:46.195,lng:4.700,cap:null,beds:50,bedN:"gîtes pour ~50 invités",pN:"Capacité de réception à vérifier",u:""},
+{id:8,n:"Relais des Pierres Dorées",c:"Lacenas",z:"Beaujolais",t:"Domaine",lat:45.972,lng:4.672,cap:null,beds:36,rooms:14,bedN:"14 chambres, 36 couchages",p:2695,pN:"2 695 – 3 995 € (salle seule)",u:"https://bridebook.com/fr/wedding-venues/le-relais-des-pierres-dor-es-lacenas-rh-ne-frNqgOmo8p"},
+{id:9,n:"Domaine des Pierres Dorées",c:"Ternand",z:"Beaujolais",t:"Domaine",lat:45.940,lng:4.500,cap:330,capN:"20 à 330 invités",beds:37,bedN:"37 max (à clarifier)",pN:"dès 25 €/pers",u:""},
+{id:10,n:"Domaine de Tourieux",c:"Savigny",z:"Rhône",t:"Domaine",lat:45.840,lng:4.550,cap:130,capN:"100 assis / 120-130 cocktail",beds:28,rooms:10,bedN:"9-10 chambres, 28 couchages",pN:"Privatisable, maison de 1857",u:"https://bridebook.com/fr/wedding-venues/domaine-de-tourieux-savigny-rh-ne-fr7Xpr07YL"},
+{id:11,n:"Domaine des Monts du Lyonnais",c:"Saint-Forgeux",z:"Rhône",t:"Domaine",lat:45.825,lng:4.505,cap:144,capN:"144 en salle",beds:22,bedN:"gîte 12 + chalet 4 + 2 roulottes",p:4800,pN:"4 800 € du vendredi 9h au lundi 9h",u:"https://bridebook.com/fr/wedding-venues/domaine-des-monts-du-lyonnais-saint-forgeux-rh-ne-fr64XD54go"},
+{id:12,n:"Les Lanternes",c:"Mont Cindre",z:"Rhône",t:"Domaine",lat:45.825,lng:4.800,cap:120,capN:"120 invités",beds:null,bedN:"hébergement non précisé",p:2500,pN:"dès 2 500 €",u:""},
+{id:13,n:"Domaine d'Essalois",c:"Chambles",z:"Loire",t:"Domaine",lat:45.480,lng:4.370,cap:140,capN:"140 assis",beds:44,bedN:"jusqu'à 44 (suite nuptiale + dortoirs)",u:"https://bridebook.com/fr/wedding-venues/domaine-d-essalois-chambles-loire-fr1gA2DWYx"},
+{id:14,n:"La Cour du Domaine",c:"Mornand-en-Forez",z:"Loire",t:"Domaine",lat:45.620,lng:4.100,cap:170,capN:"170 assis",beds:36,near:true,bedN:"36 couchages + gîtes partenaires",pN:"Privatisation complète",u:"https://bridebook.com/fr/wedding-venues/la-cour-du-domaine-mornand-en-forez-loire-frNg0zqQ8d"},
+{id:15,n:"Domaine du Nid Douillet",c:"Poncins",z:"Loire",t:"Domaine",lat:45.700,lng:4.170,cap:140,capN:"140 à 200 selon sources",beds:72,bedN:"72 max",p:800,pN:"dès 800 €",u:""},
+{id:16,n:"Domaine des Grands Cèdres",c:"Cordelle",z:"Loire",t:"Château",lat:46.010,lng:4.070,cap:180,capN:"40 à 180",beds:39,bedN:"39-40 (cabanes, château, gardien)",p:1500,pN:"dès 1 500 €",u:""},
+{id:17,n:"Château de Matel",c:"Roanne",z:"Loire",t:"Château",lat:46.040,lng:4.070,cap:400,capN:"10 à 400",beds:59,bedN:"59 max, domaine de 13 ha",p:3990,pN:"dès 3 990 €",u:""},
+{id:18,n:"La Diligence",c:"Saint-Genest-Malifaux",z:"Loire",t:"Château",lat:45.350,lng:4.430,cap:500,capN:"1 à 500",beds:49,bedN:"49 max, ancien château XVIe",u:""},
+{id:19,n:"Ranch des Rochettes",c:"Ceyzériat",z:"Ain",t:"Ferme / Gîtes",lat:46.170,lng:5.330,cap:113,capN:"113 max, salle de 160 m²",beds:120,bedN:"120 couchages",p:200,pN:"dès 200 € (douteux, à vérifier)",u:""},
+{id:20,n:"Château de Chavagneux",c:"Genouilleux",z:"Ain",t:"Château",lat:46.040,lng:4.820,cap:null,beds:null,bedN:"non précisé",p:6000,pN:"6 000 – 7 400 €",u:"https://bridebook.com/fr/wedding-venues/chateau-de-chavagneux-genouilleux-ain-fr7XpK5Dx8"},
+{id:21,n:"Domaine des Batières",c:"Marlieux (Dombes)",z:"Ain",t:"Domaine",lat:46.050,lng:5.080,cap:250,capN:"jusqu'à 250",beds:null,rooms:5,bedN:"5 chambres",u:"https://bridebook.com/fr/wedding-venues/domaine-des-bati-res-marlieux-ain-fr3jgyvlY1"},
+{id:22,n:"Domaine des Cèdres",c:"Villebois (Bugey)",z:"Ain",t:"Domaine",lat:45.880,lng:5.450,cap:143,capN:"30 à 250, max 143",beds:null,bedN:"non précisé, parc de 4 ha",u:""},
+{id:23,n:"Domaine d'Ambronay",c:"Ambronay",z:"Ain",t:"Domaine",lat:46.000,lng:5.360,cap:157,capN:"max 157",beds:null,bedN:"non précisé",u:""},
+{id:24,n:"Domaine de Damian",c:"Vesc",z:"Drôme",t:"Domaine",lat:44.570,lng:5.160,cap:200,capN:"200 assis",beds:107,rooms:32,bedN:"32 chambres, ~107 couchages",p:5000,pN:"5 000 – 11 000 €",u:"https://bridebook.com/fr/wedding-venues/domaine-de-damian-vesc-dr-me-frnXK33BXR"},
+{id:25,n:"Domaine de Chanteperdrix",c:"Allex",z:"Drôme",t:"Domaine",lat:44.740,lng:4.950,cap:180,capN:"180 assis, salle 260 m²",beds:null,rooms:9,bedN:"9 chambres",p:3500,pN:"3 500 – 10 000 €",u:"https://bridebook.com/fr/wedding-venues/domaine-de-chanteperdrix-allex-dr-me-frnXV3rDgr"},
+{id:26,n:"Domaine des Fougères",c:"Mirmande",z:"Drôme",t:"Domaine",lat:44.685,lng:4.925,cap:100,capN:"100 assis",beds:48,bedN:"jusqu'à 48",u:"https://bridebook.com/fr/wedding-venues/domaine-des-foug-res-mirmande-dr-me-fr7nXK6x8R"},
+{id:27,n:"Château Le Gâtelet",c:"Mirmande",z:"Drôme",t:"Château",lat:44.675,lng:4.915,cap:120,capN:"120",beds:null,rooms:8,bedN:"8 chambres",p:6900,pN:"6 900 – 7 900 €",u:""},
+{id:28,n:"Les Domaines de Patras",c:"Solérieux",z:"Drôme",t:"Domaine",lat:44.390,lng:4.870,cap:null,beds:50,near:true,bedN:"40-50 + hôtel partenaire à proximité",u:"https://bridebook.com/fr/wedding-venues/les-domaines-de-patras-sol-rieux-dr-me-fr7Xprz3YL"},
+{id:29,n:"Domaine de la Vivande",c:"Marsanne",z:"Drôme",t:"Domaine",lat:44.650,lng:4.890,cap:140,capN:"140 assis",beds:39,rooms:14,bedN:"14 chambres, 39 couchages",u:"https://bridebook.com/fr/wedding-venues/domaine-de-la-vivande-marsanne-dr-me-fr0Y10V01g"},
+{id:30,n:"La Demoiselle",c:"Puy-Saint-Martin",z:"Drôme",t:"Domaine",lat:44.600,lng:4.920,cap:110,capN:"110",beds:null,rooms:10,bedN:"10 chambres",p:5000,pN:"5 000 – 9 000 €",u:""},
+{id:31,n:"Domaine des Grillons",c:"Réauville",z:"Drôme",t:"Domaine",lat:44.450,lng:4.820,cap:100,capN:"100",beds:null,rooms:6,bedN:"6 chambres",u:""}
+];
+const COL={Loire:"#c0392b",Rhône:"#2874a6",Beaujolais:"#8e44ad",Ain:"#1e8449",Drôme:"#d68910"};
+const S={zone:new Set(),type:new Set(),unk:true,hide:true,favs:false,sel:null};
+let store={};
+try{store=JSON.parse(localStorage.getItem("lieux-mariage")||"{}")}catch(e){}
+const save=()=>{try{localStorage.setItem("lieux-mariage",JSON.stringify(store))}catch(e){}};
+const $=id=>document.getElementById(id);
+const el=(t,a={},...k)=>{const e=document.createElement(t);for(const[x,y]of Object.entries(a))x==="class"?e.className=y:x.startsWith("on")?e.addEventListener(x.slice(2),y):e.setAttribute(x,y);k.flat().forEach(c=>e.append(c));return e};
+const STAT={fav:"★ Favori",contact:"À contacter",visited:"Visité",out:"Écarté"};
+
+const map=L.map("map").setView([45.75,4.9],8);
+L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png",{maxZoom:18,attribution:"© OpenStreetMap"}).addTo(map);
+const markers={};
+V.forEach(v=>{markers[v.id]=L.marker([v.lat,v.lng],{icon:L.divIcon({className:"",html:`<div class="pin" style="background:${COL[v.z]}"></div>`,iconSize:[16,16],iconAnchor:[8,8]})}).on("click",()=>select(v.id,true))});
+
+function chips(box,key,vals){vals.forEach(x=>{const b=el("button",{class:"chip","aria-pressed":"false",onclick(){S[key].has(x)?S[key].delete(x):S[key].add(x);b.setAttribute("aria-pressed",S[key].has(x));render()}},x);$(box).append(b)})}
+chips("f-zone","zone",["Loire","Rhône","Beaujolais","Ain","Drôme"]);
+chips("f-type","type",[...new Set(V.map(v=>v.t))]);
+["unk","hide","favs"].forEach(k=>$(k).onclick=e=>{S[k]=!S[k];e.currentTarget.setAttribute("aria-pressed",S[k]);render()});
+["cap","beds","price","sort"].forEach(k=>$(k).oninput=render);
+
+const euro=n=>n.toLocaleString("fr-FR")+" €";
+function pass(v){
+  const cap=+$("cap").value,beds=+$("beds").value,price=+$("price").value,st=(store[v.id]||{}).s;
+  if(S.zone.size&&!S.zone.has(v.z))return false;
+  if(S.type.size&&!S.type.has(v.t))return false;
+  if(v.cap==null?!S.unk:v.cap<cap)return false;
+  if(v.beds==null?!S.unk:(v.beds<beds&&!v.near))return false;
+  if(v.p!=null&&v.p>price)return false;
+  if(S.hide&&st==="out")return false;
+  if(S.favs&&st!=="fav")return false;
+  return true;
+}
+function render(){
+  $("v-cap").textContent=$("cap").value;$("v-beds").textContent=$("beds").value;
+  $("v-price").textContent=+$("price").value>=12000?"illimité":euro(+$("price").value);
+  const k=$("sort").value,num=x=>x==null?-1:x;
+  const L2=V.filter(pass).sort((a,b)=>k==="name"?a.n.localeCompare(b.n):k==="price"?(a.p??1e9)-(b.p??1e9):num(b[k])-num(a[k]));
+  $("count").textContent=`${L2.length} lieu${L2.length>1?"x":""} sur ${V.length}`;
+  $("sub").textContent="";
+  const list=$("list");list.replaceChildren();
+  if(!L2.length)list.append(el("div",{class:"empty"},"Aucun lieu avec ces critères. Baissez le nombre de couchages ou activez « Inclure les chiffres à vérifier »."));
+  L2.forEach(v=>list.append(card(v)));
+  Object.entries(markers).forEach(([id,m])=>L2.some(v=>v.id==id)?m.addTo(map):m.remove());
+  if(S.sel&&!L2.some(v=>v.id===S.sel))S.sel=null;
+}
+function card(v){
+  const d=store[v.id]||{},open=S.sel===v.id;
+  const q=(t)=>el("span",{class:"tag q"},t);
+  const c=el("div",{class:"card"+(open?" sel":""),onclick(){select(v.id,false)}});
+  c.append(el("h3",{},(d.s==="fav"?"★ ":"")+v.n),el("div",{class:"meta"},`${v.c} · ${v.z} · ${v.t}`));
+  const st=el("div",{class:"stats"});
+  st.append(el("span",{},"👥 ",el("b",{},v.cap!=null?`${v.cap}`:"?"))," invités");
+  st.append(el("span",{},"🛏 ",el("b",{},v.beds!=null?`${v.beds}`:(v.rooms?`${v.rooms} ch.`:"?"))," couchages"));
+  st.append(el("span",{},"💶 ",el("b",{},v.p!=null?euro(v.p):"?")));
+  c.append(st);
+  const tags=el("div",{class:"row"});
+  if(v.cap==null)tags.append(q("capacité à vérifier"));
+  if(v.beds==null)tags.append(q("couchages à vérifier"));
+  if(v.near)tags.append(el("span",{class:"tag st"},"hébergement proche"));
+  if(d.s)tags.append(el("span",{class:"tag st"},STAT[d.s]));
+  c.append(tags);
+  if(open){
+    const det=el("div",{class:"detail",onclick:e=>e.stopPropagation()});
+    if(v.capN)det.append(el("p",{},"Capacité : "+v.capN));
+    if(v.bedN)det.append(el("p",{},"Hébergement : "+v.bedN));
+    if(v.pN)det.append(el("p",{},"Prix : "+v.pN));
+    const q2=encodeURIComponent(`${v.n} ${v.c} mariage`);
+    det.append(el("p",{},v.u?el("a",{href:v.u,target:"_blank",rel:"noopener"},"Fiche source "):"",el("a",{href:"https://www.google.com/search?q="+q2,target:"_blank",rel:"noopener"},"Rechercher le site officiel")));
+    const sel=el("select",{onchange(e){store[v.id]={...d,s:e.target.value||undefined};save();render()}},el("option",{value:""},"Statut…"),...Object.entries(STAT).map(([k,t])=>{const o=el("option",{value:k},t);if(d.s===k)o.selected=true;return o}));
+    const note=el("textarea",{placeholder:"Mes notes (contact, visite, prix devis…)"});note.value=d.note||"";
+    note.oninput=()=>{store[v.id]={...(store[v.id]||{}),note:note.value};save()};
+    det.append(sel,note);c.append(det);
+  }
+  return c;
+}
+function select(id,fromMap){
+  S.sel=S.sel===id&&!fromMap?null:id;render();
+  const v=V.find(x=>x.id===id);
+  if(S.sel){map.flyTo([v.lat,v.lng],Math.max(map.getZoom(),11));const c=$("list").querySelector(".card.sel");if(c)c.scrollIntoView({block:"nearest",behavior:"smooth"})}
+}
+render();
+const fitAll=()=>{map.invalidateSize();const f=V.filter(pass).map(v=>[v.lat,v.lng]);if(f.length)map.fitBounds(f,{padding:[30,30]})};
+window.addEventListener("load",()=>setTimeout(fitAll,100));
+</script>
+</body>
+</html>
