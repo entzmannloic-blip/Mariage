@@ -1,0 +1,209 @@
+Le Catalpa|Cordelle|42|110|domaine-mariage/le-catalpa--e134207
+Domaine de la Barollière|Saint-Paul-en-Jarez|42|200|domaine-mariage/domaine-de-la-barolliere--e267795
+La Grange aux Camélias|Pouilly-sous-Charlieu|42|210|domaine-mariage/la-grange-aux-camelias--e322670
+Domaine de Baroille|Balbigny|42|200|domaine-mariage/domaine-de-baroille--e409523
+Domaine de la Cotonne|Salt-en-Donzy|42|300|domaine-mariage/domaine-de-la-cotonne--e222743
+Domaine de la Diligence|Saint-Genest-Malifaux|42|220|domaine-mariage/domaine-de-la-diligence--e138863
+Domaine de Valinches|Marols|42|220|domaine-mariage/domaine-de-valinches--e143638
+Domaine d'Essalois|Chambles|42|140|domaine-mariage/domaine-d-essalois--e111300
+L'Air de Rien|Cleppé|42|180|domaine-mariage/lair-de-rien--e407893
+Pavillon du Lac|Saint-Victor-sur-Loire|42|140|domaine-mariage/pavillon-du-lac--e170552
+La Cour du Domaine|Mornand-en-Forez|42|220|domaine-mariage/la-cour-du-domaine--e375197
+Le Gardien du Chai|Salt-en-Donzy|42|400|domaine-mariage/le-gardien-du-chai--e344848
+Domaine de Villeroy|Champdieu|42|180|domaine-mariage/domaine-de-villeroy--e160224
+Le Domaine de la Source|Roanne|42|330|domaine-mariage/le-domaine-de-la-source--e118921
+Domaine des Grands Cèdres|Cordelle|42|180|domaine-mariage/domaine-des-grands-cedres--e132811
+Les Vieilles Pierres|La Talaudière|42|180|domaine-mariage/les-vieilles-pierres--e405015
+Le Grand Domaine|Saint-Jodard|42|300|domaine-mariage/le-grand-domaine--e342076
+Domaine du Martinet|Bourg-Argental|42|170|domaine-mariage/domaine-du-martinet--e386451
+Les Camiers|Véranne|42|200|domaine-mariage/les-camiers--e145038
+Domaine de l'Etang|Savigneux|42|150|domaine-mariage/domaine-de-letang--e177083
+Domaine de la Griottière|Pélussin|42|120|domaine-mariage/domaine-de-la-griottiere--e71754
+Hôtel du Golf|Roanne|42|0|domaine-mariage/hotel-du-golf--e162388
+Domaine du Moulin|Caloire|42|250|domaine-mariage/domaine-du-moulin--e361313
+Le Flamant Rose|Saint-Martin-la-Plaine|42|250|domaine-mariage/le-flamant-rose--e122428
+Le Domaine Lyonnais|Violay|42|0|domaine-mariage/le-domaine-lyonnais--e375613
+Domaine des Combes|L'Étrat|42|150|domaine-mariage/domaine-des-combes--e139439
+Château de Montrouge|Savigneux|42|300|chateau-mariage/chateau-de-montrouge--e137630
+Château de la Salle|La Pacaudière|42|150|chateau-mariage/chateau-de-la-salle--e8035
+Château de Matel|Roanne|42|205|chateau-mariage/chateau-de-matel--e8036
+Château d'Ailly|Parigny|42|350|chateau-mariage/chateau-dailly--e15315
+Château du Bourg|Perreux|42|210|chateau-mariage/chateau-du-bourg--e137589
+Château de Magneux|Magneux-Haute-Rive|42|250|chateau-mariage/chateau-de-magneux--e105785
+Château de Villars|La Chapelle-Villars|42|120|chateau-mariage/chateau-de-villars--e346524
+Château de Goutelas|Marcoux|42|110|chateau-mariage/chateau-de-goutelas--e178257
+Château de Lachal|Valfleury|42|150|chateau-mariage/chateau-de-lachal--e428709
+Domaine de Saint-Marcel-de-Félines|Saint-Marcel-de-Félines|42|160|chateau-mariage/domaine-de-saint-marcel-de-felines--e107046
+Château de Champlong|Roanne|42|0|chateau-mariage/chateau-de-champlong--e106634
+Château de Chalmazel|Chalmazel|42|0|chateau-mariage/chateau-de-chalmazel--e177455
+Le Domaine du Forez|Saint-Just-Saint-Rambert|42|500|salle-mariage/le-domaine-du-forez--e349622
+Domaine de Peybert|Marlhes|42|150|salle-mariage/domaine-de-peybert--e373557
+Éclosion|Saint-Paul-en-Jarez|42|150|hotel-mariage/eclosion--e160612
+Château des Vergers|Lantignié|69|150|domaine-mariage/chateau-des-vergers--e32234
+Les Larmes du Soleil|Blacé|69|150|domaine-mariage/les-larmes-du-soleil--e361865
+Clos Brouilly Evénementiels|Tarare|69|130|domaine-mariage/clos-brouilly-evenementiels--e398635
+La Salle des Pertonnières|Le Breuil|69|300|salle-mariage/la-salle-des-pertonnieres--e143695
+Le Pasino Grand de la Tour de Salvagny|La Tour-de-Salvagny|69|900|domaine-mariage/le-pasino-grand-de-la-tour-de-salvagny--e114474
+La Palmeraie de la Tour|La Tour-de-Salvagny|69|450|salle-mariage/la-palmeraie-de-la-tour--e15595
+Domaine de Marzé|Saint-Georges-de-Reneins|69|120|domaine-mariage/domaine-de-marze--e195645
+La Factory|Bourg-de-Thizy|69|270|domaine-mariage/la-factory--e151098
+Château de Champ-Renard|Blacé|69|180|chateau-mariage/chateau-de-champ-renard--e248999
+Domaine des Monts du Lyonnais|Saint-Forgeux|69|250|domaine-mariage/domaine-des-monts-du-lyonnais--e153908
+Domaine Morgon La Javernière|Villié-Morgon|69|160|domaine-mariage/domaine-morgon-la-javerniere--e141734
+Domaine de la Croix Rochefort|Beaujeu|69|300|domaine-mariage/domaine-de-la-croix-rochefort--e127973
+Ermitage de Brouilly|Saint-Étienne-des-Oullières|69|115|domaine-mariage/ermitage-de-brouilly--e215757
+Château des Vierres|Lantignié|69|140|domaine-mariage/chateau-des-vierres--e248709
+La Cour de Marius|Grézieu-le-Marché|69|200|domaine-mariage/la-cour-de-marius--e362455
+Château Grange Cochard|Villié-Morgon|69|150|chateau-mariage/chateau-grange-cochard--e255775
+Les Lanternes|Saint-Cyr-au-Mont-d'Or|69|120|domaine-mariage/les-lanternes--e309986
+Hôstellerie Cascade|Saint-Genis-les-Ollières|69|120|domaine-mariage/hostellerie-cascade--e120035
+Domaine Passeloup|Liergues|69|150|domaine-mariage/domaine-passeloup--e171400
+Domaine de Ruty|Saint-Jean-d'Ardières|69|180|domaine-mariage/domaine-de-ruty--e221429
+Clos des Liesses|Alix|69|120|domaine-mariage/clos-des-liesses--e71772
+Domaine de la Genetière|Saint-Laurent-d'Oingt|69|200|domaine-mariage/domaine-de-la-genetiere--e214793
+Le Domaine des Pierres Dorées|Ternand|69|250|domaine-mariage/le-domaine-des-pierres-dorees--e71766
+Domaine du Crêt|Amplepuis|69|150|domaine-mariage/domaine-du-cret--e286212
+Domaine de Montfriol|Chambost-Allières|69|150|domaine-mariage/domaine-de-montfriol--e146194
+Domaine Albert|Pommiers|69|200|domaine-mariage/domaine-albert--e8095
+Château de Blaceret Roy|Saint-Étienne-des-Oullières|69|200|chateau-mariage/chateau-de-blaceret-roy--e8094
+Château de Laforest|Bourg-de-Thizy|69|150|chateau-mariage/chateau-de-laforest--e232586
+Château de Corcelles|Corcelles-en-Beaujolais|69|350|chateau-mariage/chateau-de-corcelles--e10373
+Château du Souzy|Quincié-en-Beaujolais|69|190|chateau-mariage/chateau-du-souzy--e199619
+Château de Pizay|Saint-Jean-d'Ardières|69|200|chateau-mariage/chateau-de-pizay--e10637
+Château de Courbeville|Chessy|69|170|chateau-mariage/chateau-de-courbeville--e135320
+Château des Ravatys|Saint-Lager|69|160|chateau-mariage/chateau-des-ravatys--e10334
+Château des Loges|Le Perréon|69|300|chateau-mariage/chateau-des-loges--e71750
+Château Talancé|Denicé|69|200|chateau-mariage/chateau-talance--e8099
+Château la Gallée|Millery|69|150|chateau-mariage/chateau-la-gallee--e137629
+Manoir de Tourville|Les Halles|69|280|chateau-mariage/manoir-de-tourville--e7393
+Château de la Chapelle des Bois|Fleurie|69|200|chateau-mariage/chateau-de-la-chapelle-des-bois--e32999
+Château de Varennes|Quincié-en-Beaujolais|69|230|chateau-mariage/chateau-de-varennes--e8113
+Château de Charfetain|Brullioles|69|180|chateau-mariage/chateau-de-charfetain--e423159
+Château de Janzé|Marcilly-d'Azergues|69|300|chateau-mariage/chateau-de-janze--e118758
+Château de Saint-Priest|Saint-Priest|69|240|chateau-mariage/chateau-de-saint-priest--e392073
+Château du Sou|Lacenas|69|195|chateau-mariage/chateau-du-sou--e118624
+Château de Saint Trys|Anse|69|500|chateau-mariage/chateau-de-saint-trys--e122778
+Château de Rajat|Saint-Pierre-de-Chandieu|69|190|chateau-mariage/chateau-de-rajat--e157034
+Château Sans Souci|Limonest|69|150|chateau-mariage/chateau-sans-souci--e114355
+Domaine du Grand Vernay|Charentay|69|200|chateau-mariage/domaine-du-grand-vernay--e290448
+Château de Pramenoux|Saint-Nizier-d'Azergues|69|120|chateau-mariage/chateau-de-pramenoux--e272339
+Château de Bellevue|Villié-Morgon|69|130|chateau-mariage/chateau-de-bellevue--e107226
+Château de Gorze|Trambly|71|200|domaine-mariage/chateau-de-gorze--e375579
+Domaine Bacchus|Groslée-Saint-Benoit|01|250|domaine-mariage/domaine-bacchus--e329500
+Château de Versailleux|Versailleux|01|350|chateau-mariage/chateau-de-versailleux--e252385
+Domaine de la Rochère|Domsure|01|250|domaine-mariage/domaine-de-la-rochere--e7412
+Domaine de Chalaronne|Châtillon-sur-Chalaronne|01|150|domaine-mariage/domaine-de-chalaronne--e386901
+Château de Luponnas|Vonnas|01|250|domaine-mariage/chateau-de-luponnas--e7341
+Ranch des Rochettes|Ceyzériat|01|180|domaine-mariage/ranch-des-rochettes--e106570
+Domaine du Gouverneur - Château du Breuil|Monthieux|01|300|domaine-mariage/domaine-du-gouverneur-chateau-du-breuil--e159500
+Le Quai des Lanternes|Saint-Étienne-sur-Chalaronne|01|300|domaine-mariage/le-quai-des-lanternes--e160558
+Le Domaine du Cuiset|Saint-André-sur-Vieux-Jonc|01|160|domaine-mariage/le-domaine-du-cuiset--e89617
+Le Charmay|Sandrans|01|100|domaine-mariage/le-charmay--e223345
+Domaine d'Amareins|Francheleins|01|350|domaine-mariage/domaine-damareins--e259550
+Ferme du Tremblay|Saint-Trivier-de-Courtes|01|500|domaine-mariage/ferme-du-tremblay--e29170
+Domaine Alexander|Saint-Trivier-sur-Moignans|01|300|domaine-mariage/domaine-alexander--e282726
+Domaine de Marboz|Marboz|01|110|domaine-mariage/domaine-de-marboz--e332938
+Les Brouilles|Malafretaz|01|130|domaine-mariage/les-brouilles--e107194
+Domaine de Jujurieux|Jujurieux|01|230|domaine-mariage/domaine-de-jujurieux--e416183
+Domaine du Colombier|Sandrans|01|160|domaine-mariage/domaine-du-colombier--e177095
+Domaine des Batières|Marlieux|01|250|domaine-mariage/domaine-des-batieres--e114772
+Domaine de Prales|Perrex|01|160|domaine-mariage/domaine-de-prales--e312472
+Domaine de la Flandrine|Dompierre-sur-Veyle|01|100|domaine-mariage/domaine-de-la-flandrine--e321622
+Le Domaine de Sainte-Croix|Sainte-Croix|01|150|domaine-mariage/le-domaine-de-sainte-croix--e177093
+Domaine du Très-Haut - Château de Montanges|Montanges|01|400|domaine-mariage/domaine-du-tres-haut-chateau-de-montanges--e291304
+Domaine du Petit Chambard|Ambérieux-en-Dombes|01|145|domaine-mariage/domaine-du-petit-chambard--e123606
+Domaine des Cèdres|Villebois|01|190|domaine-mariage/domaine-des-cedres--e7407
+Pavillon Bellevue|Belley|01|100|domaine-mariage/pavillon-bellevue--e228442
+Domaine de la Distillerie|Polliat|01|0|domaine-mariage/domaine-de-la-distillerie--e275861
+Domaine des Dombes|Misérieux|01|115|domaine-mariage/domaine-des-dombes--e323020
+Château d'Epeyssoles|Vonnas|01|280|chateau-mariage/chateau-d-epeyssoles--e28244
+Château de Saint-Bernard|Saint-Bernard|01|130|chateau-mariage/chateau-de-saint-bernard--e178071
+Château des Creusettes|Villars-les-Dombes|01|150|chateau-mariage/chateau-des-creusettes--e148976
+Château de Montplaisant|Montagnat|01|150|chateau-mariage/chateau-de-montplaisant--e20171
+Château d'Herbelon|Treffort|01|0|chateau-mariage/chateau-d-herbelon--e115075
+Château de Chavagneux|Genouilleux|01|500|chateau-mariage/chateau-de-chavagneux--e183909
+Domaine de Chantesse|Saint-Donat-sur-l'Herbasse|26|190|BB:https://bridebook.com/fr/wedding-venues/domaine-de-chantesse-saint-donat-sur-l-herbasse-dr-me-fr1nXVD6Yr
+Balmes Le Château|Romans-sur-Isère|26|200|chateau-mariage/balmes-le-chateau--e324456
+La Maison du Domaine Lombard|Livron-sur-Drôme|26|300|domaine-mariage/la-maison-du-domaine-lombard--e420761
+Le Domaine De Vénus|Châteauneuf-de-Galaure|26|200|domaine-mariage/le-domaine-de-venus--e314180
+Domaine de Blacons|Mirabel-et-Blacons|26|150|domaine-mariage/domaine-de-blacons--e146996
+Domaine de la Vivande|Marsanne|26|140|domaine-mariage/domaine-de-la-vivande--e398067
+La Grange|Marsanne|26|200|domaine-mariage/la-grange--e279886
+Domaine de Valsoyo|Upie|26|600|domaine-mariage/domaine-de-valsoyo--e151142
+Domaine de Senaud|Albon|26|160|domaine-mariage/domaine-de-senaud--e178563
+Domaine du golf d'Albon|Albon|26|100|domaine-mariage/domaine-du-golf-dalbon--e364847
+Domaine de Chanteperdrix|Allex|26|180|domaine-mariage/domaine-de-chanteperdrix--e205511
+Domaine de la Chartrognière|Saint-Thomas-en-Royans|26|180|domaine-mariage/domaine-de-la-chartrogniere--e169638
+Le Clos des Sources|Saint-Thomas-en-Royans|26|150|domaine-mariage/le-clos-des-sources--e15472
+La Bastide de Jaillans|Jaillans|26|120|domaine-mariage/la-bastide-de-jaillans--e81178
+Domaine de Duby|Riotord|43|200|domaine-mariage/domaine-de-duby--e155200
+La Gentilhommière|Satillieu|07|250|domaine-mariage/la-gentilhommiere--e11637
+Domaine Milagro|Lalouvesc|07|250|domaine-mariage/domaine-milagro--e391655
+Logis du Pic|Saint-Romain-de-Lerps|07|180|domaine-mariage/logis-du-pic--e11638
+Domaine de Saint-Clair|Saint-Clair|07|150|domaine-mariage/domaine-de-saint-clair--e90906
+Château de Maisonseule|Saint-Basile|07|250|domaine-mariage/chateau-de-maisonseule--e374493
+Domaine de Turzon|Saint-Georges-les-Bains|07|160|domaine-mariage/domaine-de-turzon--e177005
+Gîte Au Champ Bonheur|Monistrol-sur-Loire|43|180|domaine-mariage/gite-au-champ-bonheur--e131837
+Espace Beauvoir|Monistrol-sur-Loire|43|130|domaine-mariage/espace-beauvoir--e143909
+Domaine La Borie|Saint-Julien-du-Pinet|43|150|domaine-mariage/domaine-la-borie--e284890
+Les Granges de Melthé|Raucoules|43|150|domaine-mariage/les-granges-de-melthe--e279434
+Le Séquoia|Beauzac|43|110|domaine-mariage/le-sequoia--e192107
+In Secreto - Domaine de la Villette|Dunières|43|150|domaine-mariage/in-secreto-domaine-de-la-villette--e403823
+Teen Ranch Hermon|Le Chambon-sur-Lignon|43|160|domaine-mariage/teen-ranch-hermon--e120814
+Auberge de Marliou|Queyrières|43|300|domaine-mariage/auberge-de-marliou--e426719
+Lodge Les Jardins d'Espaladous|Saint-Pierre-Eynac|43|150|domaine-mariage/lodge-les-jardins-despaladous--e347036
+La Planche de Melussac|Cussac-sur-Loire|43|160|domaine-mariage/la-planche-de-melussac--e326108
+Domaine La Pervenchère|Yssingeaux|43|120|domaine-mariage/domaine-la-pervenchere--e143548
+Domaine Saint Roch|Brioude|43|200|domaine-mariage/domaine-saint-roch--e120936
+Pavillon Fani|Thiers|63|170|domaine-mariage/pavillon-fani--e181561
+Domaine Les Berauds|Thiers|63|120|domaine-mariage/domaine-les-berauds--e399493
+Le Domaine des Plaines|Bertignat|63|150|domaine-mariage/le-domaine-des-plaines--e131857
+Domaine Le Prieuré|Chaumont-le-Bourg|63|100|domaine-mariage/domaine-le-prieure--e399149
+Château Pruzilly|Pruzilly|71|250|domaine-mariage/chateau-pruzilly--e213999
+Domaine des Trois Lacs|Cluny|71|250|domaine-mariage/domaine-des-trois-lacs--e131880
+Le Domaine du Moulin Rouge|Cuiseaux|71|150|domaine-mariage/le-domaine-du-moulin-rouge--e246289
+Le Clos des Tourelles|Sennecey-le-Grand|71|200|domaine-mariage/le-clos-des-tourelles--e8116
+La Closeraie|Volesvres|71|250|domaine-mariage/la-closeraie--e137204
+La Maison Verneuil|Paray-le-Monial|71|200|domaine-mariage/la-maison-verneuil--e286856
+Domaine de la Baronnie|Montbellet|71|150|domaine-mariage/domaine-de-la-baronnie--e242328
+Domaine du Vernay|Mazillé|71|120|domaine-mariage/domaine-du-vernay--e14836
+Le Domaine de Lamartine|Prissé|71|0|domaine-mariage/le-domaine-de-lamartine--e216177
+Domaine de la Réserve|Coublanc|71|0|domaine-mariage/domaine-de-la-reserve--e195365
+Chloe du Lac|Montferrat|38|200|domaine-mariage/chloe-du-lac--e159498
+Château Rocher|Roybon|38|150|domaine-mariage/chateau-rocher--e137620
+Domaine du Manoir|Les Avenières|38|100|domaine-mariage/domaine-du-manoir--e135835
+Domaine de Chatonnay|Châtonnay|38|180|domaine-mariage/domaine-de-chatonnay--e204973
+La Grange du Serpolier|Villeneuve-de-Marc|38|150|domaine-mariage/la-grange-du-serpolier--e365169
+Ferme des Dames|Saint-Baudille-de-la-Tour|38|150|domaine-mariage/ferme-des-dames--e127892
+Domaine de Montin|Vezeronce-Curtin|38|130|domaine-mariage/domaine-de-montin--e419627
+Domaine de Suzel|Vignieu|38|200|domaine-mariage/domaine-de-suzel--e113525
+Domaine Dolomieu|Dolomieu|38|200|domaine-mariage/domaine-dolomieu--e321034
+Domaine des Plagnes|Saint-Hilaire-de-Brens|38|130|domaine-mariage/domaine-des-plagnes--e111709
+Domaine des Marais|Bourgoin-Jallieu|38|200|domaine-mariage/domaine-des-marais--e173437
+Le Clos Vernay|Nivolas-Vermelle|38|140|domaine-mariage/le-clos-vernay--e179891
+Domaine de Grand Maison|Oytier-Saint-Oblas|38|200|domaine-mariage/domaine-de-grand-maison--e8029
+Moulin Piongo|Ornacieux|38|160|domaine-mariage/moulin-piongo--e137777
+La Maison Bleue|Artas|38|200|domaine-mariage/la-maison-bleue--e287010
+Domaine Saint Jean de Chépy|Tullins|38|250|domaine-mariage/domaine-saint-jean-de-chepy--e42905
+Domaine de Chanille|Saint-Marcel-Bel-Accueil|38|200|domaine-mariage/domaine-de-chanille--e170198
+Domaine des Séquoias|Ruy|38|200|domaine-mariage/domaine-des-sequoias--e261633
+Étang de Serriere|Trept|38|0|domaine-mariage/etang-de-serriere--e387393
+Le Domaine les Fontaines|Les Abrets|38|0|domaine-mariage/le-domaine-les-fontaines--e282398
+La Garenne de Morestel|Morestel|38|170|domaine-mariage/la-garenne-de-morestel--e248203
+Château de Césarges|Maubec|38|300|chateau-mariage/chateau-de-cesarges--e8019
+Château Chapeau Cornu|Vignieu|38|200|chateau-mariage/chateau-chapeau-cornu--e9107
+Château de Montolivet|Passins|38|400|chateau-mariage/chateau-de-montolivet--e155761
+Château des Anges|Saint-Just-de-Claix|38|250|chateau-mariage/chateau-des-anges--e119635
+Château de Brangues|Saint-Victor-de-Morestel|38|500|chateau-mariage/chateau-de-brangues--e166582
+Château Coraline|Oytier-Saint-Oblas|38|100|chateau-mariage/chateau-coraline--e271319
+Château de Blagneux|Chevrières|38|140|chateau-mariage/chateau-de-blagneux--e138411
+Château de Pupetières|Châbons|38|500|chateau-mariage/chateau-de-pupetieres--e118140
+Château du Marteray|Sermérieu|38|0|chateau-mariage/chateau-du-marteray--e221137
+Château de Montplaisant|Saint-Hilaire-de-Brens|38|0|chateau-mariage/chateau-de-montplaisant--e251559
+Château du Mouillat|Saint-Clair-de-la-Tour|38|0|chateau-mariage/chateau-du-mouillat--e257689
+Château de Réaumont|Réaumont|38|150|chateau-mariage/chateau-de-reaumont--e411881
+Château de Chaulnes|Noyarey|38|200|chateau-mariage/chateau-de-chaulnes--e182437
+Château des Ayes|Saint-Étienne-de-Saint-Geoirs|38|300|chateau-mariage/chateau-des-ayes--e137350
+Les Lodges du Lac|Saint-Alban-de-Montbel|73|180|domaine-mariage/les-lodges-du-lac--e158578
+Château Saint Genix|Saint-Genix-sur-Guiers|73|140|domaine-mariage/chateau-saint-genix--e304450
+Maison des Apôtres|Chindrieux|73|140|domaine-mariage/maison-des-apotres--e193703
