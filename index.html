@@ -54,6 +54,11 @@ footer{padding:12px 16px;color:var(--mute);font-size:12px}
       <label class="rng"><span>Invités minimum</span><b id="v-cap"></b><input id="cap" type="range" min="50" max="250" step="10" value="100"></label>
       <label class="rng"><span>Couchages minimum (sur place, ou à proximité signalée)</span><b id="v-beds"></b><input id="beds" type="range" min="0" max="100" step="5" value="40"></label>
       <label class="rng"><span>Budget lieu maximum</span><b id="v-price"></b><input id="price" type="range" min="1000" max="12000" step="500" value="12000"></label>
+      <label class="rng"><span>Distance maximum de Lyon (à vol d'oiseau)</span><b id="v-dist"></b><input id="dist" type="range" min="20" max="200" step="10" value="200"></label>
+      <div class="row">
+        <button class="chip" id="water" aria-pressed="false">Au bord de l'eau (lac, étang, rivière)</button>
+        <button class="chip" id="copy">Copier ma shortlist</button>
+      </div>
       <div class="row">
         <button class="chip" id="unk" aria-pressed="true">Inclure les chiffres à vérifier</button>
         <button class="chip" id="hide" aria-pressed="true">Masquer les écartés</button>
@@ -63,7 +68,7 @@ footer{padding:12px 16px;color:var(--mute);font-size:12px}
     </div>
     <div class="count"><span id="count"></span></div>
     <div id="list"></div>
-    <footer>Données relevées sur des annuaires (Bridebook, Mariages.net, 1001salles, ABC Salles) le 08/10/2026. Capacités, couchages et prix sont ceux annoncés : à confirmer auprès de chaque lieu. Positions sur la carte approximatives (centre de la commune). Aucun lieu en bord de mer dans ces départements ; la catégorie « salle moderne » n'a pas encore d'entrée vérifiée.</footer>
+    <footer>Données relevées sur des annuaires (Bridebook, Mariages.net, 1001salles, ABC Salles) le 08/10/2026. Capacités, couchages et prix sont ceux annoncés : à confirmer auprès de chaque lieu. Positions sur la carte approximatives (centre de la commune). Il n'y a pas de bord de mer dans ces départements : le filtre « bord de l'eau » couvre lacs, étangs et rivières. Les distances à Lyon sont à vol d'oiseau. Les lieux de moins de 100 places, ou hors des 5 zones, ont été écartés.</footer>
   </div>
   <div id="map"></div>
 </div>
@@ -101,10 +106,54 @@ const V=[
 {id:28,n:"Les Domaines de Patras",c:"Solérieux",z:"Drôme",t:"Domaine",lat:44.390,lng:4.870,cap:null,beds:50,near:true,bedN:"40-50 + hôtel partenaire à proximité",u:"https://bridebook.com/fr/wedding-venues/les-domaines-de-patras-sol-rieux-dr-me-fr7Xprz3YL"},
 {id:29,n:"Domaine de la Vivande",c:"Marsanne",z:"Drôme",t:"Domaine",lat:44.650,lng:4.890,cap:140,capN:"140 assis",beds:39,rooms:14,bedN:"14 chambres, 39 couchages",u:"https://bridebook.com/fr/wedding-venues/domaine-de-la-vivande-marsanne-dr-me-fr0Y10V01g"},
 {id:30,n:"La Demoiselle",c:"Puy-Saint-Martin",z:"Drôme",t:"Domaine",lat:44.600,lng:4.920,cap:110,capN:"110",beds:null,rooms:10,bedN:"10 chambres",p:5000,pN:"5 000 – 9 000 €",u:""},
-{id:31,n:"Domaine des Grillons",c:"Réauville",z:"Drôme",t:"Domaine",lat:44.450,lng:4.820,cap:100,capN:"100",beds:null,rooms:6,bedN:"6 chambres",u:""}
+{id:31,n:"Domaine des Grillons",c:"Réauville",z:"Drôme",t:"Domaine",lat:44.450,lng:4.820,cap:100,capN:"100",beds:null,rooms:6,bedN:"6 chambres",u:""},
+{id:32,n:"Domaine de l'Étang Corcelle",c:"Châtillon-la-Palud",z:"Ain",t:"Domaine",w:1,lat:45.975,lng:5.290,cap:140,capN:"140 assis, salle de 170 m²",beds:8,rooms:4,bedN:"4 chambres (8 pers.) dans une ancienne ferme : compléter avec gîtes voisins",pN:"Parc privatisé au bord d'un étang, église à distance de marche",u:"https://bridebook.com/fr-en/wedding-venues/domaine-de-l-etang-corcelle-ch-tillon-la-palud-ain-frJ7XpqngL"},
+{id:33,n:"Domaine du Petit Chambard",c:"Villeneuve (Dombes)",z:"Ain",t:"Ferme / Gîtes",lat:46.010,lng:4.880,cap:185,capN:"150 assis / 185 debout",beds:32,rooms:8,bedN:"8 chambres, 32 couchages",p:1800,pN:"1 800 – 5 200 € (salle seule)",tr:"Traiteurs extérieurs autorisés",u:"https://bridebook.com/fr/wedding-venues/domaine-du-petit-chambard-villeneuve-ain-fro8aOL17g"},
+{id:34,n:"Le Charmay",c:"Sandrans (Dombes)",z:"Ain",t:"Domaine",w:1,lat:46.070,lng:4.960,cap:100,capN:"80 à 100 assis (autres sources : plus)",beds:null,bedN:"non confirmé",pN:"Village de 56 étangs",u:"https://bridebook.com/fr/wedding-venues/le-charmay-sandrans-ain-fr5gPvya8z"},
+{id:35,n:"Domaine du Très-Haut",c:"Montanges",z:"Ain",t:"Château",lat:46.120,lng:5.720,cap:350,capN:"1 à 350",beds:75,bedN:"75 max",p:500,pN:"dès 500 €, Parc naturel du Haut-Jura",u:""},
+{id:36,n:"Château de Luponnas",c:"Luponnas",z:"Ain",t:"Château",lat:46.170,lng:5.160,cap:250,capN:"50 à 250",beds:null,bedN:"salles, chambres et espaces en privatisation (nombre à demander)",p:5900,pN:"dès 5 900 €",u:""},
+{id:37,n:"La Jonquillère",c:"Tossiat",z:"Ain",t:"Domaine",lat:46.150,lng:5.330,cap:200,capN:"200",beds:null,bedN:"non précisé",p:3500,pN:"3 500 – 3 800 €",u:""},
+{id:38,n:"Domaine de la Sorelle",c:"Villette-sur-Ain",z:"Ain",t:"Domaine",lat:45.950,lng:5.270,cap:150,capN:"10 à 150",beds:34,bedN:"34 pour la nuitée",u:""},
+{id:39,n:"Hôtel L'Embarcadère",c:"Nantua",z:"Ain",t:"Hôtel",w:1,lat:46.155,lng:5.600,cap:100,capN:"15 à 100",beds:null,bedN:"hôtel 3★ au bord du lac (chambres à confirmer)",u:""},
+{id:40,n:"Hôtel de la Tour",c:"Châtillon-sur-Chalaronne",z:"Ain",t:"Hôtel",lat:46.120,lng:4.960,cap:100,capN:"15 à 100",beds:null,bedN:"non détaillé",u:""},
+{id:41,n:"Domaine du Val d'Azergues",c:"Lucenay",z:"Rhône",t:"Domaine",lat:45.900,lng:4.700,cap:300,capN:"180 assis / 300 cocktail",beds:null,rooms:4,bedN:"4 chambres",pN:"20 min de Lyon, 10 min de Villefranche",u:"https://bridebook.com/fr/wedding-venues/domaine-du-val-d-azergues-lucenay-rh-ne-frNXEBkdgO"},
+{id:42,n:"Les Hautannes",c:"Saint-Germain-au-Mont-d'Or",z:"Rhône",t:"Hôtel",lat:45.890,lng:4.800,cap:120,capN:"120 assis",beds:null,rooms:49,bedN:"49 chambres",u:""},
+{id:43,n:"Domaine de la Genetière",c:"Oingt",z:"Beaujolais",t:"Domaine",lat:45.935,lng:4.465,cap:350,capN:"20 à 350",beds:null,bedN:"non précisé",u:""},
+{id:44,n:"Château de Blaceret Roy",c:"Saint-Étienne-des-Oullières",z:"Beaujolais",t:"Château",lat:46.050,lng:4.620,cap:200,capN:"200 en salle principale",beds:null,bedN:"chambre nuptiale ; reste à demander",u:""},
+{id:45,n:"L'Ermitage de Brouilly",c:"Odenas",z:"Beaujolais",t:"Domaine",lat:46.150,lng:4.650,cap:120,capN:"110-120 assis, ancien cuvage de 170 m²",beds:30,rooms:7,bedN:"maison d'hôtes 7 chambres / 30 couchages (une fiche indique 15)",p:3500,pN:"3 500 – 5 900 € le week-end (maison d'hôtes + salle)",u:"https://bridebook.com/fr/wedding-venues/l-ermitage-de-brouilly-odenas-rh-ne-frm8zWvMXR"},
+{id:46,n:"Domaine de Bénévent",c:"Denicé",z:"Beaujolais",t:"Domaine",lat:45.985,lng:4.655,cap:200,capN:"100 assis / 200 debout",beds:20,rooms:8,bedN:"8 chambres, 20 pers. (chambres d'hôtes + gîte)",pN:"Domaine viticole, dégustations",u:"https://bridebook.com/fr/wedding-venues/domaine-de-b-n-vent-denic-rh-ne-fr0X2qzB8R"},
+{id:47,n:"Domaine Albert",c:"Pommiers",z:"Beaujolais",t:"Domaine",lat:45.990,lng:4.690,cap:180,capN:"180 assis en cuvage (150 avec chapiteau)",beds:null,bedN:"gîtes et chambres Gîtes de France sur place",p:3700,pN:"dès 3 700 €",u:"https://bridebook.com/fr/wedding-venues/domaine-albert-pommiers-rh-ne-fr5gPvrk8z"},
+{id:48,n:"Domaine Meryt",c:"Saint-Jean-des-Vignes",z:"Beaujolais",t:"Domaine",lat:45.880,lng:4.670,cap:140,capN:"120 assis / 140 cocktail",beds:0,near:true,bedN:"pas d'hébergement ; hôtels et chambres d'hôtes partenaires à proximité",u:"https://bridebook.com/fr/wedding-venues/domaine-meryt-saint-jean-des-vignes-rh-ne-fry8JazPYl"},
+{id:49,n:"Parc des Vallières",c:"Vourles",z:"Rhône",t:"Domaine",lat:45.650,lng:4.770,cap:150,capN:"jusqu'à 150",beds:null,bedN:"non précisé",u:""},
+{id:50,n:"The Harner",c:"Lyon 3e",z:"Rhône",t:"Salle moderne",lat:45.762,lng:4.855,cap:180,capN:"150 banquet / 180 cocktail",beds:0,near:true,bedN:"plusieurs hôtels à proximité",tr:"Traiteur interne",pN:"Loft industriel contemporain",u:"https://bridebook.com/fr/wedding-venues/the-harner-lyon-rh-ne-fro8ao4vgy"},
+{id:51,n:"Leya Réception",c:"Saint-Priest",z:"Rhône",t:"Salle moderne",lat:45.700,lng:4.930,cap:150,capN:"150 sans piste / 100-120 avec piste",beds:0,near:true,bedN:"hébergements proches (dont un à 0,8 km)",p:900,pN:"600 € (lun-jeu) à 900 € (samedi)",tr:"Traiteurs partenaires",u:"https://www.1001salles.com/mariage/65472-leya-reception.aspx"},
+{id:52,n:"Hôtel Park Saône",c:"Lyon 9e",z:"Rhône",t:"Hôtel",w:1,lat:45.780,lng:4.810,cap:200,capN:"200 assis",beds:null,rooms:100,bedN:"100 chambres sur place",tr:"Traiteur sur place",pN:"Design contemporain, au bord de la Saône",u:"https://bridebook.com/fr/wedding-venues/h-tel-park-sa-ne-lyon-9-me-rh-ne-frAgWME98b"},
+{id:53,n:"Hôtel Mercure Lyon Est",c:"Chaponnay",z:"Rhône",t:"Hôtel",lat:45.620,lng:4.950,cap:null,beds:150,rooms:77,bedN:"77 chambres, 150 couchages",tr:"Traiteur sur place",u:"https://bridebook.com/fr/wedding-venues/h-tel-mercure-lyon-est-chaponnay-chaponnay-rh-ne-frnXK6bk8R"},
+{id:54,n:"La Plateforme",c:"Lyon (péniche sur le Rhône)",z:"Rhône",t:"Insolite",w:1,lat:45.740,lng:4.820,cap:400,capN:"20 à 400",beds:0,bedN:"pas d'hébergement",u:"https://bridebook.com/fr-en/wedding-venues/la-plateforme-lyon-rh-ne-frBXLRnaYz"},
+{id:55,n:"La Péniche",c:"Tain-l'Hermitage",z:"Drôme",t:"Insolite",w:1,lat:45.070,lng:4.840,cap:400,capN:"10 à 400",beds:0,near:true,bedN:"hébergements proches indiqués",u:"https://www.1001salles.com/mariage/la-peniche-all-your-events.aspx"},
+{id:56,n:"La Vinifacture",c:"Saint-Étienne",z:"Loire",t:"Salle moderne",lat:45.430,lng:4.400,cap:150,capN:"100 banquet / 150 cocktail",beds:0,bedN:"pas d'hébergement ; hôtels en ville",pN:"Ancienne cave urbaine, style atypique",u:"https://www.naboo.app/en-us/explorer/houses/la-vinifacture"},
+{id:57,n:"Maya Events",c:"Saint-Genest-Lerpt",z:"Loire",t:"Salle moderne",lat:45.450,lng:4.330,cap:400,capN:"30 à 400",beds:28,bedN:"28 max",p:500,pN:"dès 500 €, Parc du Pilat",u:""},
+{id:58,n:"Domaine de Villeroy",c:"Champdieu",z:"Loire",t:"Domaine",lat:45.600,lng:4.080,cap:200,capN:"10 à 200 (assis à confirmer)",beds:14,bedN:"14 max",p:400,pN:"dès 400 €, monts du Forez",u:""},
+{id:59,n:"Château de Montrouge",c:"Savigneux",z:"Loire",t:"Château",w:1,lat:45.615,lng:4.045,cap:500,capN:"10 à 500",beds:88,bedN:"88 max (couchages ou invités ? à vérifier)",pN:"Parc de 60 ha avec étang et bassins",u:""},
+{id:60,n:"Château de Magneux-Haute-Rive",c:"Magneux-Haute-Rive",z:"Loire",t:"Château",lat:45.550,lng:4.230,cap:800,capN:"10 à 800",beds:76,bedN:"76 max",u:""},
+{id:61,n:"Château du Rozier",c:"Feurs",z:"Loire",t:"Château",lat:45.740,lng:4.230,cap:150,capN:"10 à 150",beds:null,bedN:"non précisé",pN:"Parc boisé de 2 ha",u:""},
+{id:62,n:"Le Gil de France",c:"Montbrison",z:"Loire",t:"Hôtel",lat:45.607,lng:4.065,cap:150,capN:"150 cocktail",beds:62,rooms:31,bedN:"31 chambres, 62 couchages",u:"https://bridebook.com/fr/wedding-venues/le-gil-de-france-montbrison-loire-fr4Y7d1k8Z"},
+{id:63,n:"Domaine les Camiers",c:"Véranne",z:"Loire",t:"Domaine",lat:45.370,lng:4.580,cap:200,capN:"10 à 200",beds:41,bedN:"41 max, Parc du Pilat",p:3800,pN:"dès 3 800 €",u:""},
+{id:64,n:"Domaine de la Scie du May",c:"Doizieux",z:"Loire",t:"Domaine",lat:45.500,lng:4.500,cap:110,capN:"1 à 110",beds:20,bedN:"20 max",p:1290,pN:"dès 1 290 €, Parc du Pilat",u:""},
+{id:65,n:"Domaine de la Griottière",c:"Pélussin",z:"Loire",t:"Domaine",lat:45.400,lng:4.680,cap:120,capN:"20 à 120",beds:8,bedN:"8 max (à confirmer)",p:3000,pN:"dès 3 000 €, parc de 7 000 m² avec piscine",u:""},
+{id:66,n:"Domaine 1888",c:"Drôme des collines (commune à confirmer)",z:"Drôme",t:"Ferme / Gîtes",lat:45.120,lng:5.050,cap:200,capN:"150 assis / 200 cocktail (grange)",beds:14,rooms:4,bedN:"4 chambres, 14 pers.",pN:"Ferme en pierre restaurée, 30 min de Valence. Position très approximative",u:"https://www.mariages.net/domaine-mariage/domaine-1888--e360127"},
+{id:67,n:"Domaine Le Grenouillet",c:"Les Bérards (Drôme)",z:"Drôme",t:"Domaine",lat:44.930,lng:5.070,cap:100,capN:"100 assis",beds:70,bedN:"plus de 70 couchages + couchages d'appoint",pN:"20 min de Valence. Position approximative",u:"https://bridebook.com/fr/wedding-venues/domaine-le-grenouillet-les-b-rards-dr-me-frJ7XpVNYL"},
+{id:68,n:"Orangerie du Château de Montéléger",c:"Montéléger",z:"Drôme",t:"Château",lat:44.930,lng:4.950,cap:300,capN:"10 à 300",beds:94,bedN:"94 couchages (annonce voisine, à confirmer)",p:1100,pN:"dès 1 100 €",u:""},
+{id:69,n:"Domaine de Valsoyo",c:"Upie",z:"Drôme",t:"Domaine",lat:44.790,lng:4.970,cap:1000,capN:"10 à 1000",beds:52,bedN:"52 max",p:420,pN:"dès 420 €",u:""},
+{id:70,n:"La Bastie de la Jonchère",c:"Beauregard-Baret",z:"Drôme",t:"Château",lat:45.000,lng:5.080,cap:null,beds:null,bedN:"peu lisible",p:3500,pN:"dès 3 500 €, cour de 1 000 m²",u:""},
+{id:71,n:"Hameau de Valouse",c:"Valouse",z:"Drôme",t:"Domaine",lat:44.510,lng:5.160,cap:150,capN:"145 assis / 150 debout",beds:100,bedN:"100 couchages",pN:"Position approximative",u:"https://bridebook.com/fr/wedding-venues/hameau-de-valouse-valouse-dr-me-fry8JaaOYl"},
+{id:72,n:"LIMAJ",c:"Valence",z:"Drôme",t:"Salle moderne",lat:44.930,lng:4.890,cap:150,capN:"10 à 150",beds:null,bedN:"non mentionné",p:400,pN:"dès 400 €, espace design",u:""}
 ];
 const COL={Loire:"#c0392b",Rhône:"#2874a6",Beaujolais:"#8e44ad",Ain:"#1e8449",Drôme:"#d68910"};
-const S={zone:new Set(),type:new Set(),unk:true,hide:true,favs:false,sel:null};
+const S={zone:new Set(),type:new Set(),unk:true,hide:true,favs:false,water:false,sel:null};
+const rad=x=>x*Math.PI/180;
+const km=(a,b,c,d)=>{const h=Math.sin(rad(c-a)/2)**2+Math.cos(rad(a))*Math.cos(rad(c))*Math.sin(rad(d-b)/2)**2;return 12742*Math.asin(Math.sqrt(h))};
+
 let store={};
 try{store=JSON.parse(localStorage.getItem("lieux-mariage")||"{}")}catch(e){}
 const save=()=>{try{localStorage.setItem("lieux-mariage",JSON.stringify(store))}catch(e){}};
@@ -120,10 +169,16 @@ V.forEach(v=>{markers[v.id]=L.marker([v.lat,v.lng],{icon:L.divIcon({className:""
 function chips(box,key,vals){vals.forEach(x=>{const b=el("button",{class:"chip","aria-pressed":"false",onclick(){S[key].has(x)?S[key].delete(x):S[key].add(x);b.setAttribute("aria-pressed",S[key].has(x));render()}},x);$(box).append(b)})}
 chips("f-zone","zone",["Loire","Rhône","Beaujolais","Ain","Drôme"]);
 chips("f-type","type",[...new Set(V.map(v=>v.t))]);
-["unk","hide","favs"].forEach(k=>$(k).onclick=e=>{S[k]=!S[k];e.currentTarget.setAttribute("aria-pressed",S[k]);render()});
-["cap","beds","price","sort"].forEach(k=>$(k).oninput=render);
+["unk","hide","favs","water"].forEach(k=>$(k).onclick=e=>{S[k]=!S[k];e.currentTarget.setAttribute("aria-pressed",S[k]);render()});
+["cap","beds","price","dist","sort"].forEach(k=>$(k).oninput=render);
+$("copy").onclick=async e=>{
+  const txt=V.filter(v=>["fav","contact","visited"].includes((store[v.id]||{}).s)).map(v=>`- ${v.n} (${v.c}) [${STAT[store[v.id].s]}]${store[v.id].note?" : "+store[v.id].note:""}`).join("\n")||"Shortlist vide";
+  try{await navigator.clipboard.writeText(txt);e.currentTarget.textContent="Copié ✓"}catch(err){e.currentTarget.textContent="Copie impossible"}
+  setTimeout(()=>$("copy").textContent="Copier ma shortlist",2000);
+};
 
 const euro=n=>n.toLocaleString("fr-FR")+" €";
+const dist=v=>km(45.764,4.836,v.lat,v.lng);
 function pass(v){
   const cap=+$("cap").value,beds=+$("beds").value,price=+$("price").value,st=(store[v.id]||{}).s;
   if(S.zone.size&&!S.zone.has(v.z))return false;
@@ -131,12 +186,15 @@ function pass(v){
   if(v.cap==null?!S.unk:v.cap<cap)return false;
   if(v.beds==null?!S.unk:(v.beds<beds&&!v.near))return false;
   if(v.p!=null&&v.p>price)return false;
+  if(S.water&&!v.w)return false;
+  if(dist(v)>+$("dist").value)return false;
   if(S.hide&&st==="out")return false;
   if(S.favs&&st!=="fav")return false;
   return true;
 }
 function render(){
   $("v-cap").textContent=$("cap").value;$("v-beds").textContent=$("beds").value;
+  $("v-dist").textContent=+$("dist").value>=200?"illimité":$("dist").value+" km";
   $("v-price").textContent=+$("price").value>=12000?"illimité":euro(+$("price").value);
   const k=$("sort").value,num=x=>x==null?-1:x;
   const L2=V.filter(pass).sort((a,b)=>k==="name"?a.n.localeCompare(b.n):k==="price"?(a.p??1e9)-(b.p??1e9):num(b[k])-num(a[k]));
@@ -162,13 +220,16 @@ function card(v){
   if(v.cap==null)tags.append(q("capacité à vérifier"));
   if(v.beds==null)tags.append(q("couchages à vérifier"));
   if(v.near)tags.append(el("span",{class:"tag st"},"hébergement proche"));
+  if(v.w)tags.append(el("span",{class:"tag st"},"bord de l'eau"));
+  tags.append(el("span",{class:"tag"},`~${Math.round(dist(v))} km de Lyon`));
   if(d.s)tags.append(el("span",{class:"tag st"},STAT[d.s]));
   c.append(tags);
   if(open){
     const det=el("div",{class:"detail",onclick:e=>e.stopPropagation()});
     if(v.capN)det.append(el("p",{},"Capacité : "+v.capN));
     if(v.bedN)det.append(el("p",{},"Hébergement : "+v.bedN));
-    if(v.pN)det.append(el("p",{},"Prix : "+v.pN));
+    if(v.pN)det.append(el("p",{},"Prix / infos : "+v.pN));
+    if(v.tr)det.append(el("p",{},"Traiteur : "+v.tr));
     const q2=encodeURIComponent(`${v.n} ${v.c} mariage`);
     det.append(el("p",{},v.u?el("a",{href:v.u,target:"_blank",rel:"noopener"},"Fiche source "):"",el("a",{href:"https://www.google.com/search?q="+q2,target:"_blank",rel:"noopener"},"Rechercher le site officiel")));
     const sel=el("select",{onchange(e){store[v.id]={...d,s:e.target.value||undefined};save();render()}},el("option",{value:""},"Statut…"),...Object.entries(STAT).map(([k,t])=>{const o=el("option",{value:k},t);if(d.s===k)o.selected=true;return o}));
