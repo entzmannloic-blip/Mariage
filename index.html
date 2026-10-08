@@ -143,6 +143,12 @@ body[data-view=map] #listview{display:none}
 .sign .r svg{width:15px;height:15px;stroke-width:2.4;color:var(--ok)}
 .sign .r.off{color:var(--mute)}.sign .r.off svg{color:rgba(0,0,0,.25)}
 .tags{display:flex;gap:6px;flex-wrap:wrap}
+.srcb{position:absolute;left:12px;bottom:12px;max-width:calc(100% - 24px);background:rgba(255,255,255,.88);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);color:var(--ink);border-radius:99px;padding:5px 11px;font-weight:600;font-size:12px;display:flex;align-items:center;gap:6px;white-space:nowrap}
+.srcb i{width:7px;height:7px;border-radius:50%;background:var(--ok);flex:none}
+.srcb.u{background:#fff2dd;color:var(--warn)}.srcb.u i{background:#e08a00}
+.srcbox{background:var(--surface2);border-radius:16px;padding:14px 16px;display:grid;gap:6px;font-size:14.5px}
+.srcbox b{font-size:15px}.srcbox p{margin:0;color:var(--mute)}
+.srcbox.u{background:#fff2dd}.srcbox.u p,.srcbox.u b{color:var(--warn)}
 .tag{font-size:12.5px;font-weight:600;padding:4px 10px;border-radius:99px;background:rgba(0,0,0,.055);color:var(--mute)}
 .tag.q{background:#fff2dd;color:var(--warn)}
 .tag.ok{background:#e4f6e9;color:var(--ok)}
@@ -232,6 +238,7 @@ textarea::placeholder{color:var(--mute)}
       <div class="ph-head"><button class="xbtn" id="pclose" aria-label="Fermer"><span data-ic="x"></span></button><h2>Filtres</h2></div>
       <div class="pbody">
         <div class="sec"><h3>Département</h3><p class="hint">Où cherchez-vous ?</p><div class="chips" id="zchips" style="margin-top:0"></div></div>
+        <div class="sec"><h3>Source de l'annonce</h3><p class="hint">D'où viennent les informations du lieu.</p><div class="chips" id="schips" style="margin-top:0"></div></div>
         <div class="sec"><h3>Type de lieu</h3><p class="hint">Château, domaine, salle…</p><div id="types"></div></div>
         <div class="sec"><h3>Capacité et hébergement</h3>
           <div class="row2"><div class="lab">Invités minimum<small>Nombre de convives attendus</small></div><div class="step" data-for="cap" data-min="50" data-max="400" data-step="10"><button type="button" data-d="-1" aria-label="Moins">−</button><span id="v-cap">100</span><button type="button" data-d="1" aria-label="Plus">+</button></div><input type="hidden" id="cap" value="100"></div>
@@ -287,7 +294,10 @@ const euro=n=>n.toLocaleString("fr-FR")+" €";
 const hm=m=>m<60?m+" min":Math.floor(m/60)+"h"+String(m%60).padStart(2,"0");
 const plural=n=>n+(n>1?" lieux":" lieu");
 V.forEach((v,i)=>{v.id=i;v.k=v.n+"|"+v.c});
-const S={f:{ti:"",bo:"",ex:""},zone:new Set(),type:new Set(),unk:true,hide:true,favs:false,photo:false,sel:null,list:[],last:null};
+const SRC={mn:"Mariages.net",bb:"Bridebook",ao:"Autre annuaire",web:"Recherche web, non vérifié"};
+function srcOf(v){const u=v.u||"";if(/mariages.net/.test(u))return{k:"mn",l:"Mariages.net"};if(/bridebook.com/.test(u))return{k:"bb",l:"Bridebook"};if(/1001salles/.test(u))return{k:"ao",l:"1001salles"};if(/naboo/.test(u))return{k:"ao",l:"Naboo"};return{k:"web",l:"Recherche web"}}
+V.forEach(v=>v.src=srcOf(v));
+const S={f:{ti:"",bo:"",ex:""},zone:new Set(),type:new Set(),src:new Set(),unk:true,hide:true,favs:false,photo:false,sel:null,list:[],last:null};
 let store={};try{store=JSON.parse(localStorage.getItem("lieux-mariage-v2")||"{}")}catch(e){}
 const save=()=>{try{localStorage.setItem("lieux-mariage-v2",JSON.stringify(store))}catch(e){}};
 const st=v=>(store[v.k]||{}).s;
@@ -305,6 +315,7 @@ const pinIcon=v=>L.divIcon({className:"",html:`<div class="pin ${st(v)||""} ${S.
 /* filtres */
 const zoneCount=z=>V.filter(v=>v.z===z).length;
 Object.keys(V.reduce((m,v)=>(m[v.z]=1,m),{})).sort((a,b)=>zoneCount(b)-zoneCount(a)).forEach(z=>{const b=el("button",{class:"chip2","aria-pressed":"false",onclick(){S.zone.has(z)?S.zone.delete(z):S.zone.add(z);b.setAttribute("aria-pressed",S.zone.has(z));render()}},z);$("zchips").append(b)});
+Object.entries(SRC).forEach(([k,l])=>{const n=V.filter(v=>v.src.k===k).length;if(!n)return;const b=el("button",{class:"chip2","data-k":k,"aria-pressed":"false",onclick(){S.src.has(k)?S.src.delete(k):S.src.add(k);b.setAttribute("aria-pressed",S.src.has(k));render()}},l+" ("+n+")");$("schips").append(b)});
 [...new Set(V.map(v=>v.t))].sort().forEach(t=>{const b=el("button",{class:"chip2","aria-pressed":"false",onclick(){S.type.has(t)?S.type.delete(t):S.type.add(t);b.setAttribute("aria-pressed",S.type.has(t));render()}},t);$("types").append(b)});
 document.querySelectorAll(".segf").forEach(g=>g.addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;S.f[g.dataset.f]=b.dataset.v;g.querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed",x===b));render()}));
 ["unk","hide","favs","photo"].forEach(k=>$(k).onclick=e=>{S[k]=!S[k];e.currentTarget.setAttribute("aria-pressed",S[k]);render()});
@@ -321,7 +332,7 @@ $("pclose").onclick=()=>openPanel(false);
 document.querySelectorAll(".step").forEach(s=>s.addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;const inp=$(s.dataset.for);const n=Math.min(+s.dataset.max,Math.max(+s.dataset.min,+inp.value+(+b.dataset.d)*(+s.dataset.step)));inp.value=n;inp.dispatchEvent(new Event("input"))}));
 function syncSteps(){document.querySelectorAll(".step").forEach(s=>{const v=+$(s.dataset.for).value;s.children[0].disabled=v<=+s.dataset.min;s.children[2].disabled=v>=+s.dataset.max})}
 $("apply").onclick=()=>openPanel(false);$("scrim").onclick=()=>openPanel(false);
-$("reset").onclick=()=>{S.f={ti:"",bo:"",ex:""};document.querySelectorAll(".segf").forEach(g=>g.querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed",x.dataset.v==="")));S.zone.clear();S.type.clear();S.unk=true;S.hide=true;S.favs=false;S.photo=false;$("cap").value=100;$("beds").value=40;$("price").value=20000;$("tL").value=60;$("tS").value=90;document.querySelectorAll("#zchips .chip2,#types .chip2").forEach(b=>b.setAttribute("aria-pressed","false"));$("unk").setAttribute("aria-pressed","true");$("hide").setAttribute("aria-pressed","true");$("favs").setAttribute("aria-pressed","false");$("photo").setAttribute("aria-pressed","false");render()};
+$("reset").onclick=()=>{S.f={ti:"",bo:"",ex:""};document.querySelectorAll(".segf").forEach(g=>g.querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed",x.dataset.v==="")));S.zone.clear();S.type.clear();S.src.clear();S.unk=true;S.hide=true;S.favs=false;S.photo=false;$("cap").value=100;$("beds").value=40;$("price").value=20000;$("tL").value=60;$("tS").value=90;document.querySelectorAll("#zchips .chip2,#types .chip2,#schips .chip2").forEach(b=>b.setAttribute("aria-pressed","false"));$("unk").setAttribute("aria-pressed","true");$("hide").setAttribute("aria-pressed","true");$("favs").setAttribute("aria-pressed","false");$("photo").setAttribute("aria-pressed","false");render()};
 $("copy").onclick=async e=>{const t=V.filter(v=>["fav","contact","visited"].includes(st(v))).map(v=>`- ${v.n} (${v.c}) [${STAT[st(v)]}]${store[v.k].note?" : "+store[v.k].note:""}`).join("\n")||"Shortlist vide";const b=e.currentTarget;try{await navigator.clipboard.writeText(t);b.textContent="Copié ✓"}catch(x){b.textContent="Copie impossible"}setTimeout(()=>b.textContent="Copier ma shortlist",2000)};
 const view=v=>{document.body.dataset.view=v;$("vlist").setAttribute("aria-pressed",v==="list");$("vmap").setAttribute("aria-pressed",v==="map");if(v==="map")setTimeout(()=>{map.invalidateSize();fitAll()},60);else scrollTo(0,0)};
 $("vlist").onclick=()=>view("list");$("vmap").onclick=()=>view("map");
@@ -330,6 +341,7 @@ function pass(v){
   const cap=+$("cap").value,beds=+$("beds").value,price=+$("price").value,sL=+$("tL").value,sS=+$("tS").value;
   if(S.zone.size&&!S.zone.has(v.z))return false;
   if(S.type.size&&!S.type.has(v.t))return false;
+  if(S.src.size&&!S.src.has(v.src.k))return false;
   if(v.cap==null?!S.unk:v.cap<cap)return false;
   if(v.b==null?!S.unk:(v.b<beds&&!v.nr))return false;
   if(v.pm!=null&&price<20000&&v.pm>price)return false;
@@ -346,6 +358,7 @@ function pass(v){
 function syncUI(){
   document.querySelectorAll("#zchips .chip2").forEach(b=>b.setAttribute("aria-pressed",S.zone.has(b.textContent)));
   document.querySelectorAll("#types .chip2").forEach(b=>b.setAttribute("aria-pressed",S.type.has(b.textContent)));
+  document.querySelectorAll("#schips .chip2").forEach(b=>b.setAttribute("aria-pressed",S.src.has(b.dataset.k)));
   document.querySelectorAll(".segf").forEach(g=>g.querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed",x.dataset.v===S.f[g.dataset.f])));
   ["unk","hide","favs","photo"].forEach(k=>$(k).setAttribute("aria-pressed",S[k]));
 }
@@ -353,6 +366,7 @@ function activeList(){
   const a=[],yn={"1":"oui","0":"non",oui:"oui",non:"non"};
   S.zone.forEach(z=>a.push({l:z,rm(){S.zone.delete(z)}}));
   S.type.forEach(x=>a.push({l:x,rm(){S.type.delete(x)}}));
+  S.src.forEach(k=>a.push({l:"Source : "+SRC[k].replace(", non vérifié",""),rm(){S.src.delete(k)}}));
   [["ti","Traiteur imposé"],["bo","Droit de bouchon"],["ex","Extérieur"]].forEach(([k,n])=>{if(S.f[k]!=="")a.push({l:n+" : "+yn[S.f[k]],rm(){S.f[k]=""}})});
   const cap=+$("cap").value,beds=+$("beds").value,price=+$("price").value,tl=+$("tL").value,ts=+$("tS").value;
   if(cap!==100)a.push({l:cap+"+ invités",rm(){$("cap").value=100}});
@@ -398,7 +412,7 @@ function sign(v){
 function card(v){
   const d=store[v.k]||{};
   const open=()=>{S.last=document.activeElement;openModal(v.id)};
-  const ph=el("div",{class:"ph"},photo(v),el("span",{class:"tour"},v.t),el("button",{class:"star","aria-pressed":d.s==="fav","aria-label":d.s==="fav"?"Retirer des favoris":"Ajouter aux favoris",onclick(e){e.stopPropagation();setSt(v,"fav")}},ic("star")));
+  const ph=el("div",{class:"ph"},photo(v),el("span",{class:"tour"},v.t),el("span",{class:"srcb"+(v.u?"":" u"),title:"Source des informations"},el("i"),v.u?"Source : "+v.src.l:"Infos non vérifiées"),el("button",{class:"star","aria-pressed":d.s==="fav","aria-label":d.s==="fav"?"Retirer des favoris":"Ajouter aux favoris",onclick(e){e.stopPropagation();setSt(v,"fav")}},ic("star")));
   const stat=(val,l,q)=>el("div",{class:"stat"+(q?" q":"")},el("b",{},val),el("small",{},l));
   const tags=el("div",{class:"tags"});
   if(d.s&&d.s!=="fav")tags.append(el("span",{class:"tag st"},STAT[d.s]));
@@ -424,10 +438,12 @@ function openModal(id){
   if(v.u)links.append(lk(v.u,"Fiche de l'annuaire"));
   if(v.s)links.append(lk(v.s,"Site officiel"));
   links.append(lk("https://www.google.com/search?q="+q,"Rechercher sur Google"),lk(`https://www.google.com/maps/search/?api=1&query=${v.lat},${v.lng}`,"Voir sur Google Maps"),lk(`https://www.google.com/maps/dir/?api=1&origin=Lyon&destination=${v.lat},${v.lng}`,"Itinéraire depuis Lyon"),lk(`https://www.google.com/maps/dir/?api=1&origin=Saint-%C3%89tienne&destination=${v.lat},${v.lng}`,"Itinéraire depuis Saint-Étienne"));
+  const miss=[["capacité",v.cap],["couchages",v.b],["prix",v.pm]].filter(x=>x[1]==null).map(x=>x[0]);
+  const srcbox=el("div",{class:"srcbox"+(v.u?"":" u")},el("b",{},v.u?"Source des informations : "+v.src.l:"Informations non vérifiées"),el("p",{},v.u?"Fiche relevée le 08/10/2026 sur "+v.src.l+(v.s?", complétée par le site officiel du lieu.":".")+" À confirmer auprès du lieu.":"Ce lieu ne figure pas dans un annuaire que j'ai pu consulter : les informations viennent d'une recherche web et la position sur la carte est approximative. Tout est à confirmer auprès du lieu."),miss.length?el("p",{},"Non communiqué : "+miss.join(", ")+"."):null);
   const note=el("textarea",{placeholder:"Mes notes : contact, date de visite, devis…","aria-label":"Mes notes"});note.value=d.note||"";note.oninput=()=>{store[v.k]={...(store[v.k]||{}),note:note.value};save()};
   const ph=el("div",{class:"ph"},v.ph?el("img",{src:v.ph,referrerpolicy:"no-referrer",alt:v.n,onerror(e){e.target.replaceWith(noPhoto("Photo indisponible : voir la fiche de l'annuaire"))}}):noPhoto("Pas de photo disponible : voir la fiche de l'annuaire"));
   sh.append(el("div",{class:"hero"},ph,el("button",{class:"mb x",id:"mx",onclick:closeModal,"aria-label":"Fermer"},ic("x")),el("button",{class:"mb p",onclick(){step(-1)},"aria-label":"Lieu précédent"},ic("left")),el("button",{class:"mb n",onclick(){step(1)},"aria-label":"Lieu suivant"},ic("right"))),
-    el("div",{class:"mbody"},el("div",{},el("span",{class:"tour"},v.t),el("h2",{},v.n),el("div",{class:"where"},`${v.c} · ${v.z}`)),sign(v),v.w?el("div",{class:"warn"},v.w):null,dl,links,note),
+    el("div",{class:"mbody"},el("div",{},el("span",{class:"tour"},v.t),el("h2",{},v.n),el("div",{class:"where"},`${v.c} · ${v.z}`)),sign(v),v.w?el("div",{class:"warn"},v.w):null,srcbox,dl,links,note),
     el("div",{class:"dock"},el("div",{class:"seg",id:"dock"})));
   paintDock(v);
   $("modal").classList.add("on");document.body.style.overflow="hidden";sh.scrollTop=0;$("mx").focus({preventScroll:true});
