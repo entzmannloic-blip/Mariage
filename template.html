@@ -40,6 +40,13 @@ svg.i{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.75;str
 .count small{font-size:inherit;font-weight:inherit;opacity:1;margin-left:4px}
 #sort{flex:none;appearance:none;-webkit-appearance:none;background:rgba(0,0,0,.06) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%236e6e73' stroke-width='2.4' stroke-linecap='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") no-repeat right 10px center/15px;border:0;border-radius:18px;padding:0 30px 0 14px;min-height:46px;font-weight:600;font-size:15px;max-width:38vw}
 .chip{flex:none}
+.fchips{pointer-events:auto;display:flex;gap:8px;overflow-x:auto;padding:8px 2px 4px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.fchips::-webkit-scrollbar{display:none}
+.fchips:empty{display:none}
+.fc{flex:none;display:inline-flex;align-items:center;gap:8px;border:0;background:#fff;color:var(--ink);border-radius:99px;padding:0 8px 0 14px;min-height:38px;font-weight:600;font-size:14px;box-shadow:0 4px 14px -4px rgba(0,0,0,.3),0 0 0 .5px rgba(0,0,0,.1);white-space:nowrap}
+.fc .cx{width:22px;height:22px;border-radius:50%;background:rgba(0,0,0,.08);display:grid;place-items:center}
+.fc .cx svg{width:12px;height:12px;stroke-width:2.6}
+.fc:hover .cx{background:rgba(0,0,0,.16)}
 
 /* filtres : style Airbnb */
 #scrim{position:fixed;inset:0;z-index:90;background:rgba(0,0,0,.4);opacity:0;pointer-events:none;transition:opacity .3s var(--ease)}
@@ -207,7 +214,7 @@ textarea::placeholder{color:var(--mute)}
   <button class="btn" id="ftoggle" aria-expanded="false" aria-controls="panel"><span data-ic="filter"></span>Filtres<span class="dot" id="fdot"></span></button>
   <div class="count" aria-live="polite"><span id="count">0</span><small id="countl">lieux</small></div>
   <select id="sort" aria-label="Trier"><option value="name">Nom</option><option value="tL">Plus proche de Lyon</option><option value="tS">Plus proche de Saint-Étienne</option><option value="cap">Capacité</option><option value="beds">Couchages</option><option value="price">Prix</option></select>
-</div></header>
+</div><div class="fchips" id="fchips" aria-label="Filtres actifs"></div></header>
 <div class="shell">
   <main id="listview">
     
@@ -332,7 +339,34 @@ function pass(v){
   if(S.favs&&st(v)!=="fav")return false;
   return true;
 }
-function activeFilters(){let n=0;for(const k in S.f)if(S.f[k]!=="")n++;if(S.zone.size)n++;if(S.type.size)n++;if(+$("cap").value!==100)n++;if(+$("beds").value!==40)n++;if(+$("price").value!==20000)n++;if(+$("tL").value!==60||+$("tS").value!==90)n++;if(!S.unk)n++;if(S.photo)n++;if(S.favs)n++;if(!S.hide)n++;return n}
+function syncUI(){
+  document.querySelectorAll("#zchips .chip2").forEach(b=>b.setAttribute("aria-pressed",S.zone.has(b.textContent)));
+  document.querySelectorAll("#types .chip2").forEach(b=>b.setAttribute("aria-pressed",S.type.has(b.textContent)));
+  document.querySelectorAll(".segf").forEach(g=>g.querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed",x.dataset.v===S.f[g.dataset.f])));
+  ["unk","hide","favs","photo"].forEach(k=>$(k).setAttribute("aria-pressed",S[k]));
+}
+function activeList(){
+  const a=[],yn={"1":"oui","0":"non",oui:"oui",non:"non"};
+  S.zone.forEach(z=>a.push({l:z,rm(){S.zone.delete(z)}}));
+  S.type.forEach(x=>a.push({l:x,rm(){S.type.delete(x)}}));
+  [["ti","Traiteur imposé"],["bo","Droit de bouchon"],["ex","Extérieur"]].forEach(([k,n])=>{if(S.f[k]!=="")a.push({l:n+" : "+yn[S.f[k]],rm(){S.f[k]=""}})});
+  const cap=+$("cap").value,beds=+$("beds").value,price=+$("price").value,tl=+$("tL").value,ts=+$("tS").value;
+  if(cap!==100)a.push({l:cap+"+ invités",rm(){$("cap").value=100}});
+  if(beds!==40)a.push({l:beds+"+ couchages",rm(){$("beds").value=40}});
+  if(price<20000)a.push({l:"Budget ≤ "+euro(price),rm(){$("price").value=20000}});
+  if(tl!==60||ts!==90)a.push({l:"Lyon ≤ "+hm(tl)+" · St-É ≤ "+hm(ts),rm(){$("tL").value=60;$("tS").value=90}});
+  if(!S.unk)a.push({l:"Chiffres vérifiés",rm(){S.unk=true}});
+  if(S.photo)a.push({l:"Avec photo",rm(){S.photo=false}});
+  if(S.favs)a.push({l:"Favoris",rm(){S.favs=false}});
+  if(!S.hide)a.push({l:"Écartés inclus",rm(){S.hide=true}});
+  return a;
+}
+function renderChips(){
+  const box=$("fchips");box.replaceChildren();
+  activeList().forEach(f=>box.append(el("button",{class:"fc","aria-label":"Retirer le filtre "+f.l,onclick(){f.rm();syncUI();render()}},f.l,el("span",{class:"cx"},ic("x")))));
+}
+function activeFilters(){return activeList().length}
+function activeFiltersOld(){let n=0;for(const k in S.f)if(S.f[k]!=="")n++;if(S.zone.size)n++;if(S.type.size)n++;if(+$("cap").value!==100)n++;if(+$("beds").value!==40)n++;if(+$("price").value!==20000)n++;if(+$("tL").value!==60||+$("tS").value!==90)n++;if(!S.unk)n++;if(S.photo)n++;if(S.favs)n++;if(!S.hide)n++;return n}
 function render(){
   $("v-cap").textContent=$("cap").value;$("v-beds").textContent=$("beds").value;
   $("v-price").textContent=+$("price").value>=20000?"illimité":euro(+$("price").value);
@@ -343,6 +377,7 @@ function render(){
   $("count").textContent=L2.length;$("countl").textContent=L2.length>1?"lieux":"lieu";
   $("apply").textContent="Afficher "+plural(L2.length);
   syncSteps();
+  renderChips();setTimeout(setBarH,0);
   const n=activeFilters();$("fdot").textContent=n;$("fdot").classList.toggle("on",n>0);
   const list=$("list");list.replaceChildren();
   if(!L2.length)list.append(el("div",{class:"empty"},"Aucun lieu ne correspond. Baissez le nombre de couchages minimum ou allongez le trajet."));
