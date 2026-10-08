@@ -41,40 +41,57 @@ svg.i{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.75;str
 #sort{flex:none;appearance:none;-webkit-appearance:none;background:rgba(0,0,0,.06) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%236e6e73' stroke-width='2.4' stroke-linecap='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") no-repeat right 10px center/15px;border:0;border-radius:18px;padding:0 30px 0 14px;min-height:46px;font-weight:600;font-size:15px;max-width:38vw}
 .chip{flex:none}
 
-/* filtres : feuille sur mobile, panneau sur ordinateur */
-#scrim{position:fixed;inset:0;z-index:90;background:rgba(0,0,0,.32);opacity:0;pointer-events:none;transition:opacity .3s var(--ease)}
+/* filtres : style Airbnb */
+#scrim{position:fixed;inset:0;z-index:90;background:rgba(0,0,0,.4);opacity:0;pointer-events:none;transition:opacity .3s var(--ease)}
 #scrim.on{opacity:1;pointer-events:auto}
-.panel{position:fixed;left:0;right:0;bottom:0;z-index:95;max-height:88dvh;overflow:auto;background:var(--surface);border-radius:26px 26px 0 0;padding:0 18px 0;transform:translateY(105%);visibility:hidden;transition:transform .45s var(--ease),visibility 0s .45s;box-shadow:0 -20px 50px -20px rgba(0,0,0,.35)}
+.panel{position:fixed;left:0;right:0;bottom:0;z-index:95;height:92dvh;display:flex;flex-direction:column;background:#fff;border-radius:22px 22px 0 0;transform:translateY(105%);visibility:hidden;transition:transform .45s var(--ease),visibility 0s .45s;box-shadow:0 -20px 60px -20px rgba(0,0,0,.4)}
 .panel.open{transform:none;visibility:visible;transition:transform .45s var(--ease),visibility 0s}
-.ph-head{position:sticky;top:0;background:var(--surface);z-index:2;display:flex;align-items:center;justify-content:space-between;padding:18px 0 12px}
-.ph-head::before{content:"";position:absolute;top:7px;left:50%;width:38px;height:5px;margin-left:-19px;border-radius:3px;background:rgba(0,0,0,.18)}
-.ph-head h2{margin:0;font:700 22px/1.1 -apple-system,"SF Pro Display","Inter",sans-serif;letter-spacing:-.02em}
-.linkbtn{border:0;background:none;color:#0071e3;font-weight:600;padding:8px 0;min-height:40px}
-.pbody{display:grid;gap:22px;padding-bottom:16px}
-.fgroup{display:grid;gap:10px}
-.fgroup>b{font-weight:600;font-size:13px;color:var(--mute);letter-spacing:.01em}
-.chips{display:flex;flex-wrap:wrap;gap:8px}
-.chip2{border:0;background:rgba(0,0,0,.055);color:var(--ink);padding:9px 15px;border-radius:99px;font-weight:600;font-size:14.5px;min-height:40px}
-.chip2[aria-pressed=true]{background:var(--ink);color:#fff}
-.rng{display:grid;grid-template-columns:1fr auto;gap:0 12px;align-items:center}
-.rng span{font-size:15px}.rng output{font-weight:700;font-size:15px}
-input[type=range]{grid-column:1/-1;width:100%;appearance:none;-webkit-appearance:none;height:34px;background:transparent;margin:0}
-input[type=range]::-webkit-slider-runnable-track{height:5px;border-radius:3px;background:rgba(0,0,0,.12)}
-input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:28px;height:28px;border-radius:50%;background:#fff;border:0;margin-top:-11.5px;box-shadow:0 1px 4px rgba(0,0,0,.35),0 0 0 .5px rgba(0,0,0,.08)}
-input[type=range]::-moz-range-track{height:5px;border-radius:3px;background:rgba(0,0,0,.12)}
-input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;background:#fff;border:0;box-shadow:0 1px 4px rgba(0,0,0,.35)}
-.segf{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:rgba(0,0,0,.06);border-radius:11px;padding:2px}
-.segf button{border:0;background:transparent;border-radius:9px;min-height:38px;font-weight:600;font-size:14.5px;transition:background .25s var(--ease)}
-.segf button[aria-pressed=true]{background:#fff;box-shadow:0 1px 4px rgba(0,0,0,.18)}
-.group{background:var(--surface2);border-radius:16px;padding:2px 14px}
-.sw{display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:15.5px;min-height:50px;width:100%;background:none;border:0;padding:0;text-align:left}
+.ph-head{flex:none;position:relative;display:flex;align-items:center;justify-content:center;min-height:64px;border-bottom:1px solid var(--line)}
+.ph-head h2{margin:0;font:700 16px/1 -apple-system,"SF Pro Text","Inter",sans-serif}
+.xbtn{position:absolute;left:14px;top:50%;transform:translateY(-50%);width:36px;height:36px;border-radius:50%;border:0;background:none;display:grid;place-items:center}
+.xbtn:hover{background:rgba(0,0,0,.06)}
+.pbody{flex:1;overflow:auto;padding:0 24px;-webkit-overflow-scrolling:touch}
+.sec{padding:28px 0;border-bottom:1px solid var(--line)}
+.sec:last-child{border-bottom:0}
+.sec h3{margin:0 0 4px;font:600 22px/1.2 -apple-system,"SF Pro Display","Inter",sans-serif;letter-spacing:-.02em}
+.sec .hint{margin:0 0 16px;color:var(--mute);font-size:14.5px}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.chip2{border:1px solid rgba(0,0,0,.2);background:#fff;color:var(--ink);padding:11px 18px;border-radius:99px;font-weight:500;font-size:15px;min-height:46px;transition:border-color .2s,background .2s}
+.chip2:hover{border-color:var(--ink)}
+.chip2[aria-pressed=true]{border:2px solid var(--ink);background:#f7f7f7;padding:10px 17px;font-weight:600}
+#types{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+#types .chip2{border-radius:14px;text-align:left;padding:18px 16px;min-height:64px;font-weight:600}
+#types .chip2[aria-pressed=true]{padding:17px 15px}
+.segf{display:flex;gap:10px;margin-top:6px}
+.segf button{flex:1;border:1px solid rgba(0,0,0,.2);background:#fff;border-radius:99px;min-height:46px;font-weight:500;font-size:15px;transition:border-color .2s}
+.segf button:hover{border-color:var(--ink)}
+.segf button[aria-pressed=true]{border:2px solid var(--ink);background:#f7f7f7;font-weight:600}
+.row2{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 0}
+.row2+.row2{border-top:1px solid var(--line)}
+.row2 .lab{font-size:17px;font-weight:500}.row2 .lab small{display:block;color:var(--mute);font-size:14px;font-weight:400;margin-top:2px}
+.step{display:flex;align-items:center;gap:14px;flex:none}
+.step button{width:34px;height:34px;border-radius:50%;border:1px solid rgba(0,0,0,.35);background:#fff;font-size:20px;line-height:1;display:grid;place-items:center;padding:0;transition:border-color .2s,opacity .2s}
+.step button:hover{border-color:var(--ink)}
+.step button:disabled{opacity:.25;cursor:default}
+.step span{min-width:34px;text-align:center;font-weight:600;font-size:17px}
+.rng{display:grid;grid-template-columns:1fr auto;gap:0 12px;align-items:center;padding:6px 0 4px}
+.rng span{font-size:17px;font-weight:500}.rng output{font-weight:600;font-size:17px}
+.rng+.rng{margin-top:16px}
+input[type=range]{grid-column:1/-1;width:100%;appearance:none;-webkit-appearance:none;height:40px;background:transparent;margin:0}
+input[type=range]::-webkit-slider-runnable-track{height:4px;border-radius:2px;background:#222}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:32px;height:32px;border-radius:50%;background:#fff;border:1px solid rgba(0,0,0,.3);margin-top:-14px;box-shadow:0 2px 6px rgba(0,0,0,.2)}
+input[type=range]::-moz-range-track{height:4px;border-radius:2px;background:#222}
+input[type=range]::-moz-range-thumb{width:30px;height:30px;border-radius:50%;background:#fff;border:1px solid rgba(0,0,0,.3);box-shadow:0 2px 6px rgba(0,0,0,.2)}
+.sw{display:flex;align-items:center;justify-content:space-between;gap:16px;font-size:17px;min-height:64px;width:100%;background:none;border:0;padding:0;text-align:left}
 .sw+.sw{border-top:1px solid var(--line)}
-.sw i{width:51px;height:31px;border-radius:99px;background:rgba(0,0,0,.16);position:relative;flex:none;transition:background .25s var(--ease)}
-.sw i::after{content:"";position:absolute;top:2px;left:2px;width:27px;height:27px;border-radius:50%;background:#fff;box-shadow:0 2px 5px rgba(0,0,0,.3);transition:transform .3s var(--ease)}
-.sw[aria-pressed=true] i{background:#34c759}.sw[aria-pressed=true] i::after{transform:translateX(20px)}
-.pfoot{position:sticky;bottom:0;background:linear-gradient(to top,var(--surface) 72%,rgba(255,255,255,0));padding:14px 0 calc(16px + env(safe-area-inset-bottom));display:grid;gap:10px}
-.cta{border:0;background:var(--ink);color:#fff;border-radius:16px;min-height:52px;font-weight:700;font-size:16.5px}
-.btn2{border:0;background:rgba(0,0,0,.055);border-radius:14px;padding:10px 16px;font-weight:600;min-height:46px}
+.sw i{width:48px;height:32px;border-radius:99px;background:#b0b0b0;position:relative;flex:none;transition:background .25s var(--ease)}
+.sw i::after{content:"";position:absolute;top:2px;left:2px;width:28px;height:28px;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.3);transition:transform .3s var(--ease)}
+.sw[aria-pressed=true] i{background:#222}.sw[aria-pressed=true] i::after{transform:translateX(16px)}
+.outline{width:100%;border:1px solid var(--ink);background:#fff;border-radius:12px;min-height:50px;font-weight:600;font-size:16px;margin-top:6px}
+.pfoot{flex:none;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 24px calc(14px + env(safe-area-inset-bottom));border-top:1px solid var(--line);background:#fff}
+.clear{border:0;background:none;font-weight:600;font-size:16px;text-decoration:underline;padding:12px 4px;min-height:48px}
+.cta{border:0;background:#222;color:#fff;border-radius:12px;min-height:50px;padding:0 26px;font-weight:600;font-size:16px;transition:background .2s}
+.cta:hover{background:#000}
 
 /* layout */
 #listview{min-height:60vh}
@@ -172,13 +189,11 @@ textarea::placeholder{color:var(--mute)}
   #listview{overflow:auto;min-height:0}
   #mapview,body[data-view=map] #mapview{display:block;position:relative;inset:auto}
   body[data-view=map] #listview{display:block}
-  .nav,#scrim{display:none}
+  .nav{display:none}
   .leaflet-bottom.leaflet-right{margin-bottom:0}
   .list{padding-bottom:40px}.foot{padding-bottom:40px}
-  .panel{position:static;max-height:none;border-radius:0;transform:none;visibility:visible;box-shadow:none;border-bottom:1px solid var(--line);display:none;padding:0 16px}
-  .panel.open{display:block}
-  .ph-head::before,.pfoot .cta{display:none}
-  .pfoot{position:static;background:none;padding:0 0 16px}
+  .panel{left:50%;right:auto;bottom:auto;top:50%;width:min(640px,94vw);height:min(86vh,820px);border-radius:22px;transform:translate(-50%,-46%);opacity:0;transition:transform .4s var(--ease),opacity .25s,visibility 0s .4s}
+  .panel.open{transform:translate(-50%,-50%);opacity:1;transition:transform .4s var(--ease),opacity .25s,visibility 0s}
   #modal.on{align-items:center}
   .sheet{border-radius:28px;width:min(980px,94vw);height:auto;max-height:94vh}
   .sheet .ph{max-height:52vh}
@@ -195,34 +210,42 @@ textarea::placeholder{color:var(--mute)}
 </div></header>
 <div class="shell">
   <main id="listview">
-    <section class="panel" id="panel" aria-label="Filtres">
-      <div class="ph-head"><button class="linkbtn" id="reset">Réinitialiser</button><h2>Filtres</h2><button class="linkbtn" id="pclose">OK</button></div>
-      <div class="pbody">
-        <div class="fgroup"><b>Département</b><div class="chips" id="zchips"></div></div>
-        <div class="fgroup"><b>Type de lieu</b><div class="chips" id="types"></div></div>
-        <div class="fgroup"><b>Traiteur imposé</b><div class="segf" data-f="ti" role="group" aria-label="Traiteur imposé"><button data-v="" aria-pressed="true">Tous</button><button data-v="1" aria-pressed="false">Oui</button><button data-v="0" aria-pressed="false">Non</button></div></div>
-        <div class="fgroup"><b>Droit de bouchon</b><div class="segf" data-f="bo" role="group" aria-label="Droit de bouchon"><button data-v="" aria-pressed="true">Tous</button><button data-v="oui" aria-pressed="false">Oui</button><button data-v="non" aria-pressed="false">Non</button></div></div>
-        <div class="fgroup"><b>Extérieur (cérémonie en plein air)</b><div class="segf" data-f="ex" role="group" aria-label="Extérieur (cérémonie en plein air)"><button data-v="" aria-pressed="true">Tous</button><button data-v="1" aria-pressed="false">Oui</button><button data-v="0" aria-pressed="false">Non</button></div></div>
-        <label class="rng"><span>Invités minimum</span><output id="v-cap"></output><input id="cap" type="range" min="50" max="300" step="10" value="100"></label>
-        <label class="rng"><span>Couchages minimum (sur place ou proches)</span><output id="v-beds"></output><input id="beds" type="range" min="0" max="100" step="5" value="40"></label>
-        <label class="rng"><span>Budget maximum du lieu</span><output id="v-price"></output><input id="price" type="range" min="1000" max="20000" step="500" value="20000"></label>
-        <label class="rng"><span>Trajet maximum depuis Lyon</span><output id="v-tL"></output><input id="tL" type="range" min="15" max="120" step="5" value="60"></label>
-        <label class="rng"><span>Trajet maximum depuis Saint-Étienne</span><output id="v-tS"></output><input id="tS" type="range" min="15" max="120" step="5" value="90"></label>
-        <div class="group">
-          <button class="sw" id="unk" aria-pressed="true">Inclure les chiffres à vérifier<i></i></button>
-          <button class="sw" id="photo" aria-pressed="false">Seulement avec photo<i></i></button>
-          <button class="sw" id="favs" aria-pressed="false">Seulement mes favoris<i></i></button>
-          <button class="sw" id="hide" aria-pressed="true">Masquer les écartés<i></i></button>
-        </div>
-      </div>
-      <div class="pfoot"><button class="btn2" id="copy">Copier ma shortlist</button><button class="cta" id="apply">Afficher 0 lieux</button></div>
-    </section>
+    
     <div class="list" id="list"></div>
     <p class="foot">Un lieu s'affiche s'il est à moins de 1h de Lyon <b>ou</b> de 1h30 de Saint-Étienne (réglable). Trajets en voiture calculés avec OSRM depuis l'adresse du lieu, sans trafic. Données et photos relevées le 08/10/2026 sur Mariages.net et Bridebook : capacités, couchages et prix sont à confirmer auprès de chaque lieu.</p>
   </main>
   <section id="mapview" aria-label="Carte"><div id="map"></div></section>
 </div>
 <div id="scrim"></div>
+<section class="panel" id="panel" role="dialog" aria-modal="true" aria-label="Filtres">
+      <div class="ph-head"><button class="xbtn" id="pclose" aria-label="Fermer"><span data-ic="x"></span></button><h2>Filtres</h2></div>
+      <div class="pbody">
+        <div class="sec"><h3>Département</h3><p class="hint">Où cherchez-vous ?</p><div class="chips" id="zchips" style="margin-top:0"></div></div>
+        <div class="sec"><h3>Type de lieu</h3><p class="hint">Château, domaine, salle…</p><div id="types"></div></div>
+        <div class="sec"><h3>Capacité et hébergement</h3>
+          <div class="row2"><div class="lab">Invités minimum<small>Nombre de convives attendus</small></div><div class="step" data-for="cap" data-min="50" data-max="400" data-step="10"><button type="button" data-d="-1" aria-label="Moins">−</button><span id="v-cap">100</span><button type="button" data-d="1" aria-label="Plus">+</button></div><input type="hidden" id="cap" value="100"></div>
+          <div class="row2"><div class="lab">Couchages minimum<small>Sur place, ou hébergement proche signalé</small></div><div class="step" data-for="beds" data-min="0" data-max="150" data-step="10"><button type="button" data-d="-1" aria-label="Moins">−</button><span id="v-beds">40</span><button type="button" data-d="1" aria-label="Plus">+</button></div><input type="hidden" id="beds" value="40"></div>
+        </div>
+        <div class="sec"><h3>Trajet</h3><p class="hint">Un lieu s'affiche s'il est dans l'une des deux limites.</p>
+          <label class="rng"><span>Depuis Lyon</span><output id="v-tL"></output><input id="tL" type="range" min="15" max="120" step="5" value="60"></label>
+          <label class="rng"><span>Depuis Saint-Étienne</span><output id="v-tS"></output><input id="tS" type="range" min="15" max="120" step="5" value="90"></label>
+        </div>
+        <div class="sec"><h3>Budget</h3><p class="hint">Location du lieu, hors traiteur.</p>
+          <label class="rng"><span>Maximum</span><output id="v-price"></output><input id="price" type="range" min="1000" max="20000" step="500" value="20000"></label>
+        </div>
+        <div class="sec"><h3>Traiteur imposé</h3><div class="segf" data-f="ti" role="group"><button data-v="" aria-pressed="true">Tous</button><button data-v="1" aria-pressed="false">Oui</button><button data-v="0" aria-pressed="false">Non</button></div></div>
+        <div class="sec"><h3>Droit de bouchon</h3><div class="segf" data-f="bo" role="group"><button data-v="" aria-pressed="true">Tous</button><button data-v="oui" aria-pressed="false">Oui</button><button data-v="non" aria-pressed="false">Non</button></div></div>
+        <div class="sec"><h3>Extérieur</h3><p class="hint">Cérémonie possible en plein air.</p><div class="segf" data-f="ex" role="group"><button data-v="" aria-pressed="true">Tous</button><button data-v="1" aria-pressed="false">Oui</button><button data-v="0" aria-pressed="false">Non</button></div></div>
+        <div class="sec"><h3>Affichage</h3>
+          <button class="sw" id="unk" aria-pressed="true">Inclure les chiffres à vérifier<i></i></button>
+          <button class="sw" id="photo" aria-pressed="false">Seulement avec photo<i></i></button>
+          <button class="sw" id="favs" aria-pressed="false">Seulement mes favoris<i></i></button>
+          <button class="sw" id="hide" aria-pressed="true">Masquer les écartés<i></i></button>
+        </div>
+        <div class="sec"><h3>Ma shortlist</h3><p class="hint">Favoris, lieux à contacter et visités, avec vos notes.</p><button class="outline" id="copy">Copier ma shortlist</button></div>
+      </div>
+      <div class="pfoot"><button class="clear" id="reset">Tout effacer</button><button class="cta" id="apply">Afficher 0 lieux</button></div>
+    </section>
 <nav class="nav" aria-label="Affichage"><button id="vlist" aria-pressed="false"><span data-ic="list"></span>Liste</button><button id="vmap" aria-pressed="true"><span data-ic="map"></span>Carte</button></nav>
 <div id="modal" role="dialog" aria-modal="true" aria-label="Fiche du lieu"><div class="sheet" id="sheet"></div></div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
@@ -278,12 +301,15 @@ document.querySelectorAll(".segf").forEach(g=>g.addEventListener("click",e=>{con
 $("sort").addEventListener("change",render);
 function openPanel(o){
   $("panel").classList.toggle("open",o);$("ftoggle").setAttribute("aria-expanded",o);
-  if(!isDesktop()){$("scrim").classList.toggle("on",o);document.body.style.overflow=o?"hidden":""}
+  $("scrim").classList.toggle("on",o);document.body.style.overflow=o?"hidden":""
   if(!o&&document.body.dataset.view==="map")setTimeout(fitAll,50);
   setTimeout(setBarH,50);
 }
 $("ftoggle").onclick=()=>openPanel(!$("panel").classList.contains("open"));
-$("pclose").onclick=()=>openPanel(false);$("apply").onclick=()=>openPanel(false);$("scrim").onclick=()=>openPanel(false);
+$("pclose").onclick=()=>openPanel(false);
+document.querySelectorAll(".step").forEach(s=>s.addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;const inp=$(s.dataset.for);const n=Math.min(+s.dataset.max,Math.max(+s.dataset.min,+inp.value+(+b.dataset.d)*(+s.dataset.step)));inp.value=n;inp.dispatchEvent(new Event("input"))}));
+function syncSteps(){document.querySelectorAll(".step").forEach(s=>{const v=+$(s.dataset.for).value;s.children[0].disabled=v<=+s.dataset.min;s.children[2].disabled=v>=+s.dataset.max})}
+$("apply").onclick=()=>openPanel(false);$("scrim").onclick=()=>openPanel(false);
 $("reset").onclick=()=>{S.f={ti:"",bo:"",ex:""};document.querySelectorAll(".segf").forEach(g=>g.querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed",x.dataset.v==="")));S.zone.clear();S.type.clear();S.unk=true;S.hide=true;S.favs=false;S.photo=false;$("cap").value=100;$("beds").value=40;$("price").value=20000;$("tL").value=60;$("tS").value=90;document.querySelectorAll("#zchips .chip2,#types .chip2").forEach(b=>b.setAttribute("aria-pressed","false"));$("unk").setAttribute("aria-pressed","true");$("hide").setAttribute("aria-pressed","true");$("favs").setAttribute("aria-pressed","false");$("photo").setAttribute("aria-pressed","false");render()};
 $("copy").onclick=async e=>{const t=V.filter(v=>["fav","contact","visited"].includes(st(v))).map(v=>`- ${v.n} (${v.c}) [${STAT[st(v)]}]${store[v.k].note?" : "+store[v.k].note:""}`).join("\n")||"Shortlist vide";const b=e.currentTarget;try{await navigator.clipboard.writeText(t);b.textContent="Copié ✓"}catch(x){b.textContent="Copie impossible"}setTimeout(()=>b.textContent="Copier ma shortlist",2000)};
 const view=v=>{document.body.dataset.view=v;$("vlist").setAttribute("aria-pressed",v==="list");$("vmap").setAttribute("aria-pressed",v==="map");if(v==="map")setTimeout(()=>{map.invalidateSize();fitAll()},60);else scrollTo(0,0)};
@@ -316,6 +342,7 @@ function render(){
   S.list=L2;
   $("count").textContent=L2.length;$("countl").textContent=L2.length>1?"lieux":"lieu";
   $("apply").textContent="Afficher "+plural(L2.length);
+  syncSteps();
   const n=activeFilters();$("fdot").textContent=n;$("fdot").classList.toggle("on",n>0);
   const list=$("list");list.replaceChildren();
   if(!L2.length)list.append(el("div",{class:"empty"},"Aucun lieu ne correspond. Baissez le nombre de couchages minimum ou allongez le trajet."));
