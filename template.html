@@ -2,121 +2,258 @@
 <html lang="fr">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Lieux de mariage</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0a56b0">
+<title>Lieux de mariage · Lyon et Saint-Étienne</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Overpass:wght@400;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css">
 <style>
-:root{--bg:#faf7f2;--panel:#fff;--ink:#2b2622;--mute:#7a6f66;--line:#e6ded3;--accent:#9a4a3a;--accent-soft:#f3e2dc;--ok:#3f7a52;--warn:#b07a1e}
-@media (prefers-color-scheme:dark){:root{--bg:#1b1815;--panel:#25211d;--ink:#f0e9e0;--mute:#a89d92;--line:#3a342e;--accent:#e08b78;--accent-soft:#3d2923;--ok:#7fc093;--warn:#e0b25a}}
-*{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.45 system-ui,-apple-system,"Segoe UI",sans-serif}
-header{padding:12px 16px;border-bottom:1px solid var(--line);display:flex;flex-wrap:wrap;gap:4px 16px;align-items:baseline}
-h1{font:600 20px Georgia,serif;margin:0}
-header small{color:var(--mute)}
-.app{display:grid;grid-template-columns:minmax(360px,470px) 1fr;height:calc(100vh - 52px)}
-.side{overflow:auto;border-right:1px solid var(--line);background:var(--panel)}
-#map{height:100%;min-height:360px}
-.filters{padding:12px 16px;border-bottom:1px solid var(--line);display:grid;gap:10px}
-.row{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
-.lbl{font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--mute);width:100%}
-.chip{border:1px solid var(--line);background:transparent;color:var(--ink);padding:4px 11px;border-radius:99px;cursor:pointer;font:inherit;font-size:13px}
-.chip[aria-pressed=true]{background:var(--accent);border-color:var(--accent);color:#fff}
-label.rng{display:flex;justify-content:space-between;gap:10px;font-size:13px;width:100%}
-input[type=range]{width:100%;accent-color:var(--accent)}
-select,textarea{font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:4px 6px}
-.count{padding:8px 16px;color:var(--mute);font-size:13px}
-.card{padding:10px 16px;border-bottom:1px solid var(--line);cursor:pointer;display:flex;gap:12px}
-.card:hover,.card.sel{background:var(--accent-soft)}
-.thumb{width:96px;height:72px;flex:none;border-radius:8px;object-fit:cover;background:var(--line)}
-.noph{display:flex;align-items:center;justify-content:center;color:var(--mute);font-size:11px;text-align:center;padding:4px}
-.card h3{margin:0;font:600 15px Georgia,serif}
-.meta{color:var(--mute);font-size:12.5px}
-.stats{display:flex;flex-wrap:wrap;gap:2px 10px;margin:4px 0;font-size:12.5px}
-.tag{font-size:11px;padding:1px 7px;border-radius:99px;border:1px solid var(--line);color:var(--mute)}
-.tag.q{border-color:var(--warn);color:var(--warn)}
-.tag.st{border-color:var(--ok);color:var(--ok)}
-.tags{display:flex;flex-wrap:wrap;gap:4px}
-.empty{padding:30px 16px;color:var(--mute)}
-footer{padding:12px 16px;color:var(--mute);font-size:12px}
-.pin{width:14px;height:14px;border-radius:50%;border:2px solid #fff;box-shadow:0 0 0 1px rgba(0,0,0,.4)}
-.pop img{width:200px;height:130px;object-fit:cover;border-radius:6px;display:block}
-.pop button{margin-top:6px;cursor:pointer}
-#modal{position:fixed;inset:0;background:rgba(0,0,0,.72);display:none;align-items:center;justify-content:center;z-index:2000;padding:12px}
-#modal.on{display:flex}
-.sheet{background:var(--panel);color:var(--ink);border-radius:12px;max-width:920px;width:100%;max-height:94vh;overflow:auto;position:relative}
-.sheet img.big{width:100%;max-height:52vh;object-fit:cover;display:block;border-radius:12px 12px 0 0;background:var(--line)}
-.sheet .noph{height:160px;border-radius:12px 12px 0 0}
-.body{padding:14px 18px 18px}
-.body h2{font:600 22px Georgia,serif;margin:0 0 2px}
-.body dl{display:grid;grid-template-columns:130px 1fr;gap:4px 12px;margin:10px 0;font-size:14px}
-.body dt{color:var(--mute)}.body dd{margin:0}
-.links{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
-.links a{color:var(--accent);font-size:14px}
-.x,.nav{position:absolute;top:10px;background:rgba(0,0,0,.55);color:#fff;border:0;border-radius:50%;width:36px;height:36px;font-size:20px;cursor:pointer}
-.x{right:10px}.nav.p{left:10px;top:40%}.nav.n{right:10px;top:40%}
-textarea{width:100%;min-height:60px}
-@media (max-width:800px){.app{grid-template-columns:1fr;height:auto}#map{height:55vh;order:-1}.side{border-right:0}.body dl{grid-template-columns:1fr}.thumb{width:84px;height:64px}}
+:root{
+  --ground:#08131f;--surface:#0e1e30;--surface2:#142942;--line:#223a57;
+  --ink:#f3f6fb;--mute:#9db0c9;--sign:#0a56b0;--sign-ink:#fff;--tour:#7b4a2a;--go:#0b7a52;
+  --amber:#ffc20e;--amber-ink:#2a1d00;--danger:#ff7a7a;
+  --radius:14px;--ease:cubic-bezier(.16,1,.3,1);
+  color-scheme:dark;
+}
+@media (prefers-color-scheme:light){
+  :root{--ground:#eef1f5;--surface:#fff;--surface2:#e6ebf2;--line:#cdd6e2;--ink:#0f1c2e;--mute:#53647c;--sign:#0a56b0;--tour:#7b4a2a;--amber:#f2b400;--danger:#b3261e;color-scheme:light}
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{scrollbar-color:var(--line) transparent}
+body{margin:0;background:var(--ground);color:var(--ink);font:400 16px/1.45 Overpass,system-ui,sans-serif;font-variant-numeric:tabular-nums;overflow-x:hidden}
+::selection{background:var(--amber);color:var(--amber-ink)}
+:focus-visible{outline:2.5px solid var(--amber);outline-offset:2px;border-radius:6px}
+button{font:inherit;color:inherit;cursor:pointer}
+svg.i{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round;flex:none}
+::-webkit-scrollbar{width:10px;height:10px}::-webkit-scrollbar-thumb{background:var(--line);border-radius:8px;border:2px solid transparent;background-clip:content-box}
+
+/* header = autoroute blue gantry */
+.bar{position:sticky;top:0;z-index:30;background:var(--sign);color:var(--sign-ink);padding:max(10px,env(safe-area-inset-top)) 16px 0;box-shadow:0 6px 18px -8px rgba(0,0,0,.55)}
+.bar .top{display:flex;align-items:center;gap:12px;justify-content:space-between;padding-bottom:10px}
+.bar h1{font:800 21px/1.1 Overpass,sans-serif;margin:0;letter-spacing:.005em}
+.bar .sub{font-size:13px;opacity:.88;margin-top:2px}
+.count{font:800 26px/1 Overpass;text-align:right}.count small{display:block;font:600 11px/1.2 Overpass;opacity:.85}
+.zones{display:flex;gap:8px;overflow-x:auto;padding:0 0 12px;scrollbar-width:none;margin:0 -16px;padding-inline:16px}
+.zones::-webkit-scrollbar{display:none}
+.chip{flex:none;border:1.5px solid rgba(255,255,255,.55);background:transparent;color:#fff;padding:7px 14px;border-radius:99px;font-weight:600;font-size:14px;min-height:36px;transition:background .2s var(--ease)}
+.chip[aria-pressed=true]{background:#fff;color:var(--sign);border-color:#fff}
+.tools{display:flex;gap:8px;align-items:center;padding:0 0 12px}
+.btn{display:inline-flex;align-items:center;gap:8px;border:1.5px solid rgba(255,255,255,.55);background:transparent;color:#fff;border-radius:10px;padding:8px 14px;min-height:40px;font-weight:600}
+.btn[aria-expanded=true]{background:#fff;color:var(--sign)}
+.tools select{margin-left:auto;background:rgba(0,0,0,.18);color:#fff;border:1.5px solid rgba(255,255,255,.55);border-radius:10px;padding:8px 10px;min-height:40px;font:600 14px Overpass}
+.tools select option{background:#0a56b0;color:#fff}
+
+/* filters */
+.panel{background:var(--surface);border-bottom:1px solid var(--line);padding:16px;display:grid;gap:16px}
+.panel[hidden]{display:none}
+.fgroup{display:grid;gap:8px}
+.fgroup>b{font-weight:700;font-size:13px;color:var(--mute);text-transform:uppercase;letter-spacing:.06em}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip2{border:1.5px solid var(--line);background:transparent;color:var(--ink);padding:7px 13px;border-radius:99px;font-weight:600;font-size:14px;min-height:38px}
+.chip2[aria-pressed=true]{background:var(--tour);border-color:var(--tour);color:#fff}
+.rng{display:grid;grid-template-columns:1fr auto;gap:2px 12px;align-items:center}
+.rng span{font-size:14px}.rng output{font:800 15px Overpass;color:var(--amber)}
+input[type=range]{grid-column:1/-1;width:100%;appearance:none;height:28px;background:transparent;accent-color:var(--amber)}
+input[type=range]::-webkit-slider-runnable-track{height:6px;border-radius:4px;background:var(--line)}
+input[type=range]::-webkit-slider-thumb{appearance:none;width:24px;height:24px;border-radius:50%;background:var(--amber);border:3px solid var(--ground);margin-top:-9px}
+input[type=range]::-moz-range-track{height:6px;border-radius:4px;background:var(--line)}
+input[type=range]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;background:var(--amber);border:3px solid var(--ground)}
+.sw{display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:15px;min-height:40px;width:100%;background:none;border:0;padding:0;text-align:left}
+.sw i{width:46px;height:26px;border-radius:99px;background:var(--line);position:relative;flex:none;transition:background .2s var(--ease)}
+.sw i::after{content:"";position:absolute;top:3px;left:3px;width:20px;height:20px;border-radius:50%;background:var(--ink);transition:transform .25s var(--ease)}
+.sw[aria-pressed=true] i{background:var(--go)}.sw[aria-pressed=true] i::after{transform:translateX(20px);background:#fff}
+.actions{display:flex;gap:10px;flex-wrap:wrap}
+.btn2{border:1.5px solid var(--line);background:var(--surface2);border-radius:10px;padding:9px 14px;font-weight:600;min-height:42px}
+
+/* layout */
+.shell{display:block}
+#listview{min-height:60vh}
+#mapview{display:none;position:fixed;inset:var(--barh,150px) 0 0 0;z-index:10}
+body[data-view=map] #mapview{display:block}
+body[data-view=map] #listview{display:none}
+#map{position:absolute;inset:0;background:var(--surface)}
+.leaflet-container{font-family:Overpass,sans-serif;background:var(--surface)}
+.nav{position:fixed;z-index:60;left:50%;bottom:calc(14px + env(safe-area-inset-bottom));transform:translateX(-50%);display:flex;background:var(--sign);padding:4px;border-radius:99px;box-shadow:0 10px 30px -6px rgba(0,0,0,.6),inset 0 0 0 1.5px rgba(255,255,255,.7)}
+.nav button{border:0;background:transparent;color:#fff;border-radius:99px;padding:10px 20px;min-height:44px;display:flex;align-items:center;gap:8px;font-weight:700}
+.nav button[aria-pressed=true]{background:#fff;color:var(--sign)}
+.mapback{position:fixed;z-index:61}
+.list{padding:14px 14px 96px;display:grid;gap:18px}
+
+/* card */
+.card{background:var(--surface);border-radius:var(--radius);overflow:hidden;box-shadow:0 14px 30px -18px rgba(0,0,0,.7);cursor:pointer;display:flex;flex-direction:column;transition:transform .35s var(--ease)}
+.card:hover{transform:translateY(-2px)}
+.ph{position:relative;aspect-ratio:3/2;background:var(--surface2)}
+.ph img{width:100%;height:100%;object-fit:cover;display:block}
+.noph{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;color:var(--mute);font-size:14px;background:var(--surface2)}
+.noph svg{width:34px;height:34px}
+.tour{position:absolute;left:10px;top:10px;background:var(--tour);color:#fff;border-radius:6px;padding:5px 10px;font-weight:700;font-size:13px;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.85)}
+.star{position:absolute;right:10px;top:10px;width:44px;height:44px;border-radius:50%;border:0;background:rgba(8,19,31,.62);backdrop-filter:blur(8px);color:#fff;display:grid;place-items:center}
+.star[aria-pressed=true]{background:var(--amber);color:var(--amber-ink)}
+.star[aria-pressed=true] svg{fill:currentColor}
+.cbody{padding:14px 16px 16px;display:grid;gap:12px}
+.cbody h3{margin:0;font:800 20px/1.2 Overpass}
+.where{color:var(--mute);font-size:14px;margin-top:2px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);border-block:1px solid var(--line)}
+.stat{padding:9px 6px;text-align:center;border-right:1px solid var(--line)}
+.stat:last-child{border-right:0}
+.stat svg{color:var(--mute);margin-bottom:2px}
+.stat b{display:block;font:800 18px/1.1 Overpass}
+.stat small{font-size:12px;color:var(--mute)}
+.stat.q b{color:var(--amber)}
+.sign{background:var(--sign);color:var(--sign-ink);border-radius:9px;padding:9px 12px;box-shadow:inset 0 0 0 2px var(--sign),inset 0 0 0 3.5px rgba(255,255,255,.92);display:grid;gap:3px}
+.sign .r{display:grid;grid-template-columns:18px 1fr auto auto;gap:8px;align-items:center;font-weight:700}
+.sign .r .t{font:800 17px Overpass}.sign .r .k{font-size:12.5px;opacity:.85;min-width:46px;text-align:right}
+.sign .r.off{opacity:.55}
+.sign svg{width:16px;height:16px;stroke-width:2.4}
+.tags{display:flex;gap:6px;flex-wrap:wrap}
+.tag{font-size:12px;font-weight:600;padding:3px 9px;border-radius:6px;border:1.5px solid var(--line);color:var(--mute)}
+.tag.q{border-color:var(--amber);color:var(--amber)}
+.tag.ok{border-color:var(--go);color:#5fd6a2}
+.tag.st{background:var(--amber);border-color:var(--amber);color:var(--amber-ink)}
+.empty{padding:40px 20px;text-align:center;color:var(--mute)}
+.foot{padding:8px 20px 120px;color:var(--mute);font-size:13px;max-width:70ch}
+
+/* modal */
+#modal{position:fixed;inset:0;z-index:100;display:none;background:rgba(3,8,14,.78)}
+#modal.on{display:flex;align-items:flex-end;justify-content:center}
+.sheet{background:var(--surface);width:100%;max-height:100dvh;height:100dvh;overflow:auto;position:relative;animation:up .38s var(--ease)}
+@keyframes up{from{transform:translateY(24px);opacity:0}to{transform:none;opacity:1}}
+.sheet .ph{aspect-ratio:3/2;max-height:56vh;width:100%}
+.mb{position:absolute;top:calc(10px + env(safe-area-inset-top));width:44px;height:44px;border-radius:50%;border:0;background:rgba(8,19,31,.66);backdrop-filter:blur(8px);color:#fff;display:grid;place-items:center;z-index:2}
+.hero{position:relative}.mb.x{right:10px}.mb.p{left:10px;top:50%;transform:translateY(-50%)}.mb.n{right:10px;top:50%;transform:translateY(-50%)}
+.mbody{padding:18px 18px 130px;display:grid;gap:18px;max-width:880px;margin:0 auto}
+.mbody h2{margin:0;font:800 28px/1.15 Overpass}
+dl{display:grid;grid-template-columns:120px 1fr;gap:10px 14px;margin:0}
+dt{color:var(--mute);font-size:14px}dd{margin:0;font-size:15.5px}
+.warn{border:1.5px solid var(--amber);border-radius:10px;padding:10px 12px;color:var(--amber);font-size:14px}
+.links{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px}
+.links a{display:flex;align-items:center;justify-content:space-between;gap:8px;text-decoration:none;color:var(--ink);background:var(--surface2);border-radius:10px;padding:12px 14px;font-weight:600;min-height:48px}
+.links a svg{color:var(--mute)}
+textarea{width:100%;min-height:90px;background:var(--ground);color:var(--ink);border:1.5px solid var(--line);border-radius:12px;padding:12px;font:inherit;resize:vertical}
+.dock{position:sticky;bottom:0;z-index:3;background:linear-gradient(to top,var(--surface) 70%,transparent);padding:18px 14px calc(14px + env(safe-area-inset-bottom));margin-top:-110px}
+.seg{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;background:var(--sign);padding:4px;border-radius:14px;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.7);max-width:560px;margin:0 auto}
+.seg button{border:0;background:transparent;color:#fff;border-radius:10px;padding:10px 4px;min-height:48px;font-weight:700;font-size:13.5px;display:grid;justify-items:center;gap:2px}
+.seg button[aria-pressed=true]{background:#fff;color:var(--sign)}
+.seg button[aria-pressed=true][data-s=fav]{background:var(--amber);color:var(--amber-ink)}
+.seg svg{width:18px;height:18px}
+
+/* map pins */
+.pin{width:18px;height:18px;border-radius:5px;background:var(--tour);border:2px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,.5)}
+.pin.fav{background:var(--amber);border-color:#2a1d00;transform:scale(1.25)}
+.pin.contact{background:var(--sign)}.pin.visited{background:var(--go)}
+.pin.sel{outline:3px solid var(--amber);outline-offset:2px}
+.pop{width:210px}.pop img{width:100%;height:130px;object-fit:cover;border-radius:8px;display:block;margin-bottom:6px}
+.pop b{font-weight:800}.pop button{margin-top:8px;width:100%;background:var(--sign);color:#fff;border:0;border-radius:8px;padding:9px;font-weight:700}
+.leaflet-popup-content-wrapper{border-radius:12px}
+@media (prefers-color-scheme:dark){.leaflet-tile-pane{filter:invert(1) hue-rotate(205deg) saturate(.55) brightness(.92) contrast(.95)}.leaflet-container a.leaflet-popup-close-button{color:#333}.leaflet-bar a{background:var(--surface);color:var(--ink);border-color:var(--line)}}
+
+/* desktop */
+@media (min-width:1000px){
+  .shell{display:grid;grid-template-columns:minmax(440px,540px) 1fr;height:calc(100vh - var(--barh,150px));}
+  .bar{position:relative}
+  #listview{overflow:auto;min-height:0}
+  #mapview,body[data-view=map] #mapview{display:block;position:relative;inset:auto}
+  body[data-view=map] #listview{display:block}
+  .nav{display:none}
+  .list{padding-bottom:40px}
+  .foot{padding-bottom:40px}
+  #modal.on{align-items:center}
+  .sheet{border-radius:20px;width:min(980px,94vw);height:auto;max-height:94vh}
+  .bar{padding-inline:24px}.zones{margin:0 -24px;padding-inline:24px}
+}
+@media (max-width:640px){dl{grid-template-columns:1fr;gap:2px}dt{margin-top:8px}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 </head>
-<body>
-<header><h1>Lieux de mariage · autour de Lyon et Saint-Étienne</h1><small id="sub"></small></header>
-<div class="app">
-  <div class="side">
-    <div class="filters">
-      <div class="row"><span class="lbl">Département / zone</span><span id="f-zone" class="row"></span></div>
-      <div class="row"><span class="lbl">Type de lieu</span><span id="f-type" class="row"></span></div>
-      <label class="rng"><span>Invités minimum</span><b id="v-cap"></b><input id="cap" type="range" min="50" max="300" step="10" value="100"></label>
-      <label class="rng"><span>Couchages minimum (sur place, ou hébergement proche signalé)</span><b id="v-beds"></b><input id="beds" type="range" min="0" max="100" step="5" value="40"></label>
-      <label class="rng"><span>Budget maximum du lieu</span><b id="v-price"></b><input id="price" type="range" min="1000" max="20000" step="500" value="20000"></label>
-      <label class="rng"><span>Trajet max depuis Lyon</span><b id="v-tL"></b><input id="tL" type="range" min="15" max="120" step="5" value="60"></label>
-      <label class="rng"><span>Trajet max depuis Saint-Étienne</span><b id="v-tS"></b><input id="tS" type="range" min="15" max="120" step="5" value="90"></label>
-      <div class="row">
-        <button class="chip" id="unk" aria-pressed="true">Inclure les chiffres à vérifier</button>
-        <button class="chip" id="hide" aria-pressed="true">Masquer les écartés</button>
-        <button class="chip" id="favs" aria-pressed="false">Favoris seulement</button>
-        <button class="chip" id="photo" aria-pressed="false">Avec photo</button>
-        <button class="chip" id="copy">Copier ma shortlist</button>
-        <select id="sort"><option value="name">Tri : nom</option><option value="cap">Tri : capacité</option><option value="beds">Tri : couchages</option><option value="price">Tri : prix</option><option value="tL">Tri : trajet Lyon</option><option value="tS">Tri : trajet Saint-Étienne</option></select>
+<body data-view="list">
+<header class="bar" id="bar">
+  <div class="top"><div><h1>Lieux de mariage</h1><div class="sub">Autour de Lyon et de Saint-Étienne</div></div><div class="count"><span id="count">0</span><small id="countl">lieux</small></div></div>
+  <div class="zones" id="zones" role="group" aria-label="Départements"></div>
+  <div class="tools"><button class="btn" id="ftoggle" aria-expanded="false" aria-controls="panel"><span data-ic="filter"></span>Filtres</button>
+    <select id="sort" aria-label="Trier"><option value="name">Nom</option><option value="tL">Plus proche de Lyon</option><option value="tS">Plus proche de Saint-Étienne</option><option value="cap">Capacité</option><option value="beds">Couchages</option><option value="price">Prix</option></select></div>
+</header>
+<div class="shell">
+  <main id="listview">
+    <section class="panel" id="panel" hidden>
+      <div class="fgroup"><b>Type de lieu</b><div class="chips" id="types"></div></div>
+      <label class="rng"><span>Invités minimum</span><output id="v-cap"></output><input id="cap" type="range" min="50" max="300" step="10" value="100"></label>
+      <label class="rng"><span>Couchages minimum (sur place ou hébergement proche)</span><output id="v-beds"></output><input id="beds" type="range" min="0" max="100" step="5" value="40"></label>
+      <label class="rng"><span>Budget maximum du lieu</span><output id="v-price"></output><input id="price" type="range" min="1000" max="20000" step="500" value="20000"></label>
+      <label class="rng"><span>Trajet maximum depuis Lyon</span><output id="v-tL"></output><input id="tL" type="range" min="15" max="120" step="5" value="60"></label>
+      <label class="rng"><span>Trajet maximum depuis Saint-Étienne</span><output id="v-tS"></output><input id="tS" type="range" min="15" max="120" step="5" value="90"></label>
+      <div class="fgroup">
+        <button class="sw" id="unk" aria-pressed="true">Inclure les chiffres à vérifier<i></i></button>
+        <button class="sw" id="photo" aria-pressed="false">Seulement les lieux avec photo<i></i></button>
+        <button class="sw" id="favs" aria-pressed="false">Seulement mes favoris<i></i></button>
+        <button class="sw" id="hide" aria-pressed="true">Masquer les écartés<i></i></button>
       </div>
-    </div>
-    <div class="count"><span id="count"></span></div>
-    <div id="list"></div>
-    <footer>Les lieux s'affichent s'ils sont à moins de 1h de Lyon <b>ou</b> de 1h30 de Saint-Étienne (réglable). Trajets en voiture calculés avec OSRM depuis les adresses des lieux, hors trafic. Données et photos relevées le 08/10/2026 sur Mariages.net et Bridebook : à confirmer auprès de chaque lieu (capacités, couchages et prix évoluent). Un point approximatif sur la carte = centre de la commune.</footer>
-  </div>
-  <div id="map"></div>
+      <div class="actions"><button class="btn2" id="reset">Réinitialiser</button><button class="btn2" id="copy">Copier ma shortlist</button></div>
+    </section>
+    <div class="list" id="list"></div>
+    <p class="foot">Un lieu s'affiche s'il est à moins de 1h de Lyon <b>ou</b> de 1h30 de Saint-Étienne (réglable). Trajets en voiture calculés avec OSRM depuis l'adresse du lieu, sans trafic. Données et photos relevées le 08/10/2026 sur Mariages.net et Bridebook : capacités, couchages et prix sont à confirmer auprès de chaque lieu.</p>
+  </main>
+  <section id="mapview" aria-label="Carte"><div id="map"></div></section>
 </div>
-<div id="modal"><div class="sheet" id="sheet"></div></div>
+<nav class="nav" aria-label="Affichage"><button id="vlist" aria-pressed="true"><span data-ic="list"></span>Liste</button><button id="vmap" aria-pressed="false"><span data-ic="map"></span>Carte</button></nav>
+<div id="modal" role="dialog" aria-modal="true" aria-label="Fiche du lieu"><div class="sheet" id="sheet"></div></div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
 <script>
-// n nom, c commune, z zone, t type, tL/tS minutes Lyon/Saint-Étienne, cap invités max, b couchages sur place, nr hébergement proche signalé
+// n nom, c commune, z zone, t type, tL/tS minutes Lyon/Saint-Étienne, dL/dS km, cap invités max, b couchages sur place, nr hébergement proche signalé
 const V=__DATA__;
-const ZC={Loire:"#c0392b",Rhône:"#2874a6",Beaujolais:"#8e44ad",Ain:"#1e8449",Drôme:"#d68910","Haute-Loire":"#16a085",Isère:"#7f8c8d","Saône-et-Loire":"#6c3483",Ardèche:"#a04000","Puy-de-Dôme":"#2e4053",Savoie:"#117864"};
-const STAT={fav:"★ Favori",contact:"À contacter",visited:"Visité",out:"Écarté"};
-V.forEach((v,i)=>{v.id=i;v.k=v.n+"|"+v.c});
-const S={zone:new Set(),type:new Set(),unk:true,hide:true,favs:false,photo:false,sel:null,list:[]};
-let store={};try{store=JSON.parse(localStorage.getItem("lieux-mariage-v2")||"{}")}catch(e){}
-const save=()=>{try{localStorage.setItem("lieux-mariage-v2",JSON.stringify(store))}catch(e){}};
+const STAT={fav:"Favori",contact:"À contacter",visited:"Visité",out:"Écarté"};
+const IC={
+ people:'<circle cx="9" cy="8" r="3.2"/><path d="M3 20c.4-3.4 3-5.4 6-5.4s5.6 2 6 5.4"/><circle cx="17" cy="9" r="2.5"/><path d="M17.5 14.2c2.2.2 3.8 1.9 4 4.3"/>',
+ bed:'<path d="M3 19V6"/><path d="M3 15h18v4"/><path d="M21 15v-3a3 3 0 0 0-3-3h-7v6"/><circle cx="7" cy="11.5" r="1.8"/>',
+ euro:'<path d="M18 6.5A7 7 0 1 0 18 17.5"/><path d="M4 10.5h9M4 13.5h9"/>',
+ star:'<path d="m12 3.5 2.6 5.4 5.9.8-4.3 4.1 1 5.9L12 16.9 6.8 19.7l1-5.9-4.3-4.1 5.9-.8z"/>',
+ arrow:'<path d="M5 12h14M13 6l6 6-6 6"/>',
+ x:'<path d="M6 6l12 12M18 6 6 18"/>',
+ left:'<path d="m15 5-7 7 7 7"/>',right:'<path d="m9 5 7 7-7 7"/>',
+ filter:'<path d="M4 7h16M7 12h10M10 17h4"/>',
+ map:'<path d="M9 4 3 6v14l6-2 6 2 6-2V4l-6 2z"/><path d="M9 4v14M15 6v14"/>',
+ list:'<path d="M8 6h12M8 12h12M8 18h12M4 6h.01M4 12h.01M4 18h.01"/>',
+ ext:'<path d="M14 4h6v6M20 4l-9 9M18 14v5H5V6h5"/>',
+ img:'<rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="10" r="1.6"/><path d="m4 18 5-5 4 4 3-3 4 4"/>',
+ phone:'<path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a1 1 0 0 1-1 1A16 16 0 0 1 4 5a1 1 0 0 1 1-1z"/>',
+ check:'<path d="m5 12 5 5 9-10"/>',
+ pen:'<path d="m4 20 4-1 11-11-3-3L5 16z"/>',
+ eye:'<path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/>',
+ ban:'<circle cx="12" cy="12" r="8"/><path d="m6.5 6.5 11 11"/>'
+};
+const ic=(n,cls="")=>{const s=document.createElementNS("http://www.w3.org/2000/svg","svg");s.setAttribute("viewBox","0 0 24 24");s.setAttribute("class","i "+cls);s.setAttribute("aria-hidden","true");s.innerHTML=IC[n];return s};
+document.querySelectorAll("[data-ic]").forEach(e=>e.prepend(ic(e.dataset.ic)));
 const $=id=>document.getElementById(id);
-const el=(t,a={},...k)=>{const e=document.createElement(t);for(const[x,y]of Object.entries(a))x==="class"?e.className=y:x.startsWith("on")?e.addEventListener(x.slice(2),y):e.setAttribute(x,y);k.flat().forEach(c=>e.append(c));return e};
+const el=(t,a={},...k)=>{const e=document.createElement(t);for(const[x,y]of Object.entries(a))x==="class"?e.className=y:x.startsWith("on")?e.addEventListener(x.slice(2),y):e.setAttribute(x,y);k.flat().forEach(c=>c!=null&&e.append(c));return e};
 const euro=n=>n.toLocaleString("fr-FR")+" €";
 const hm=m=>m<60?m+" min":Math.floor(m/60)+"h"+String(m%60).padStart(2,"0");
+V.forEach((v,i)=>{v.id=i;v.k=v.n+"|"+v.c});
+const S={zone:new Set(),type:new Set(),unk:true,hide:true,favs:false,photo:false,sel:null,list:[],last:null};
+let store={};try{store=JSON.parse(localStorage.getItem("lieux-mariage-v2")||"{}")}catch(e){}
+const save=()=>{try{localStorage.setItem("lieux-mariage-v2",JSON.stringify(store))}catch(e){}};
 const st=v=>(store[v.k]||{}).s;
+const setSt=(v,s)=>{store[v.k]={...(store[v.k]||{}),s:(store[v.k]||{}).s===s?undefined:s};save();render();if($("modal").classList.contains("on"))paintDock(v)};
 
-const map=L.map("map").setView([45.6,4.7],9);
+/* map */
+const dark=()=>!matchMedia("(prefers-color-scheme: light)").matches;
+const map=L.map("map",{zoomControl:false}).setView([45.6,4.7],9);
+L.control.zoom({position:"topright"}).addTo(map);
 L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png",{maxZoom:18,attribution:"© OpenStreetMap"}).addTo(map);
-L.circleMarker([45.7578,4.832],{radius:7,color:"#000",fillColor:"#fff",fillOpacity:1,weight:2}).bindTooltip("Lyon").addTo(map);
-L.circleMarker([45.4397,4.3872],{radius:7,color:"#000",fillColor:"#fff",fillOpacity:1,weight:2}).bindTooltip("Saint-Étienne").addTo(map);
-const markers=V.map(v=>{
-  const m=L.marker([v.lat,v.lng],{icon:L.divIcon({className:"",html:`<div class="pin" style="background:${ZC[v.z]||"#555"}"></div>`,iconSize:[14,14],iconAnchor:[7,7]})});
-  m.on("click",()=>{const box=el("div",{class:"pop"});if(v.ph)box.append(el("img",{src:v.ph,referrerpolicy:"no-referrer",loading:"lazy",alt:""}));box.append(el("b",{},v.n),el("div",{},`${v.c} · ${v.z}`),el("button",{onclick(){openModal(v.id)}},"Voir la fiche et la photo"));m.bindPopup(box).openPopup()});
-  return m;
-});
-function chips(box,key,vals){vals.forEach(x=>{const b=el("button",{class:"chip","aria-pressed":"false",onclick(){S[key].has(x)?S[key].delete(x):S[key].add(x);b.setAttribute("aria-pressed",S[key].has(x));render()}},x);$(box).append(b)})}
-chips("f-zone","zone",Object.keys(ZC).filter(z=>V.some(v=>v.z===z)));
-chips("f-type","type",[...new Set(V.map(v=>v.t))].sort());
+[["Lyon",45.7578,4.832],["Saint-Étienne",45.4397,4.3872]].forEach(([n,a,b])=>L.marker([a,b],{interactive:false,icon:L.divIcon({className:"",html:`<div style="background:#0a56b0;color:#fff;font:800 12px Overpass;padding:3px 8px;border-radius:6px;box-shadow:inset 0 0 0 1.5px #fff;white-space:nowrap;transform:translate(-50%,-50%)">${n}</div>`,iconSize:[0,0]})}).addTo(map));
+const markers=V.map(v=>L.marker([v.lat,v.lng],{keyboard:false}).on("click",()=>{const box=el("div",{class:"pop"});if(v.ph)box.append(el("img",{src:v.ph,referrerpolicy:"no-referrer",loading:"lazy",alt:""}));box.append(el("b",{},v.n),el("div",{},`${v.c} · ${v.z}`),el("button",{onclick(){openModal(v.id)}},"Voir la fiche"));L.popup({closeButton:false}).setLatLng([v.lat,v.lng]).setContent(box).openOn(map)}));
+const pinIcon=v=>L.divIcon({className:"",html:`<div class="pin ${st(v)||""} ${S.sel===v.id?"sel":""}"></div>`,iconSize:[18,18],iconAnchor:[9,9]});
+
+/* filters UI */
+Object.keys(V.reduce((m,v)=>(m[v.z]=1,m),{})).sort((a,b)=>V.filter(v=>v.z===b).length-V.filter(v=>v.z===a).length).forEach(z=>{const b=el("button",{class:"chip","aria-pressed":"false",onclick(){S.zone.has(z)?S.zone.delete(z):S.zone.add(z);b.setAttribute("aria-pressed",S.zone.has(z));render()}},z);$("zones").append(b)});
+[...new Set(V.map(v=>v.t))].sort().forEach(t=>{const b=el("button",{class:"chip2","aria-pressed":"false",onclick(){S.type.has(t)?S.type.delete(t):S.type.add(t);b.setAttribute("aria-pressed",S.type.has(t));render()}},t);$("types").append(b)});
 ["unk","hide","favs","photo"].forEach(k=>$(k).onclick=e=>{S[k]=!S[k];e.currentTarget.setAttribute("aria-pressed",S[k]);render()});
 ["cap","beds","price","tL","tS","sort"].forEach(k=>$(k).oninput=render);
-$("copy").onclick=async e=>{const t=V.filter(v=>["fav","contact","visited"].includes(st(v))).map(v=>`- ${v.n} (${v.c}) [${STAT[st(v)]}]${store[v.k].note?" : "+store[v.k].note:""}`).join("\n")||"Shortlist vide";try{await navigator.clipboard.writeText(t);e.currentTarget.textContent="Copié ✓"}catch(x){e.currentTarget.textContent="Copie impossible"}setTimeout(()=>$("copy").textContent="Copier ma shortlist",2000)};
+$("ftoggle").onclick=()=>{const o=$("panel").hidden;$("panel").hidden=!o;$("ftoggle").setAttribute("aria-expanded",o)};
+$("reset").onclick=()=>{S.zone.clear();S.type.clear();S.unk=true;S.hide=true;S.favs=false;S.photo=false;$("cap").value=100;$("beds").value=40;$("price").value=20000;$("tL").value=60;$("tS").value=90;document.querySelectorAll("#zones .chip,#types .chip2").forEach(b=>b.setAttribute("aria-pressed","false"));$("unk").setAttribute("aria-pressed","true");$("hide").setAttribute("aria-pressed","true");$("favs").setAttribute("aria-pressed","false");$("photo").setAttribute("aria-pressed","false");render()};
+$("copy").onclick=async e=>{const t=V.filter(v=>["fav","contact","visited"].includes(st(v))).map(v=>`- ${v.n} (${v.c}) [${STAT[st(v)]}]${store[v.k].note?" : "+store[v.k].note:""}`).join("\n")||"Shortlist vide";const b=e.currentTarget;try{await navigator.clipboard.writeText(t);b.textContent="Copié ✓"}catch(x){b.textContent="Copie impossible"}setTimeout(()=>b.textContent="Copier ma shortlist",2000)};
+const view=v=>{document.body.dataset.view=v;$("vlist").setAttribute("aria-pressed",v==="list");$("vmap").setAttribute("aria-pressed",v==="map");if(v==="map")setTimeout(()=>{map.invalidateSize();fitAll()},60);else scrollTo(0,0)};
+$("vlist").onclick=()=>view("list");$("vmap").onclick=()=>view("map");
 
 function pass(v){
   const cap=+$("cap").value,beds=+$("beds").value,price=+$("price").value,sL=+$("tL").value,sS=+$("tS").value;
@@ -138,51 +275,60 @@ function render(){
   const k=$("sort").value,num=x=>x==null?-1:x;
   const L2=V.filter(pass).sort((a,b)=>k==="name"?a.n.localeCompare(b.n,"fr"):k==="price"?(a.pm??1e9)-(b.pm??1e9):k==="tL"?a.tL-b.tL:k==="tS"?a.tS-b.tS:num(b[k==="cap"?"cap":"b"])-num(a[k==="cap"?"cap":"b"]));
   S.list=L2;
-  $("count").textContent=`${L2.length} lieu${L2.length>1?"x":""} sur ${V.length}`;
+  $("count").textContent=L2.length;$("countl").textContent=L2.length>1?"lieux":"lieu";
   const list=$("list");list.replaceChildren();
-  if(!L2.length)list.append(el("div",{class:"empty"},"Aucun lieu avec ces critères. Baissez les couchages, ou élargissez le trajet."));
+  if(!L2.length)list.append(el("div",{class:"empty"},"Aucun lieu ne correspond. Baissez le nombre de couchages minimum ou allongez le trajet."));
   L2.forEach(v=>list.append(card(v)));
-  markers.forEach((m,i)=>L2.includes(V[i])?m.addTo(map):m.remove());
+  markers.forEach((m,i)=>{if(L2.includes(V[i])){m.setIcon(pinIcon(V[i]));m.addTo(map)}else m.remove()});
 }
-function thumb(v,cls){return v.ph?el("img",{class:cls,src:v.ph,loading:"lazy",referrerpolicy:"no-referrer",alt:v.n,onerror(e){e.target.replaceWith(el("div",{class:cls+" noph"},"photo indisponible"))}}):el("div",{class:cls+" noph"},"pas de photo")}
+function photo(v){return v.ph?el("img",{src:v.ph,loading:"lazy",decoding:"async",referrerpolicy:"no-referrer",alt:v.n,onerror(e){e.target.replaceWith(noPhoto("Photo indisponible"))}}):noPhoto("Pas de photo")}
+function noPhoto(t){return el("div",{class:"noph"},ic("img"),t)}
+function sign(v,big){
+  const sL=+$("tL").value,sS=+$("tS").value;
+  const row=(n,t,d,ok)=>el("div",{class:"r"+(ok?"":" off")},ic("arrow"),el("span",{},n),el("span",{class:"t"},hm(t)),el("span",{class:"k"},d+" km"));
+  return el("div",{class:"sign"},row("Lyon",v.tL,v.dL,v.tL<=sL),row("Saint-Étienne",v.tS,v.dS,v.tS<=sS));
+}
 function card(v){
-  const c=el("div",{class:"card"+(S.sel===v.id?" sel":""),onclick(){S.sel=v.id;map.flyTo([v.lat,v.lng],Math.max(map.getZoom(),11));openModal(v.id)}});
   const d=store[v.k]||{};
-  const stt=el("div",{class:"stats"});
-  stt.append(el("span",{},"👥 ",el("b",{},v.cap!=null?""+v.cap:"?")),el("span",{},"🛏 ",el("b",{},v.b!=null?""+v.b:"?")),el("span",{},"💶 ",el("b",{},v.pm!=null?euro(v.pm):"?")),el("span",{},`🚗 Lyon ${hm(v.tL)} · St-É ${hm(v.tS)}`));
+  const ph=el("div",{class:"ph"},photo(v),el("span",{class:"tour"},v.t),el("button",{class:"star","aria-pressed":d.s==="fav","aria-label":d.s==="fav"?"Retirer des favoris":"Ajouter aux favoris",onclick(e){e.stopPropagation();setSt(v,"fav")}},ic("star")));
+  const stat=(i,val,l,q)=>el("div",{class:"stat"+(q?" q":"")},ic(i),el("b",{},val),el("small",{},l));
   const tags=el("div",{class:"tags"});
-  if(v.cap==null)tags.append(el("span",{class:"tag q"},"capacité à vérifier"));
-  if(v.b==null)tags.append(el("span",{class:"tag q"},"couchages à vérifier"));
-  if(v.w)tags.append(el("span",{class:"tag q"},"données contradictoires"));
-  if(v.nr)tags.append(el("span",{class:"tag st"},"hébergement proche"));
-  if(d.s)tags.append(el("span",{class:"tag st"},STAT[d.s]));
-  c.append(thumb(v,"thumb"),el("div",{},el("h3",{},(d.s==="fav"?"★ ":"")+v.n),el("div",{class:"meta"},`${v.c} · ${v.z} · ${v.t}`),stt,tags));
-  return c;
+  if(d.s&&d.s!=="fav")tags.append(el("span",{class:"tag st"},STAT[d.s]));
+  if(v.nr)tags.append(el("span",{class:"tag ok"},"Hébergement proche"));
+  if(v.w)tags.append(el("span",{class:"tag q"},"Données contradictoires"));
+  const body=el("div",{class:"cbody"},el("div",{},el("h3",{},v.n),el("div",{class:"where"},`${v.c} · ${v.z}`)),
+    el("div",{class:"stats"},stat("people",v.cap!=null?v.cap:"?","invités",v.cap==null),stat("bed",v.b!=null?v.b:"?","couchages",v.b==null),stat("euro",v.pm!=null?euro(v.pm):"?","dès",v.pm==null)),
+    sign(v),tags.children.length?tags:null);
+  return el("article",{class:"card",tabindex:"0",role:"button","aria-label":"Ouvrir la fiche de "+v.n,onclick(){S.last=document.activeElement;openModal(v.id)},onkeydown(e){if(e.key==="Enter"||e.key===" "){e.preventDefault();S.last=e.currentTarget;openModal(v.id)}}},ph,body);
 }
+function paintDock(v){const dock=$("dock");if(!dock)return;dock.replaceChildren();[["fav","star"],["contact","phone"],["visited","check"],["out","ban"]].forEach(([s,i])=>dock.append(el("button",{"data-s":s,"aria-pressed":st(v)===s,onclick(){setSt(v,s)}},ic(i),STAT[s])))}
 function openModal(id){
-  const v=V[id],d=store[v.k]||{};S.sel=id;
+  const v=V[id];S.sel=id;const d=store[v.k]||{};
   const sh=$("sheet");sh.replaceChildren();
   const q=encodeURIComponent(`${v.n} ${v.c} mariage`);
-  const rows=[["Adresse",v.a+(v.pr?"":" (position approximative)")],["Trajet",`Lyon ${hm(v.tL)} (${v.dL} km) · Saint-Étienne ${hm(v.tS)} (${v.dS} km)`],["Capacité",v.cn||(v.cap!=null?v.cap+" invités":"non communiquée")],["Hébergement",v.bn||"non communiqué"],["Prix / infos",v.pn||"non communiqué"],["Traiteur",v.tr],["Extérieur",v.x]];
-  if(v.w)rows.push(["Attention",v.w]);
+  const rows=[["Adresse",v.a+(v.pr?"":" (position approximative)")],["Capacité",v.cn||(v.cap!=null?v.cap+" invités":"non communiquée")],["Hébergement",v.bn||"non communiqué"],["Prix et infos",v.pn||"non communiqué"],["Traiteur",v.tr],["Extérieur",v.x]];
   const dl=el("dl");rows.filter(r=>r[1]).forEach(r=>dl.append(el("dt",{},r[0]),el("dd",{},r[1])));
+  const lk=(h,t)=>el("a",{href:h,target:"_blank",rel:"noopener"},t,ic("ext"));
   const links=el("div",{class:"links"});
-  if(v.u)links.append(el("a",{href:v.u,target:"_blank",rel:"noopener"},"Fiche annuaire ↗"));
-  if(v.s)links.append(el("a",{href:v.s,target:"_blank",rel:"noopener"},"Site officiel ↗"));
-  links.append(el("a",{href:"https://www.google.com/search?q="+q,target:"_blank",rel:"noopener"},"Rechercher sur Google ↗"),el("a",{href:`https://www.google.com/maps/search/?api=1&query=${v.lat},${v.lng}`,target:"_blank",rel:"noopener"},"Voir sur Google Maps ↗"),el("a",{href:`https://www.google.com/maps/dir/?api=1&origin=Lyon&destination=${v.lat},${v.lng}`,target:"_blank",rel:"noopener"},"Itinéraire depuis Lyon ↗"),el("a",{href:`https://www.google.com/maps/dir/?api=1&origin=Saint-Étienne&destination=${v.lat},${v.lng}`,target:"_blank",rel:"noopener"},"Itinéraire depuis Saint-Étienne ↗"));
-  const sel=el("select",{onchange(e){store[v.k]={...(store[v.k]||{}),s:e.target.value||undefined};save();render()}},el("option",{value:""},"Statut…"),...Object.entries(STAT).map(([k,t])=>{const o=el("option",{value:k},t);if(d.s===k)o.selected=true;return o}));
-  const note=el("textarea",{placeholder:"Mes notes (contact, visite, devis…)"});note.value=d.note||"";note.oninput=()=>{store[v.k]={...(store[v.k]||{}),note:note.value};save()};
-  const img=v.ph?el("img",{class:"big",src:v.ph,referrerpolicy:"no-referrer",alt:v.n,onerror(e){e.target.replaceWith(el("div",{class:"noph"},"photo indisponible : voir la fiche annuaire"))}}):el("div",{class:"noph"},"Pas de photo disponible : voir la fiche annuaire");
-  sh.append(img,el("button",{class:"x",onclick:closeModal,"aria-label":"Fermer"},"×"),el("button",{class:"nav p",onclick(){step(-1)},"aria-label":"Précédent"},"‹"),el("button",{class:"nav n",onclick(){step(1)},"aria-label":"Suivant"},"›"),el("div",{class:"body"},el("h2",{},v.n),el("div",{class:"meta"},`${v.c} · ${v.z} · ${v.t}`),dl,links,sel,note));
-  $("modal").classList.add("on");sh.scrollTop=0;
+  if(v.u)links.append(lk(v.u,"Fiche de l'annuaire"));
+  if(v.s)links.append(lk(v.s,"Site officiel"));
+  links.append(lk("https://www.google.com/search?q="+q,"Rechercher sur Google"),lk(`https://www.google.com/maps/search/?api=1&query=${v.lat},${v.lng}`,"Voir sur Google Maps"),lk(`https://www.google.com/maps/dir/?api=1&origin=Lyon&destination=${v.lat},${v.lng}`,"Itinéraire depuis Lyon"),lk(`https://www.google.com/maps/dir/?api=1&origin=Saint-%C3%89tienne&destination=${v.lat},${v.lng}`,"Itinéraire depuis Saint-Étienne"));
+  const note=el("textarea",{placeholder:"Mes notes : contact, date de visite, devis…","aria-label":"Mes notes"});note.value=d.note||"";note.oninput=()=>{store[v.k]={...(store[v.k]||{}),note:note.value};save()};
+  const ph=el("div",{class:"ph"},v.ph?el("img",{src:v.ph,referrerpolicy:"no-referrer",alt:v.n,onerror(e){e.target.replaceWith(noPhoto("Photo indisponible : voir la fiche de l'annuaire"))}}):noPhoto("Pas de photo disponible : voir la fiche de l'annuaire"));
+  sh.append(el("div",{class:"hero"},ph,el("button",{class:"mb x",id:"mx",onclick:closeModal,"aria-label":"Fermer"},ic("x")),el("button",{class:"mb p",onclick(){step(-1)},"aria-label":"Lieu précédent"},ic("left")),el("button",{class:"mb n",onclick(){step(1)},"aria-label":"Lieu suivant"},ic("right"))),
+    el("div",{class:"mbody"},el("div",{},el("span",{class:"tour",style:"position:static;display:inline-block;margin-bottom:10px"},v.t),el("h2",{},v.n),el("div",{class:"where"},`${v.c} · ${v.z}`)),sign(v),v.w?el("div",{class:"warn"},v.w):null,dl,links,note),
+    el("div",{class:"dock"},el("div",{class:"seg",id:"dock"})));
+  paintDock(v);
+  $("modal").classList.add("on");document.body.style.overflow="hidden";sh.scrollTop=0;$("mx").focus({preventScroll:true});
 }
-function step(dir){const l=S.list;if(!l.length)return;const i=l.findIndex(x=>x.id===S.sel);const n=l[(i+dir+l.length)%l.length];openModal(n.id);map.panTo([n.lat,n.lng])}
-function closeModal(){$("modal").classList.remove("on");render()}
+function step(dir){const l=S.list;if(!l.length)return;const i=l.findIndex(x=>x.id===S.sel);openModal(l[(i+dir+l.length)%l.length].id)}
+function closeModal(){$("modal").classList.remove("on");document.body.style.overflow="";render();if(S.last&&document.contains(S.last))S.last.focus({preventScroll:true})}
 $("modal").addEventListener("click",e=>{if(e.target.id==="modal")closeModal()});
 document.addEventListener("keydown",e=>{if(!$("modal").classList.contains("on"))return;if(e.key==="Escape")closeModal();if(e.key==="ArrowRight")step(1);if(e.key==="ArrowLeft")step(-1)});
-render();
-const fitAll=()=>{map.invalidateSize();const f=S.list.map(v=>[v.lat,v.lng]);if(f.length)map.fitBounds(f,{padding:[30,30]})};
-window.addEventListener("load",()=>setTimeout(fitAll,100));
+const fitAll=()=>{map.invalidateSize();const f=S.list.map(v=>[v.lat,v.lng]);if(f.length)map.fitBounds(f,{padding:[40,40]})};
+const setBarH=()=>document.documentElement.style.setProperty("--barh",$("bar").offsetHeight+"px");
+render();setBarH();addEventListener("resize",setBarH);
+addEventListener("load",()=>setTimeout(()=>{setBarH();fitAll()},150));
 </script>
 </body>
 </html>
