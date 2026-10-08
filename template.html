@@ -191,12 +191,13 @@ textarea::placeholder{color:var(--mute)}
 /* ordinateur */
 @media (min-width:1000px){
   .shell{display:grid;grid-template-columns:minmax(440px,540px) 1fr;height:calc(100vh - var(--barh,150px))}
-  .bar{position:relative;padding:12px 24px;pointer-events:auto;background:rgba(255,255,255,.7);border-bottom:1px solid var(--line)}
-  .pill{max-width:500px;box-shadow:0 0 0 .5px rgba(0,0,0,.1),0 4px 14px -6px rgba(0,0,0,.18)}
+  .bar{display:flex;align-items:center;gap:14px;position:relative;padding:12px 24px;pointer-events:auto;background:rgba(255,255,255,.7);border-bottom:1px solid var(--line)}
+  .pill{flex:none;width:500px;max-width:500px;box-shadow:0 0 0 .5px rgba(0,0,0,.1),0 4px 14px -6px rgba(0,0,0,.18)}
   #listview{overflow:auto;min-height:0}
   #mapview,body[data-view=map] #mapview{display:block;position:relative;inset:auto}
   body[data-view=map] #listview{display:block}
   .nav{display:none}
+  .fchips{flex:1;min-width:0;padding:4px 2px}
   .leaflet-bottom.leaflet-right{margin-bottom:0}
   .list{padding-bottom:40px}.foot{padding-bottom:40px}
   .panel{left:50%;right:auto;bottom:auto;top:50%;width:min(640px,94vw);height:min(86vh,820px);border-radius:22px;transform:translate(-50%,-46%);opacity:0;transition:transform .4s var(--ease),opacity .25s,visibility 0s .4s}
