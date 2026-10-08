@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#0a56b0">
+<meta name="theme-color" content="#08131f">
 <title>Lieux de mariage · Lyon et Saint-Étienne</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,21 +29,22 @@ button{font:inherit;color:inherit;cursor:pointer}
 svg.i{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round;flex:none}
 ::-webkit-scrollbar{width:10px;height:10px}::-webkit-scrollbar-thumb{background:var(--line);border-radius:8px;border:2px solid transparent;background-clip:content-box}
 
-/* header = autoroute blue gantry */
-.bar{position:sticky;top:0;z-index:30;background:var(--sign);color:var(--sign-ink);padding:max(10px,env(safe-area-inset-top)) 16px 0;box-shadow:0 6px 18px -8px rgba(0,0,0,.55)}
-.bar .top{display:flex;align-items:center;gap:12px;justify-content:space-between;padding-bottom:10px}
-.bar h1{font:800 21px/1.1 Overpass,sans-serif;margin:0;letter-spacing:.005em}
-.bar .sub{font-size:13px;opacity:.88;margin-top:2px}
-.count{font:800 26px/1 Overpass;text-align:right}.count small{display:block;font:600 11px/1.2 Overpass;opacity:.85}
+/* header : sobre, translucide */
+.bar{position:sticky;top:0;z-index:30;background:color-mix(in srgb,var(--ground) 84%,transparent);-webkit-backdrop-filter:blur(18px) saturate(1.3);backdrop-filter:blur(18px) saturate(1.3);color:var(--ink);padding:max(14px,env(safe-area-inset-top)) 16px 0;border-bottom:1px solid var(--line)}
+.bar .top{display:flex;align-items:flex-end;gap:12px;justify-content:space-between;padding-bottom:12px}
+.bar h1{font:800 27px/1.05 Overpass,sans-serif;margin:0;letter-spacing:-.015em}
+.bar .sub{font-size:13.5px;color:var(--mute);margin-top:5px}
+.count{display:flex;align-items:baseline;gap:6px;background:var(--surface);border:1px solid var(--line);border-radius:99px;padding:7px 14px;font:800 20px/1 Overpass;color:var(--ink);white-space:nowrap}
+.count small{font:600 13px/1 Overpass;color:var(--mute);text-align:left;opacity:1}
 .zones{display:flex;gap:8px;overflow-x:auto;padding:0 0 12px;scrollbar-width:none;margin:0 -16px;padding-inline:16px}
 .zones::-webkit-scrollbar{display:none}
-.chip{flex:none;border:1.5px solid rgba(255,255,255,.55);background:transparent;color:#fff;padding:7px 14px;border-radius:99px;font-weight:600;font-size:14px;min-height:36px;transition:background .2s var(--ease)}
-.chip[aria-pressed=true]{background:#fff;color:var(--sign);border-color:#fff}
+.chip{flex:none;border:1px solid var(--line);background:var(--surface);color:var(--ink);padding:7px 15px;border-radius:99px;font-weight:600;font-size:14px;min-height:38px;transition:background .25s var(--ease),color .25s var(--ease),border-color .25s var(--ease)}
+.chip:hover{border-color:var(--mute)}
+.chip[aria-pressed=true]{background:var(--sign);color:#fff;border-color:var(--sign)}
 .tools{display:flex;gap:8px;align-items:center;padding:0 0 12px}
-.btn{display:inline-flex;align-items:center;gap:8px;border:1.5px solid rgba(255,255,255,.55);background:transparent;color:#fff;border-radius:10px;padding:8px 14px;min-height:40px;font-weight:600}
-.btn[aria-expanded=true]{background:#fff;color:var(--sign)}
-.tools select{margin-left:auto;background:rgba(0,0,0,.18);color:#fff;border:1.5px solid rgba(255,255,255,.55);border-radius:10px;padding:8px 10px;min-height:40px;font:600 14px Overpass}
-.tools select option{background:#0a56b0;color:#fff}
+.btn{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:12px;padding:8px 15px;min-height:42px;font-weight:700}
+.btn[aria-expanded=true]{background:var(--ink);color:var(--ground);border-color:var(--ink)}
+.tools select{margin-left:auto;appearance:none;background:var(--surface) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%239db0c9' stroke-width='2.4' stroke-linecap='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") no-repeat right 10px center/16px;color:var(--ink);border:1px solid var(--line);border-radius:12px;padding:8px 34px 8px 14px;min-height:42px;font:600 14px Overpass}
 
 /* filters */
 .panel{background:var(--surface);border-bottom:1px solid var(--line);padding:16px;display:grid;gap:16px}
@@ -75,9 +76,9 @@ body[data-view=map] #mapview{display:block}
 body[data-view=map] #listview{display:none}
 #map{position:absolute;inset:0;background:var(--surface)}
 .leaflet-container{font-family:Overpass,sans-serif;background:var(--surface)}
-.nav{position:fixed;z-index:60;left:50%;bottom:calc(14px + env(safe-area-inset-bottom));transform:translateX(-50%);display:flex;background:var(--sign);padding:4px;border-radius:99px;box-shadow:0 10px 30px -6px rgba(0,0,0,.6),inset 0 0 0 1.5px rgba(255,255,255,.7)}
-.nav button{border:0;background:transparent;color:#fff;border-radius:99px;padding:10px 20px;min-height:44px;display:flex;align-items:center;gap:8px;font-weight:700}
-.nav button[aria-pressed=true]{background:#fff;color:var(--sign)}
+.nav{position:fixed;z-index:60;left:50%;bottom:calc(14px + env(safe-area-inset-bottom));transform:translateX(-50%);display:flex;background:color-mix(in srgb,var(--surface) 82%,transparent);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);padding:4px;border-radius:99px;border:1px solid var(--line);box-shadow:0 14px 34px -8px rgba(0,0,0,.55)}
+.nav button{border:0;background:transparent;color:var(--ink);border-radius:99px;padding:10px 20px;min-height:44px;display:flex;align-items:center;gap:8px;font-weight:700}
+.nav button[aria-pressed=true]{background:var(--sign);color:#fff}
 .mapback{position:fixed;z-index:61}
 .list{padding:14px 14px 96px;display:grid;gap:18px}
 
