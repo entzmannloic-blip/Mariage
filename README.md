@@ -1,7 +1,6 @@
 # Mariage
 
-Page HTML pour comparer des lieux de mariage (Loire, Rhône, Beaujolais, Ain, Drôme) sur une carte, avec filtres et suivi personnel.
+Page HTML pour comparer des lieux de mariage autour de Lyon (1h) et Saint-Étienne (1h30) : carte, photos en popup, filtres, suivi personnel.
 
-Ouvrir `index.html` dans un navigateur.
-
-Les données (capacités, couchages, prix) viennent d annuaires en ligne, relevées le 08/10/2026 : à confirmer auprès de chaque lieu.
+Ouvrir `index.html`. Données dans `data/v2/` ; `template.html` + `data/v2/final.json` donnent `index.html` (remplacer `__DATA__`).
+Capacités, couchages et prix viennent d annuaires (Mariages.net, Bridebook) : à confirmer auprès de chaque lieu.
