@@ -5,7 +5,7 @@ const proj = process.argv[3];
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 const norm = s => s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/\b(chateau|domaine|manoir|le|la|les|du|des|de|d|l|et|au|aux|hotel|salle)\b/g, ' ').replace(/[^a-z0-9]/g, '');
 const m1 = JSON.parse(fs.readFileSync(dir + '/merged.json', 'utf8'));
-const m2 = JSON.parse(fs.readFileSync(dir + '/merged2.json', 'utf8'));
+const m2 = [...JSON.parse(fs.readFileSync(dir + '/merged2.json', 'utf8')), ...JSON.parse(fs.readFileSync(dir + '/merged3.json', 'utf8'))];
 let rows = [...m1, ...m2].filter(r => r.g && r.a);
 // V1 venues not already present
 const html = fs.readFileSync(proj + '/index.v1.html', 'utf8');
@@ -41,6 +41,8 @@ rows = [...rows, ...extra];
 const dname = { '01': 'Ain', '07': 'Ardèche', '26': 'Drôme', '38': 'Isère', '42': 'Loire', '43': 'Haute-Loire', '63': 'Puy-de-Dôme', '69': 'Rhône', '71': 'Saône-et-Loire', '73': 'Savoie' };
 const typeOf = r => {
   const s = (r.name + ' ' + (r.commune || '')).toLowerCase();
+  if ((r.path||'').startsWith('hotel-mariage')) return 'Hôtel / Auberge';
+  if (/club|loft|r[ée]ception|fabryk|tennis|jaipur|eden|strass|carr[ée] d.or|yacht|terrasses du parc|soie|canard|chez sophie|cou[ëe]ron|grand large|gala|vip|i-way|azar|victoria hall|galline|meet|artizanale|bambous|annexe|black pearl|jardin d.in|forezia|complex|hippodrome|after fly|passerelle|recept|mfr|vulcain/.test(s)) return /h[ôo]tel|vulcain|auberge/.test(s)?'Hôtel / Auberge':'Salle de réception';
   if (/p[ée]niche|plateforme|bateau/.test(s)) return 'Insolite';
   if (/h[ôo]tel|boscolo|m[ée]tropole|pasino|lyon vert|best western|mercure|auberge|hostellerie|hôstellerie|gil de france|ermitage h/.test(s)) return 'Hôtel / Auberge';
   if (/ch[âa]teau|manoir|abbaye|prieur[ée]|bastie|bastide/.test(s)) return 'Château';
