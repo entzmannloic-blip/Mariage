@@ -1,0 +1,119 @@
+0|Le Lion Blanc, Boulevard Cousin, 42330 Saint-Galmier | 110 | 300 | 40 | 69 | https://www.casinosaintgalmier.com | https://www.1001salles.com/images/provider/17684/1545213252_166_768608613.jpg?v=1612570504 | unknown | yes
+1|Croix Plagneux Rochetaillée, 42000 Saint-Étienne | 80 | 100 | unknown | 1100 | https://www.location-salle-saint-etienne.fr | https://www.1001salles.com/images/provider/19108/1699864802_6551e0e21dc43.jpg?v=1790647836 | libre | yes
+2|La Côte Reymond, 42320 Saint-Christo-en-Jarez | 100 | 150 | 14 | unknown | https://www.closdesmuriers.com | https://www.1001salles.com/images/provider/16464/1669906980_6388c224bb4f4.jpg?v=1790645180 | libre | yes
+3|Rue André Jeantet, Zac de la Varizelle, 42400 Saint-Chamond | 800 | 1200 | unknown | unknown | https://www.salledelavarizelle.fr/index.html | https://www.1001salles.com/images/provider/15479/1460363141_9366_551701507.jpg?v=1612567741 | unknown | unknown
+4|Champvert, 42330 Chamboeuf | 250 | 450 | unknown | unknown | https://www.cloee42.com | https://www.1001salles.com/images/provider/15384/1456149489_7629_318327647.jpg?v=1612567724 | imposé | yes
+5|3 Boulevard de l'Hippodrome, 42110 Feurs | 250 | 400 | none | unknown | https://www.cloee42.com | https://www.1001salles.com/images/provider/15385/1456735732_8922_140153658.jpg?v=1612923789 | libre | unknown
+6|Château du Bourg, 42120 Perreux | 200 | 400 | 12 | unknown | https://chateaudubourg-perreux.com | https://www.1001salles.com/images/provider/7499/C427396091C.jpg?v=1612565710 | libre | yes
+7|Grand Ladret, 42380 Luriecq | 200 | 250 | unknown | 1700 | unknown | https://www.1001salles.com/images/provider/12690/1471855123_1087_812202591.jpg?v=1612920404 | libre | yes
+8|1 rue des Haveuses, ZA Charles Chana, 42230 Roche-la-Molière | 240 | 400 | unknown | unknown | https://www.le-cristal.fr | https://www.1001salles.com/images/provider/12492/1518620024_435_816890109.jpg?v=1612920200 | libre | unknown
+9|Zone de loisirs de la Bruyère, 42600 Savigneux | 150 | 350 | unknown | unknown | unknown | https://www.1001salles.com/images/provider/14508/1503491823_1722_795943389.jpg | libre | unknown
+10|5 Chemin des Étangs, 42210 Boisset-lès-Montrond | 100 | 153 | 55 | 3990 | https://www.lafermeauxtroisgranges.com | https://www.1001salles.com/images/provider/18628/1602144663_5f7ec9979bf52.jpg | libre | unknown
+11|370 Route de Grange Merlin, 42740 Saint-Paul-en-Jarez | 140 | 200 | 9 | 1500 | https://www.grange-merlin.com | https://www.1001salles.com/images/provider/10084/1536222080_6212_797574930.jpg?v=1612571891 | libre | yes
+12|139 Chemin des Chartonnes, 42450 Sury-le-Comtal | 250 | 370 | unknown | unknown | unknown | https://www.1001salles.com/images/provider/59540/1716889061_6655a5e5bf1af.jpg?v=1790666366 | imposé | yes
+13|Croix de Guizay, 42660 Planfoy | 80 | 150 | unknown | unknown | https://www.restaurant-lerefuge.fr | https://www.1001salles.com/images/provider/15667/1504733743_5692_135793058.jpg?v=1612924250 | imposé | yes
+14|za les epalits, 42610 Saint-Romain-le-Puy | 150 | 150 | unknown | 850 | unknown | https://www.1001salles.com/images/provider/14064/R427003553A.jpg?v=1612921728 | libre | unknown
+15|Place Fouillat, 42780 Violay | 360 | 400 | none | 300 | https://www.violay1004.fr | https://www.1001salles.com/images/provider/17136/1551859209_7286_264497192.jpg?v=1612568138 | libre | unknown
+16|203 rue de la Rive, 42320 La Grand-Croix | 350 | 350 | unknown | unknown | https://www.salleduparc.fr/ | https://www.1001salles.com/images/provider/13405/S427626661A.jpg | libre | unknown
+17|Lieu dit la Bruyere, 42600 Savigneux | 250 | 350 | unknown | unknown | https://www.salle-labruyere-montbrison.fr | https://www.1001salles.com/images/provider/12662/S424572184G.jpg | libre | unknown
+18|9 rue Bel Air, 42000 Saint-Étienne | 130 | 150 | none | 1200 | https://mariage-saint-etienne.com | unknown | libre | unknown
+19|le Buisson, 42520 Maclas | 200 | 300 | 100 | unknown | https://www.domaine-chateau-buisson.com | https://www.1001salles.com/images/provider/3573/S424641023A.jpg | unknown | yes
+20|30/32, rue Francine Fromont, 69120 Vaulx-en-Velin | 120 | 120 | none | unknown | https://www.le32.net | https://www.1001salles.com/images/provider/15070/1645019291_620d009bbe56d.jpg | unknown | yes
+21|345 Rue du Lavoir, 69400 Porte des Pierres Dorées | 300 | 400 | none | 130 | unknown | https://www.1001salles.com/images/provider/62501/salle-des-fetes-de-jarnioux-1.jpg?v=1726058147 | libre | yes
+22|Col de Malval, 69670 Vaugneray | 270 | 318 | unknown | 1350 | unknown | https://www.1001salles.com/images/provider/43712/1664967175_633d6207b1a75.jpg | libre | yes
+23|Sainte-Consorce, 69280 | 200 | 250 | unknown | 250 | https://www.leapassion-traiteur.com | https://www.1001salles.com/images/provider/17100/1785331295_6a69fe5fa0e5c.jpg?v=1790645942 | imposé | unknown
+24|896 ZA de la Tuilliere, 69510 Thurins | 120 | 120 | 13 | 850 | unknown | https://www.1001salles.com/images/provider/18569/1789642545_6aabc7310c3e1.jpg | libre | yes
+25|100 E Rue Jean Jaurès, 69330 Meyzieu | 160 | 240 | none | 2000 | unknown | https://www.1001salles.com/images/provider/31650/1732025300_673c9bd4eb4d9.jpg | libre | unknown
+26|3 Route de Sain-Bel, 69690 Bessenay | 90 | 90 | 30 | 600 | https://www.aubergedelabrevenne.fr | https://www.1001salles.com/images/provider/14453/1778161682_69fc9812d0fa0.jpg | unknown | yes
+27|50 Route de Saint-Antoine, 69380 Chazay-d'Azergues | 70 | 120 | none | 1800 | unknown | https://www.1001salles.com/images/provider/66383/terrasse-2-terrains-de-petanque.jpg?v=1770107723 | libre | yes
+28|Route de Marennes, 69360 Simandres | 120 | 140 | none | 700 | unknown | https://www.1001salles.com/images/provider/2747/1499932322_1639_114811388.jpg | libre | yes
+29|Le Vernay, 69460 Saint-Étienne-des-Oullières | 120 | 200 | unknown | 700 | https://www.maisondespres.fr/ | https://www.1001salles.com/images/provider/10078/S697549374S.jpg | libre | yes
+30|6 Chemin du Recou, 69520 Grigny | 150 | 250 | none | 255 | unknown | https://www.1001salles.com/images/provider/63993/1738678004_67a21ef47f83d.jpg | libre | yes
+31|17B Rue Delandine, 69002 Lyon | 180 | 200 | none | 360 | unknown | https://www.1001salles.com/images/provider/30642/1694511749_6500328501053.jpg | imposé | yes
+32|Rue Malartre - Zone de Sacuny, 69530 Brignais | 300 | 700 | none | unknown | unknown | https://www.1001salles.com/images/provider/14326/1753344616_6881ea683bf1d.jpg?v=1790643138 | libre | yes
+33|462 chemin de Champivost, 69760 Limonest | 382 | 600 | none | 25 | https://themaze.fr | https://www.1001salles.com/images/provider/18247/1741012313_67c5bd59296af.jpg | unknown | yes
+34|Route du Pont, 69330 Jons | 60 | 100 | 60 | 850 | https://www.bridgehotel.fr/ | https://www.1001salles.com/images/provider/68283/1774270984_69c13a08e926c.jpg?v=1774270985 | libre | yes
+35|21 rue de Provence, 69800 Saint-Priest | 150 | 200 | none | 720 | http://le21restaurant.fr/ | https://www.1001salles.com/images/provider/16190/1721813381_66a0c9857aede.jpg | libre | yes
+36|Le Bas Marjon, 69510 Soucieu-en-Jarrest | 240 | 400 | none | 63 | https://www.restaurant-le-marjon.com | https://www.1001salles.com/images/provider/7166/1459930668_7973_512608798.jpg?v=1612573877 | imposé | yes
+37|La Grange, 69170 Dième | 100 | 130 | 31 | 600 | unknown | https://www.1001salles.com/images/provider/17093/1775630794_69d5f9ca8c9a1.jpg | libre | yes
+38|3806 Route de Meximieux, Port-Galland, 01360 Loyettes | 380 | 600 | none | 3500 | unknown | https://www.1001salles.com/images/provider/30034/terrasse-au-bord-de-l-ain.jpg | unknown | yes
+39|Avenue du Formans, 01600 Trévoux | 60 | 100 | none | 240 | unknown | https://www.1001salles.com/images/provider/67995/1777289991_69ef4b07d814b.jpg | unknown | yes
+41|1 Chemin de l'Ile, 01700 Neyron | 120 | 150 | none | unknown | https://leranchrestaurant.eatbu.com/ | https://www.1001salles.com/images/provider/18539/1550744024_4461_531301473.jpg?v=1612928252 | libre | yes
+42|630 Route de Reyrieux, 01600 Massieux | 200 | 240 | unknown | 2000 | unknown | https://www.1001salles.com/images/provider/48254/1698743068_6540c31c51174.jpg | libre | yes
+43|Route de Neuville-sur-Saône, 01390 Saint-André-de-Corcy | 150 | 180 | none | 1050 | https://montribloud.free.fr/ | https://www.1001salles.com/images/provider/4885/C015620265D.jpg | libre | yes
+44|1598 Rue de la Gare, 01150 Leyment | 100 | 100 | 6 | 800 | unknown | https://www.1001salles.com/images/provider/43447/1662992900_631f4204bffde.jpg?v=1790657437 | libre | unknown
+45|73 Pont de Chazey, 01800 Villieu-Loyes-Mollon | 300 | 400 | 24 | 789 | unknown | https://www.1001salles.com/images/provider/46584/1687969207_649c5db7cc4b1.jpg | unknown | yes
+46|668 route de Loyettes, 01150 Blyes | 200 | 300 | 102 | 1660 | https://www.lericcoty.fr | https://www.1001salles.com/images/provider/11491/R014476310I.jpg | imposé | unknown
+47|Marcoux, 43290 Montregard | 250 | 300 | 24 | 3800 | https://chateaudemarcoux.free.fr/site/sci/sci.htm | https://www.1001salles.com/images/provider/15450/1645438629_621366a5dd83a.jpg?v=1790643982 | libre | yes
+48|1750 route de La Chal, 26210 Épinouze | 140 | 200 | 47 | unknown | https://www.commanderiedelachal.com | https://www.1001salles.com/images/provider/10417/1466438265_5397_112396750.jpg?v=1612918684 | unknown | yes
+49|La Fortuné, 26210 Moras-en-Valloire | 160 | 200 | 60 | unknown | unknown | https://www.1001salles.com/images/provider/14441/1466499205_1508_196756679.jpg | unknown | yes
+50|RN7, 26600 Serves-sur-Rhône | 250 | 500 | 42 | unknown | https://www.chateau-de-fontager.com | unknown | unknown | yes
+51|495 Avenue Jean Vacher, 69480 Anse | 70 | 100 | 100 | unknown | https://www.camping-beaujolais.com | https://image.bridebook.com/weddingsuppliers/venue/frwXowd7XM/frwXowd7XM_photo4.jpeg | unknown | yes
+52|Plan d'eau les Prades, 63550 Saint-Rémy-sur-Durolle | 100 | 100 | unknown | unknown | https://lesdemeuresdulac.fr | https://image.bridebook.com/weddingsuppliers/venue/frqgnj9BgN/frqgnj9BgN_photo2.jpeg | libre | unknown
+53|335 rue des Bruyerettes, Le Neyrial, 43200 Yssingeaux | 80 | 150 | 32 | unknown | https://www.leneyrial.com/ | https://image.bridebook.com/weddingsuppliers/venue/fr1nXVLMYr/fr1nXVLMYr_photoA4.jpeg | libre | unknown
+54|1 route de Montclair, 69480 Pommiers | 100 | 100 | 14 | 1260 | https://www.domainedemontclair.fr/ | https://www.grandsgites.com/images/photos-gites/entete/gite-domaine-montclair1.jpg | unknown | yes
+56|1195 route des Vignes, 69640 Saint-Julien | 95 | 95 | 54 | 2480 | https://chateaudujonchy.com/fr/ | https://www.grandsgites.com/images/photos-gites/entete/gite-jonchy1.jpg | unknown | unknown
+66|81 rue Victor Hugo, 69330 Meyzieu | 150 | 200 | 274 | 440 | https://www.lesvoilesdugrandlarge.com | https://www.1001salles.com/images/provider/14049/1575639926_1324_774247028.jpg | unknown | yes
+68|Lieu-dit Crouloup, 69380 Chasselay | 130 | 250 | none | 550 | https://www.lamanade.fr | https://www.1001salles.com/images/provider/89/1692272108_64de05ec44834.jpg?v=1790633144 | libre | yes
+67|Rue Antoine Pinay 350, 69740 Genas | 70 | 100 | 216 | 400 | unknown | https://www.1001salles.com/images/provider/65871/1777378170_69f0a37a03484.jpg | unknown | unknown
+69|63 Rue Paul et Marc Barbezat, 69150 Décines-Charpieu | 75 | 100 | unknown | unknown | unknown | https://www.1001salles.com/images/provider/31793/1668011724_636bd6cc8f679.jpg | unknown | yes
+70|16 Avenue Jacques Brel, 69650 Saint-Germain-au-Mont-d'Or | 220 | 300 | none | 4500 | https://www.leyacht.fr | https://www.1001salles.com/images/provider/6411/le-yacht-st-germain-au-mont-d-or-1.jpg?v=1612916770 | imposé | yes
+71|17 Route de Lyon, 69450 Saint-Cyr-au-Mont-d'Or | 180 | 300 | 25 | 500 | unknown | https://www.1001salles.com/images/provider/69289/1785311220_6a69aff449d11.jpg | unknown | yes
+72|Place de la Liberté, 69430 Beaujeu | 120 | 120 | 72 | 1200 | unknown | https://www.1001salles.com/images/provider/65520/1751460049_686528d1948cd.jpg?v=1751460049 | libre | yes
+73|1 place Henri Barbusse, 69009 Lyon | 150 | 180 | none | unknown | https://www.ledomainedelilebarbe.com | https://www.1001salles.com/images/provider/16221/1513791245_9118_120515485.jpg?v=1612573150 | libre | yes
+74|229 Cours Emile Zola, 69100 Villeurbanne | 200 | 300 | unknown | 850 | https://www.espacezola-229.com | https://www.1001salles.com/images/provider/17992/1533220970_341_262431365.jpg?v=1612568487 | libre | unknown
+75|444 route de Sain Bel, 69210 Lentilly | 100 | 250 | unknown | 2000 | unknown | https://www.1001salles.com/images/provider/18422/1545899586_5125_747680380.jpg | libre | yes
+76|Allée des Tennis, 69410 Champagne-au-Mont-d'Or | 300 | 600 | none | 125 | http://www.restaurantleslodges.fr/ | https://www.1001salles.com/images/provider/18399/1698740530_6540b9325d06d.jpg?v=1790646905 | libre | yes
+77|Le Bourg, 69620 Le Breuil | 200 | 200 | none | 450 | unknown | https://www.1001salles.com/images/provider/14841/1509989968_3811_834766037.jpg?v=1612922977 | libre | unknown
+78|Château de Fontcrenne, 69910 Villié-Morgon | 300 | 450 | none | 1500 | https://www.morgon.fr | https://www.1001salles.com/images/provider/3583/D695463161A.jpg?v=1612915325 | libre | yes
+79|151 Route de Grenoble, 69800 Saint-Priest | 150 | 150 | unknown | 200 | unknown | https://www.1001salles.com/images/provider/61852/1719215030_667923b646d79.jpg | libre | yes
+81|1 Chemin de Balanche, 69440 Taluyers | 240 | 240 | none | 2900 | unknown | https://www.1001salles.com/images/provider/991/C690324777D.jpg | libre | unknown
+82|Chemin du Parc, 69850 Saint-Martin-en-Haut | 120 | 120 | unknown | 600 | https://www.le-mad.net | https://www.1001salles.com/images/provider/16183/1483521449_1793_170651505.jpg?v=1612925093 | imposé | unknown
+83|11 rue Voie Lactée, 69370 Saint-Didier-au-Mont-d'Or | 100 | 150 | unknown | 500 | https://www.l-introuvable.fr/ | https://www.1001salles.com/images/provider/16825/1500976017_6487_283349810.jpg?v=1612926169 | imposé | yes
+85|Les Petits Ponts, 69620 Sainte-Paule | 200 | 400 | unknown | 1900 | unknown | https://www.1001salles.com/images/provider/17734/1531123868_5008_752820907.jpg | unknown | yes
+86|200 Chemin des Monthieux, 69430 Lantignié | 150 | 200 | none | 4200 | unknown | https://www.1001salles.com/images/provider/30872/la-salle-de-reception-principale.jpg | unknown | unknown
+87|Chemin Rousselles, 69640 Lacenas | 600 | 900 | 10 | 500 | https://www.laruisseliere.com | https://www.1001salles.com/images/provider/171/1492164815_1642_297878174.jpg?v=1612569702 | libre | yes
+89|157 Rue Antoine Charial, 69003 Lyon | 100 | 200 | 14 | 2500 | unknown | https://www.1001salles.com/images/provider/62190/1725352118_66d6c8b6d2a32.jpg | unknown | yes
+92|Complexe Touristique de la porte de Lyon, 69570 Dardilly | 300 | 600 | none | 110 | https://www.les3rythmes.com | https://www.1001salles.com/images/provider/10777/R690034166C.jpg | unknown | unknown
+93|Grandris, 69870 Grandris | 150 | 200 | 15 | 1500 | unknown | https://www.1001salles.com/images/provider/44117/1715519135_6640be9f6e0a0.jpg | libre | yes
+94|21 Rue Aristide Briand, 69800 Saint-Priest | 120 | 140 | 2 | 800 | unknown | https://www.1001salles.com/images/provider/31769/1658504244_62dac434b107d.jpg | imposé | unknown
+96|Les Ponts Tarrets, 69620 Sainte-Paule | 260 | 550 | 52 | 2800 | unknown | https://www.1001salles.com/images/provider/3700/D692289929A.jpg | libre | unknown
+97|50 Route de Saint-Antoine, 69380 Chazay-d'Azergues | 190 | 190 | unknown | 3600 | unknown | https://www.1001salles.com/images/provider/48304/1700124854_6555d8b6b7fb2.jpg | unknown | yes
+98|21 Rue Flachet, 69100 Villeurbanne | 100 | 300 | none | unknown | https://www.restaurantprefleuri.fr/evenementiel | https://www.1001salles.com/images/provider/17682/1524656335_783_173707848.jpg?v=1612927179 | unknown | yes
+99|243 rue Ecoles, 69840 Jullié | 130 | 190 | 24 | 300 | https://www.jullie.fr | https://www.1001salles.com/images/provider/17313/1519037717_2395_303121564.jpg | libre | unknown
+102|84 rue du Vauzel, 69480 Ambérieux | 180 | 200 | none | 800 | unknown | https://www.1001salles.com/images/provider/5/S697467794G.jpg?v=1612913983 | libre | yes
+105|32 Rue Ampère, 69780 Saint-Pierre-de-Chandieu | 80 | 100 | none | 3000 | unknown | https://www.1001salles.com/images/provider/47407/1711549642_66042ccaaa0ac.jpg | unknown | unknown
+107|8 Rue Pasteur, 69720 Saint-Bonnet-de-Mure | 90 | 200 | none | 1000 | unknown | https://www.1001salles.com/images/provider/43985/1720780461_669106ad5db03.jpg | libre | yes
+108|343 Route du Berthier, 69620 Val d'Oingt | 80 | 100 | 20 | 540 | unknown | https://www.1001salles.com/images/provider/63697/1752572081_687620b1258a6.jpg?v=1752572081 | imposé | yes
+109|Route du Pont, 69330 Jons | 200 | 200 | 70 | unknown | https://www.auberge-de-jons.com | https://www.1001salles.com/images/provider/14010/H693946863E.jpg?v=1612567207 | unknown | unknown
+110|Le Bois Retour, 69840 Chénas | 150 | 180 | 16 | 2150 | https://www.hautsdechenas.fr | https://www.1001salles.com/images/provider/4990/S697161263A.jpg?v=1612916043 | libre | unknown
+111|2788 route de Riottier, 69400 Villefranche-sur-Saône | 100 | 150 | none | 550 | https://www.campingparc-beaujolais.com/location-de-salle/ | https://www.1001salles.com/images/provider/12414/S691604451A.jpg?v=1612920121 | unknown | yes
+112|129 Rue Servient, 69003 Lyon | 230 | 350 | 490 | unknown | https://www.radissonblu.com/fr/hotel-lyon | https://www.1001salles.com/images/provider/16316/1485335440_6957_963463847.jpg?v=1612925335 | imposé | unknown
+113|191 Avenue Saint-Exupéry, 69500 Bron | 200 | 200 | none | unknown | unknown | https://www.1001salles.com/images/provider/43174/1656689791_62bf147fafdd9.jpg | libre | unknown
+114|Route des Varennes, Centre d'activités Richard Bloch, 69700 Givors | 150 | 200 | 69 | 200 | https://www.hotel-restaurant-caribou.fr | https://www.1001salles.com/images/provider/3770/R695919030E.jpg?v=1612915428 | unknown | unknown
+116|210 route de l'Armistice, 69220 Belleville-en-Beaujolais | 140 | 180 | 39 | 600 | https://www.domaine-de-la-noiseraie.com | https://www.1001salles.com/images/provider/11661/1776865496_69e8d0d85a6e2.jpg | libre | yes
+117|Col de la Luère, 69290 Craponne | 90 | 150 | 19 | 2500 | https://www.chateausaintbonnet.com | https://www.1001salles.com/images/provider/13652/1639477245_61b86ffd24b2f.jpg | unknown | unknown
+118|19 rue des Frères Lumière, 69740 Genas | 250 | 400 | none | 300 | https://www.darimene.com | https://www.1001salles.com/images/provider/17514/1520849181_0505_506347786.jpg | libre | unknown
+119|1358 route de Néty, 69460 Saint-Étienne-des-Oullières | 100 | 150 | unknown | 985 | https://www.domainedutane.fr/lieux-evenementiel/les-voutes-du-clair-de-nety/ | https://www.1001salles.com/images/provider/17448/1586540036_7051_605999106.jpg | libre | unknown
+121|19 Rue de l'Aigue, 69780 Saint-Pierre-de-Chandieu | 110 | 200 | unknown | unknown | https://www.lacomete.fr | https://www.1001salles.com/images/provider/511/terrasse-salle-l-etoile.jpg | imposé | yes
+122|269 Rue de Châteauvieux, 69440 Sainte-Catherine | 80 | 110 | 36 | 1000 | unknown | https://www.1001salles.com/images/provider/59140/1701343753_6568720986a9c.jpg | libre | yes
+123|Le Domaine Genouilleux, 69220 Taponas | 280 | 400 | 24 | 6000 | https://www.chateaudechavagneux.com | https://www.1001salles.com/images/provider/4331/1562830438_3149_439764769.jpg | libre | yes
+125|24 Avenue Joannes Masset, 69009 Lyon | 100 | 250 | none | unknown | https://latelierbyunefaimdapprendre.eatbu.com/ | https://www.1001salles.com/images/provider/18932/1704447805_6597cf3dee315.jpg | libre | yes
+126|406 Route du Berthier, 69620 Val d'Oingt | 120 | 180 | unknown | 1000 | https://www.cuvagepecot.com | https://www.1001salles.com/images/provider/10715/1692865923_64e71583189f0.jpg | libre | yes
+127|rue du sophora, 69480 Lucenay | 70 | 100 | none | unknown | https://www.lejardin-gourmand.fr | unknown | imposé | yes
+128|65 Avenue du Progrès, 69680 Chassieu | 200 | 250 | none | unknown | unknown | unknown | unknown | unknown
+130|Quai de la Jonchère, 69660 Collonges-au-Mont-d'Or | 400 | 700 | none | unknown | https://www.bocuse.fr | unknown | imposé | yes
+131|Chemin de la Traille, 69360 Solaize | 250 | 500 | none | unknown | https://www.paulorestaurant.fr | unknown | imposé | unknown
+132|249 rue Marcel Mérieux, 69007 Lyon | 120 | 200 | unknown | unknown | https://www.restaurant-carmelina-lyon.com | unknown | unknown | yes
+133|Rue de la Cascade, 69290 Saint-Genis-les-Ollières | 100 | 100 | unknown | unknown | https://www.cascade-malval.com | unknown | unknown | unknown
+135|212 rue du Général de Gaulle, 69530 Brignais | 120 | 200 | none | unknown | https://www.pignol.fr | unknown | unknown | unknown
+136|154 avenue du Casino, 69890 La Tour-de-Salvagny | 100 | 150 | unknown | unknown | https://www.restaurantduchateaudelatour.com | unknown | unknown | yes
+137|Chemin de l'Auberge, 69530 Brignais | 200 | 250 | unknown | unknown | https://www.auberge-du-garon.com | unknown | unknown | unknown
+138|Avenue Louis Mouillard, 69500 Bron | 250 | 500 | unknown | unknown | https://www.lassiette.eu | unknown | unknown | yes
+140|18 rue des Varennes, 69380 Marcilly-d'Azergues | 180 | 250 | unknown | 3000 | https://www.closdesvarennes.com | unknown | libre | yes
+141|CD29 route de Lyon, 69680 Chassieu | 140 | 250 | unknown | unknown | https://www.bluegreen.com | unknown | unknown | yes
+142|3 rue Guynemer, 42160 Andrézieux-Bouthéon | 250 | 250 | none | 1800 | https://www.lhelios-evenementiel.fr | unknown | libre | unknown
+143|Fourneaux, 42470 Fourneaux | 100 | 150 | unknown | unknown | https://www.chateau-aubepin.fr | unknown | unknown | unknown
+144|6 allée de l'orangerie, 42000 Saint-Étienne | 2000 | 2000 | unknown | unknown | https://www.chateaudevalbois.com | unknown | unknown | yes
+57|6bis Boulevard de l'Artillerie, 69007 Lyon | 200 | 298 | none | 1500 | unknown | https://www.1001salles.com/images/provider/43889/1700211847_65572c873cd6b.jpg | unknown | unknown
+61|84 quai Perrache, 69002 Lyon | 300 | 300 | unknown | unknown | https://www.bateaubellona.fr/ | https://image.bridebook.com/weddingsuppliers/venue/frQgvnkyg1/frQgvnkyg1_photoA13.jpeg | unknown | unknown

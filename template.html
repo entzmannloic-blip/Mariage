@@ -229,7 +229,7 @@ textarea::placeholder{color:var(--mute)}
 <div class="shell">
   <main id="listview">
     <div class="list" id="list"></div>
-    <p class="foot">Un lieu s'affiche s'il est à moins de 1h de Lyon <b>ou</b> de 1h30 de Saint-Étienne (réglable). Trajets en voiture calculés avec OSRM depuis l'adresse du lieu, sans trafic. Données et photos relevées le 08/10/2026 sur Mariages.net et Bridebook : capacités, couchages et prix sont à confirmer auprès de chaque lieu.</p>
+    <p class="foot">Un lieu s'affiche s'il est à moins de 1h de Lyon <b>ou</b> de 1h30 de Saint-Étienne (réglable). Trajets en voiture calculés avec OSRM depuis l'adresse du lieu, sans trafic. Données et photos relevées le 08/10/2026 sur Mariages.net, Bridebook, 1001salles et les sites des lieux : capacités, couchages et prix sont à confirmer auprès de chaque lieu.</p>
   </main>
   <section id="mapview" aria-label="Carte"><div id="map"></div></section>
 </div>
@@ -294,8 +294,8 @@ const euro=n=>n.toLocaleString("fr-FR")+" €";
 const hm=m=>m<60?m+" min":Math.floor(m/60)+"h"+String(m%60).padStart(2,"0");
 const plural=n=>n+(n>1?" lieux":" lieu");
 V.forEach((v,i)=>{v.id=i;v.k=v.n+"|"+v.c});
-const SRC={mn:"Mariages.net",bb:"Bridebook",ao:"Autre annuaire",web:"Recherche web, non vérifié"};
-function srcOf(v){const u=v.u||"";if(/mariages.net/.test(u))return{k:"mn",l:"Mariages.net"};if(/bridebook.com/.test(u))return{k:"bb",l:"Bridebook"};if(/1001salles/.test(u))return{k:"ao",l:"1001salles"};if(/naboo/.test(u))return{k:"ao",l:"Naboo"};return{k:"web",l:"Recherche web"}}
+const SRC={mn:"Mariages.net",bb:"Bridebook",ms:"1001salles",ao:"Autre annuaire",web:"Recherche web, non vérifié"};
+function srcOf(v){const u=v.u||"";if(/mariages.net/.test(u))return{k:"mn",l:"Mariages.net"};if(/bridebook.com/.test(u))return{k:"bb",l:"Bridebook"};if(/1001salles/.test(u))return{k:"ms",l:"1001salles"};if(/naboo/.test(u))return{k:"ao",l:"Naboo"};if(/grandsgites/.test(u))return{k:"ao",l:"Grands Gîtes"};return{k:"web",l:"Recherche web"}}
 V.forEach(v=>v.src=srcOf(v));
 const S={f:{ti:"",bo:"",ex:""},zone:new Set(),type:new Set(),src:new Set(),unk:true,hide:true,favs:false,photo:false,sel:null,list:[],last:null};
 let store={};try{store=JSON.parse(localStorage.getItem("lieux-mariage-v2")||"{}")}catch(e){}

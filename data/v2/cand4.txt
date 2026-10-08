@@ -1,0 +1,121 @@
+Domaine des Grands Cèdres|Cordelle|42|180|/mariage/domaine-des-grands-cedres.aspx
+Casino de Saint-Galmier|Saint-Galmier|42|300|/mariage/casino-de-saint-galmier.aspx
+Domaine de la Griottière|Pélussin|42|120|/mariage/domaine-de-la-griottiere.aspx
+Château de Matel|Roanne|42|400|/mariage/chateau-de-matel.aspx
+L'Orangerie de Châtel|Cleppé|42|250|/mariage/31286-orangerie-de-chatel.aspx
+Les Collines du Pilat|Saint-Étienne|42|100|/mariage/les-collines-du-pilat.aspx
+Le Clos des Mûriers|Saint-Christo-en-Jarez|42|150|/mariage/le-clos-des-muriers.aspx
+Salle de la Varizelle|Saint-Chamond|42|1200|/mariage/salle-de-la-varizelle.aspx
+Trait d'Union|Chamboeuf|42|450|/mariage/trait-d-union.aspx
+L'Equi'Forum|Feurs|42|400|/mariage/l-equi-forum.aspx
+Château du Bourg - L'Orangerie|Perreux|42|400|/mariage/chateau-du-bourg-l-orangerie.aspx
+Clos de la Crinoline|Luriecq|42|250|/mariage/clos-de-la-crinoline.aspx
+Cristal Espace de Réception|Roche-la-Molière|42|400|/mariage/cristal-espace-de-reception.aspx
+Le Silver|Savigneux|42|350|/mariage/le-silver-savigneux.aspx
+La Ferme aux Trois Granges|Boisset-lès-Montrond|42|153|/mariage/ferme-aux-trois-granges.aspx
+L'Orangerie de Grange Merlin|Saint-Paul-en-Jarez|42|200|/mariage/l-orangerie-de-grange-merlin.aspx
+Château de la Salle|La Pacaudière|42|250|/mariage/chateau-de-la-salle-la-pacaudiere.aspx
+Château de Saint Marcel de Félines|Saint-Marcel-de-Félines|42|295|/mariage/chateau-de-saint-marcel-de-felines.aspx
+L'Onyx|Sury-le-Comtal|42|370|/mariage/59540-l-onyx.aspx
+Le Refuge|Planfoy|42|150|/mariage/le-refuge.aspx
+Restaurant Le Saint Romain|Saint-Romain-le-Puy|42|150|/mariage/restaurant-le-saint-romain.aspx
+Espace Violay 1004|Violay|42|400|/mariage/espace-violay.aspx
+Les Salles du Parc|La Grand-Croix|42|350|/mariage/les-salles-du-parc.aspx
+Salle de la Bruyère|Savigneux|42|350|/mariage/salle-de-la-bruyere.aspx
+La Scène du Golf|Saint-Étienne|42|150|/mariage/la-scene-du-golf.aspx
+Domaine Château du Buisson|Maclas|42|300|/mariage/domaine-chateau-du-buisson.aspx
+Château de la Chapelle des Bois|Fleurie|69|280|/mariage/chateau-de-la-chapelle-des-bois.aspx
+Manoir de la Garde|Jarnioux|69|600|/mariage/manoir-de-la-garde.aspx
+Domaine du Clos des Liesses|Alix|69|200|/mariage/domaine-du-clos-des-liesses.aspx
+Domaine des Coteaux d'Or|Porte des Pierres Dorées|69|300|/mariage/domaine-des-coteaux-d-or.aspx
+Domaine de Bellevue|Anse|69|400|/mariage/domaine-de-bellevue-anse.aspx
+Le Nouveau Carré d'Or|Saint-Priest|69|800|/mariage/28501-le-carre-d-or.aspx
+Domaine de la Genetière|Oingt|69|350|/mariage/domaine-de-la-genetiere.aspx
+Château de Laforest|Thizy|69|150|/mariage/30708-chateau-de-laforest.aspx
+Gala Réception|Genas|69|1000|/mariage/68020-gala-reception.aspx
+Le 32|Vaulx-en-Velin|69|120|/mariage/le-32.aspx
+Salles de Porte des Pierres Dorées|Porte des Pierres Dorées|69|400|/mariage/62501-salles-de-porte-des-pierres-dorees.aspx
+Domaine Albert|Pommiers|69|300|/mariage/domaine-albert.aspx
+Domaine du Malval|Vaugneray|69|318|/mariage/43712-domaine-du-malval.aspx
+Domaine au Val d'Azergues|Lucenay|69|300|/mariage/domaine-au-val-d-azergues.aspx
+Gourmet Events|Sainte-Consorce|69|250|/mariage/gourmet-events-69.aspx
+Domaine du Ruisseau|Thurins|69|120|/mariage/domaine-du-ruisseau.aspx
+Kesh Réception|Saint-Priest|69|220|/mariage/28500-kesh-reception.aspx
+Jazz Homes|Meyzieu|69|240|/mariage/31650-jazz-homes.aspx
+Le Clos des Monts du Lyonnais|Bessenay|69|90|/mariage/les-gites-des-monts-du-lyonnais-69.aspx
+Domaine de la Croix Rochefort|Saint-Didier-sur-Beaujeu|69|300|/mariage/caves-de-la-croix-rochefort.aspx
+Diabolo Spirit|Chazay-d'Azergues|69|120|/mariage/66383-diabolo-spirit.aspx
+Le Mas Provençal|Simandres|69|140|/mariage/le-mas-provencal.aspx
+Château d'Envaux|Juliénas|69|300|/mariage/chateau-d-envaux.aspx
+Domaine du Bois de la Bosse|Saint-Étienne-des-Oullières|69|200|/mariage/domaine-du-bois-de-la-bosse.aspx
+L'Escale|Grigny|69|250|/mariage/63993-l-escale.aspx
+La Source Concept Store|Lyon 2|69|200|/mariage/30642-la-source-concept-store.aspx
+Le Domaine 1838|Brignais|69|700|/mariage/le-domaine-1838.aspx
+Domaine de Marzé|Saint-Georges-de-Reneins|69|250|/mariage/domaine-de-marze.aspx
+The Maze|Limonest|69|600|/mariage/the-maze.aspx
+Les Terrasses du Parc|Lyon 6|69|690|/mariage/les-terrasses-du-parc.aspx
+Bridge Hotel Best Western|Jons|69|100|/mariage/68283-bridge-hotel-best-western.aspx
+Le 21|Saint-Priest|69|200|/mariage/le-21.aspx
+Du Côté de Marjon|Soucieu-en-Jarrest|69|400|/mariage/du-cote-de-marjon.aspx
+La Grange|Dième|69|130|/mariage/la-grange-dieme.aspx
+Domaine de Divonne|Divonne-les-Bains|01|400|/mariage/domaine-de-divonne-01.aspx
+Le Lion's|Loyettes|01|600|/mariage/30034-le-lion-s.aspx
+Domaine des Cèdres|Villebois|01|250|/mariage/domaine-des-cedres.aspx
+Le 96|Trévoux|01|100|/mariage/67995-le-96.aspx
+So Club|Viriat|01|500|/mariage/69230-so-club.aspx
+Restaurant Rolande|Condeissiat|01|200|/mariage/66485-restaurant-rolande.aspx
+Hôtel Nantua L'Embarcadère|Nantua|01|100|/mariage/67900-hotel-nantua-l-embarcadere.aspx
+Auberge de Saint Didier|Neyron|01|95|/mariage/auberge-de-saint-didier.aspx
+Château De Montplaisant|Montagnat|01|450|/mariage/chateau-de-montplaisant.aspx
+Château de Chavagneux|Genouilleux|01|400|/mariage/chateau-de-chavagneux.aspx
+Domaine De L'Etang Corcelle|Châtillon-la-Palud|01|200|/mariage/domaine-de-l-etang-corcelle.aspx
+Le Ranch|Neyron|01|150|/mariage/le-ranch.aspx
+Château De Saint Bernard|Saint-Bernard|01|200|/mariage/chateau-de-saint-bernard.aspx
+Ferme Du Tremblay|Saint-Trivier-de-Courtes|01|500|/mariage/ferme-du-tremblay.aspx
+Le Château de Versailleux|Versailleux|01|1000|/mariage/30235-le-chateau-de-versailleux.aspx
+Domaine d'Amareins|Francheleins|01|700|/mariage/30788-domaine-d-amareins.aspx
+Domaine la Distillerie|Polliat|01|800|/mariage/domaine-la-distillerie.aspx
+Les Brouilles|Malafretaz|01|160|/mariage/les-brouilles.aspx
+Le Paradis|Massieux|01|240|/mariage/48254-restaurant-le-paradis.aspx
+Château De Montribloud|Saint-André-de-Corcy|01|150|/mariage/chateau-de-montribloud.aspx
+FH Réception|Leyment|01|100|/mariage/43447-fh-reception.aspx
+Hôtel Restaurant le Chanel|Villieu-Loyes-Mollon|01|400|/mariage/46584-hotel-restaurant-le-chanel.aspx
+Le Riccoty|Blyes|01|300|/mariage/le-riccoty.aspx
+Domaine De La Rochère|Domsure|01|250|/mariage/domaine-de-la-rochere.aspx
+Domaine de Jujurieux|L'Abergement-de-Varey|01|230|/mariage/domaine-de-jujurieux.aspx
+Le Jardin Du Clos Talançonnais|Reyrieux|01|300|/mariage/le-jardin-talanconnais.aspx
+Château De La Tour|Neuville-sur-Ain|01|350|/mariage/chateau-de-la-tour-neuville-sur-ain-01.aspx
+Château de Marcoux|Montregard|43|300|/mariage/chateau-de-marcoux.aspx
+Château D'Alleret|Saint-Privat-du-Dragon|43|200|/mariage/chateau-d-alleret.aspx
+Bastide de Jaillans|Jaillans|26|200|/mariage/bastide-de-jaillans.aspx
+Domaine Viret|Saint-Maurice-sur-Eygues|26|250|/mariage/domaine-viret.aspx
+Commanderie De Lachal|Épinouze|26|180|/mariage/commanderie-de-lachal.aspx
+Domaine De Clairbois|Moras-en-Valloire|26|200|/mariage/domaine-de-clairebois.aspx
+Domaine de Senaud|Albon|26|160|/mariage/camping-domaine-de-senaud.aspx
+Château de Crépol|Crépol|26|300|/mariage/65292-chateau-de-crepol.aspx
+Domaine du Gatelet|Peyrins|26|160|/mariage/domaine-du-gatelet.aspx
+Clos Du Puits|Châteauneuf-sur-Isère|26|600|/mariage/clos-du-puits.aspx
+Le Nouvel|Portes-lès-Valence|26|200|/mariage/le-nouvel.aspx
+Salle de Réception de Bathernay|Bathernay|26|130|/mariage/64214-salle-de-reception-de-bathernay.aspx
+Château De Pièce Ronde|Romans-sur-Isère|26|300|/mariage/chateau-de-piece-ronde.aspx
+La Villa Flavia|Romans-sur-Isère|26|400|/mariage/villa-flavia.aspx
+Château de Fontager|Serves-sur-Rhône|26|500|/mariage/chateau-de-fontager.aspx
+Gioia Valence|Alixan|26|350|/mariage/gioia-valence.aspx
+Château De Saint Bonnet De Valclerieux|Saint-Bonnet-de-Valclérieux|26|199|/mariage/chateau-de-saint-bonnet-de-valclerieux.aspx
+Domaine de Blacons|Mirabel-et-Blacons|26|180|/mariage/domaine-de-blacons.aspx
+Camping Les Portes du Beaujolais|Anse|69|200|B:https://bridebook.com/fr/wedding-venues/camping-les-portes-du-beaujolais-anse-rh-ne-frwXowd7XM
+Revea Vacances - Les Demeures du Lac|Saint-Rémy-sur-Durolle|63|100|B:https://bridebook.com/fr/wedding-venues/revea-vacances-les-demeures-du-lac-saint-r-my-sur-durolle-puy-de-d-me-frqgnj9BgN
+Gîte Auberge du Château|Saint-Marcel-d'Urfé|42|110|B:https://bridebook.com/fr/wedding-venues/gite-auberge-du-chateau-saint-marcel-d-urf-loire-frWXRAMz8d
+Domaine du Neyrial|Yssingeaux|43|150|B:https://bridebook.com/fr/wedding-venues/base-de-loisirs-le-neyrial-yssingeaux-haute-loire-fr1nXVLMYr
+Domaine de Montclair|Pommiers|69|100|G:/gite-69-domaine-montclair-7154.htm
+La Vigne en Rose|Le Perréon|69|60|G:/gite-69-la-vigne-en-rose-5562.htm
+Château du Jonchy|Saint-Julien|69|95|G:/gite-69-jonchy-3535.htm
+La Verrière|Lyon 7|69|298|-
+Le Loft Gerland|Lyon 7|69|300|-
+Pika Brewpub|Lyon 3|69|140|-
+Chenavard|Lyon 1|69|230|-
+Le Bateau Bellona|Lyon 2|69|300|-
+Les Yachts de Lyon|Lyon 2|69|150|-
+Rooftop 52|Lyon 2|69|200|-
+L'Espace de l'Artillerie|Lyon 3|69|150|-
+Aux 2 Ancres|Saint-Just-Saint-Rambert|42|0|-
